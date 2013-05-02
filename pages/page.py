@@ -6,6 +6,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import ElementNotVisibleException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import Select
 
 
 class Page(object):
@@ -27,13 +28,20 @@ class Page(object):
         # On pages that do not have ajax refresh this wait will have no effect.
         WebDriverWait(self.selenium, self.timeout).until(lambda s: not self.is_element_visible(*self._updating_locator))
 
+    def _wait_for_visible_element(self, *locator):
+        # Used in forms where an element (submit button) is displayed after ajax
+        # validation is done, this validation request doesn't use the common
+        # notification loadmask so _wait_for_results_refresh can't be used.
+        # On pages that do not have ajax refresh this wait will have no effect.
+        WebDriverWait(self.selenium, self.timeout).until(lambda s: self.is_element_visible(*locator))
+
     @property
     def is_the_current_page(self):
-        if self._page_title:
+        if self._page_title:  # IGNORE:E1101
             WebDriverWait(self.selenium, self.timeout).until(lambda s: self.selenium.title)
 
-        Assert.equal(self.selenium.title, self._page_title,
-            "Expected page title: %s. Actual page title: %s" % (self._page_title, self.selenium.title))
+        Assert.equal(self.selenium.title, self._page_title,  # IGNORE:E1101
+            "Expected page title: %s. Actual page title: %s" % (self._page_title, self.selenium.title))  # IGNORE:E1101
         return True
 
     def get_url_current_page(self):
@@ -70,4 +78,8 @@ class Page(object):
         answer = 'cancel' if cancel else 'ok'
         print popup.text + " ...clicking " + answer
         popup.dismiss() if cancel else popup.accept()
+
+    def select_dropdown(self, value, *element):
+        select = Select(self.selenium.find_element(*element))
+        select.select_by_visible_text(value)
 
