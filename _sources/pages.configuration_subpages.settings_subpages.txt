@@ -1,0 +1,34 @@
+settings_subpages Package
+=========================
+
+:mod:`region_settings` Module
+-----------------------------
+
+.. automodule:: pages.configuration_subpages.settings_subpages.region_settings
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`server_settings` Module
+-----------------------------
+
+.. automodule:: pages.configuration_subpages.settings_subpages.server_settings
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`zone_settings` Module
+---------------------------
+
+.. automodule:: pages.configuration_subpages.settings_subpages.zone_settings
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+
+    pages.configuration_subpages.settings_subpages.server_settings_subpages
+

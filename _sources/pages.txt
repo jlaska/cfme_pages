@@ -1,0 +1,91 @@
+pages Package
+=============
+
+:mod:`automate` Module
+----------------------
+
+.. automodule:: pages.automate
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`base` Module
+------------------
+
+.. automodule:: pages.base
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`configuration` Module
+---------------------------
+
+.. automodule:: pages.configuration
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`control` Module
+---------------------
+
+.. automodule:: pages.control
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`dashboard` Module
+-----------------------
+
+.. automodule:: pages.dashboard
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`infrastructure` Module
+----------------------------
+
+.. automodule:: pages.infrastructure
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`login` Module
+-------------------
+
+.. automodule:: pages.login
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`page` Module
+------------------
+
+.. automodule:: pages.page
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`services` Module
+----------------------
+
+.. automodule:: pages.services
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`virtual_intelligence` Module
+----------------------------------
+
+.. automodule:: pages.virtual_intelligence
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+
+    pages.configuration_subpages
+    pages.regions
+

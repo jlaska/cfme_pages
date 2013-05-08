@@ -1,0 +1,19 @@
+server_settings_subpages Package
+================================
+
+:mod:`database_settings_tab` Module
+-----------------------------------
+
+.. automodule:: pages.configuration_subpages.settings_subpages.server_settings_subpages.database_settings_tab
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`server_settings_tab` Module
+---------------------------------
+
+.. automodule:: pages.configuration_subpages.settings_subpages.server_settings_subpages.server_settings_tab
+    :members:
+    :undoc-members:
+    :show-inheritance:
+

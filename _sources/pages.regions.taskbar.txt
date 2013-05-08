@@ -1,0 +1,75 @@
+taskbar Package
+===============
+
+:mod:`button` Module
+--------------------
+
+.. automodule:: pages.regions.taskbar.button
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`center` Module
+--------------------
+
+.. automodule:: pages.regions.taskbar.center
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`custom` Module
+--------------------
+
+.. automodule:: pages.regions.taskbar.custom
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`history` Module
+---------------------
+
+.. automodule:: pages.regions.taskbar.history
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`power` Module
+-------------------
+
+.. automodule:: pages.regions.taskbar.power
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`report` Module
+--------------------
+
+.. automodule:: pages.regions.taskbar.report
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`taskbar` Module
+---------------------
+
+.. automodule:: pages.regions.taskbar.taskbar
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`view` Module
+------------------
+
+.. automodule:: pages.regions.taskbar.view
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`vm_configuration` Module
+------------------------------
+
+.. automodule:: pages.regions.taskbar.vm_configuration
+    :members:
+    :undoc-members:
+    :show-inheritance:
+

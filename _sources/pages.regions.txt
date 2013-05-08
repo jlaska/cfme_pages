@@ -1,0 +1,146 @@
+regions Package
+===============
+
+:mod:`accordion` Module
+-----------------------
+
+.. automodule:: pages.regions.accordion
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`accordionitem` Module
+---------------------------
+
+.. automodule:: pages.regions.accordionitem
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`checkboxtree` Module
+--------------------------
+
+.. automodule:: pages.regions.checkboxtree
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`details` Module
+---------------------
+
+.. automodule:: pages.regions.details
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`header_menu` Module
+-------------------------
+
+.. automodule:: pages.regions.header_menu
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`paginator` Module
+-----------------------
+
+.. automodule:: pages.regions.paginator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`quadiconitem` Module
+--------------------------
+
+.. automodule:: pages.regions.quadiconitem
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`quadicons` Module
+-----------------------
+
+.. automodule:: pages.regions.quadicons
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`search` Module
+--------------------
+
+.. automodule:: pages.regions.search
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`settingstasks` Module
+---------------------------
+
+.. automodule:: pages.regions.settingstasks
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`settingstasksitem` Module
+-------------------------------
+
+.. automodule:: pages.regions.settingstasksitem
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`tabbuttonitem` Module
+---------------------------
+
+.. automodule:: pages.regions.tabbuttonitem
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`tabbuttons` Module
+------------------------
+
+.. automodule:: pages.regions.tabbuttons
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`taggable` Module
+----------------------
+
+.. automodule:: pages.regions.taggable
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`tree` Module
+------------------
+
+.. automodule:: pages.regions.tree
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`treeaccordionitem` Module
+-------------------------------
+
+.. automodule:: pages.regions.treeaccordionitem
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`twisty` Module
+--------------------
+
+.. automodule:: pages.regions.twisty
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+
+    pages.regions.taskbar
+

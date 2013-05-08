@@ -1,0 +1,26 @@
+configuration_subpages Package
+==============================
+
+:mod:`access_control` Module
+----------------------------
+
+.. automodule:: pages.configuration_subpages.access_control
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`settings` Module
+----------------------
+
+.. automodule:: pages.configuration_subpages.settings
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+
+    pages.configuration_subpages.settings_subpages
+
