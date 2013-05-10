@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pages.regions.taskbar.vm_configuration &mdash; CloudForms Management Engine Page Objects library 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <link rel="top" title="CloudForms Management Engine Page Objects library 0.1 documentation" href="../../../../index.html" />
+    <link rel="up" title="Module code" href="../../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../../index.html">CloudForms Management Engine Page Objects library 0.1 documentation</a> &raquo;</li>
+          <li><a href="../../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pages.regions.taskbar.vm_configuration</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">from</span> <span class="nn">pages.regions.taskbar.button</span> <span class="kn">import</span> <span class="n">Button</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.action_chains</span> <span class="kn">import</span> <span class="n">ActionChains</span>
+<span class="kn">from</span> <span class="nn">pages.services</span> <span class="kn">import</span> <span class="n">Services</span>
+<span class="kn">from</span> <span class="nn">unittestzero</span> <span class="kn">import</span> <span class="n">Assert</span>
+
+<div class="viewcode-block" id="ConfigButton"><a class="viewcode-back" href="../../../../pages.regions.taskbar.html#pages.regions.taskbar.vm_configuration.ConfigButton">[docs]</a><span class="k">class</span> <span class="nc">ConfigButton</span><span class="p">(</span><span class="n">Button</span><span class="p">):</span>
+
+    <span class="c"># Locators forced to use img src, different text dependent on All VMs vs specific VM details</span>
+    <span class="n">_config_button_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;div.dhx_toolbar_btn img[src=&#39;/images/toolbars/vmdb.png&#39;]&quot;</span><span class="p">)</span>
+    <span class="n">_refresh_relationships_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;table.buttons_cont img[src=&#39;/images/toolbars/refresh.png&#39;]&quot;</span><span class="p">)</span>
+    <span class="n">_smart_state_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;table.buttons_cont img[src=&#39;/images/toolbars/scan.png&#39;]&quot;</span><span class="p">)</span>
+    <span class="n">_smart_state_locator_disabled</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;table.buttons_cont tr[class*=&#39;tr_btn_disabled&#39;] img[src=&#39;/images/toolbars/scan.png&#39;]&quot;</span><span class="p">)</span>
+    <span class="n">_running_processes_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;table.buttons_cont img[src=&#39;/images/toolbars/vm_collect_running_processes.png&#39;]&quot;</span><span class="p">)</span>
+    <span class="n">_running_processes_locator_disabled</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;table.buttons_cont tr[class*=&#39;tr_btn_disabled&#39;] img[src=&#39;/images/toolbars/vm_collect_running_processes.png&#39;]&quot;</span><span class="p">)</span>
+    <span class="n">_edit_vm_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;table.buttons_cont img[src=&#39;/images/toolbars/edit.png&#39;]&quot;</span><span class="p">)</span>
+    <span class="n">_edit_vm_locator_disabled</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;table.buttons_cont tr[class*=&#39;tr_btn_disabled&#39;] img[src=&#39;/images/toolbars/edit.png&#39;]&quot;</span><span class="p">)</span>
+    <span class="n">_set_ownership_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;table.buttons_cont img[src=&#39;/images/toolbars/ownership.png&#39;]&quot;</span><span class="p">)</span>
+    <span class="n">_vmdb_removal_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;table.buttons_cont img[src=&#39;/images/toolbars/remove.png&#39;]&quot;</span><span class="p">)</span>
+    <span class="n">_edit_mgmt_relationship_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;table.buttons_cont img[src=&#39;/images/toolbars/vm_evm_relationship.png&#39;]&quot;</span><span class="p">)</span>
+    <span class="n">_size_recommendations_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;table.buttons_cont img[src=&#39;/images/toolbars/right_size.png&#39;]&quot;</span><span class="p">)</span>
+    <span class="n">_size_recommendations_locator_disabled</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;table.buttons_cont tr[class*=&#39;tr_btn_disabled&#39;] img[src=&#39;/images/toolbars/right_size.png&#39;]&quot;</span><span class="p">)</span>
+    <span class="n">_compare_items_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;table.buttons_cont img[src=&#39;/images/toolbars/compare.png&#39;]&quot;</span><span class="p">)</span>
+    <span class="n">_compare_items_locator_disabled</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;table.buttons_cont tr[class*=&#39;tr_btn_disabled&#39;] img[src=&#39;/images/toolbars/compare.png&#39;]&quot;</span><span class="p">)</span>
+    <span class="n">_reconfigure_selected_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;table.buttons_cont img[src=&#39;/images/toolbars/reconfigure.png&#39;]&quot;</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">setup</span><span class="p">):</span>
+        <span class="n">Button</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">setup</span><span class="p">,</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_config_button_locator</span><span class="p">)</span>
+
+    <span class="c">#def does_item_exist(self, key, raise_exception = False):</span>
+    <span class="c">#def is_item_enabled(self, key, raise_exception = False):</span>
+    
+<div class="viewcode-block" id="ConfigButton.refresh_relationships"><a class="viewcode-back" href="../../../../pages.regions.taskbar.html#pages.regions.taskbar.vm_configuration.ConfigButton.refresh_relationships">[docs]</a>    <span class="k">def</span> <span class="nf">refresh_relationships</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_refresh_relationships_locator</span><span class="p">)</span>
+        <span class="n">ActionChains</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_root_element</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">()</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">handle_popup</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ConfigButton.refresh_relationships_and_cancel"><a class="viewcode-back" href="../../../../pages.regions.taskbar.html#pages.regions.taskbar.vm_configuration.ConfigButton.refresh_relationships_and_cancel">[docs]</a>    <span class="k">def</span> <span class="nf">refresh_relationships_and_cancel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_refresh_relationships_locator</span><span class="p">)</span>
+        <span class="n">ActionChains</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_root_element</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">()</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">handle_popup</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ConfigButton.perform_smart_state_analysis"><a class="viewcode-back" href="../../../../pages.regions.taskbar.html#pages.regions.taskbar.vm_configuration.ConfigButton.perform_smart_state_analysis">[docs]</a>    <span class="k">def</span> <span class="nf">perform_smart_state_analysis</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_smart_state_locator</span><span class="p">)</span>
+        <span class="n">ActionChains</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_root_element</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">()</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">handle_popup</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ConfigButton.perform_smart_state_analysis_and_cancel"><a class="viewcode-back" href="../../../../pages.regions.taskbar.html#pages.regions.taskbar.vm_configuration.ConfigButton.perform_smart_state_analysis_and_cancel">[docs]</a>    <span class="k">def</span> <span class="nf">perform_smart_state_analysis_and_cancel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_smart_state_locator</span><span class="p">)</span>
+        <span class="n">ActionChains</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_root_element</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">()</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">handle_popup</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ConfigButton.extract_running_processes"><a class="viewcode-back" href="../../../../pages.regions.taskbar.html#pages.regions.taskbar.vm_configuration.ConfigButton.extract_running_processes">[docs]</a>    <span class="k">def</span> <span class="nf">extract_running_processes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_running_processes_locator</span><span class="p">)</span>
+        <span class="n">ActionChains</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_root_element</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">()</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">handle_popup</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ConfigButton.extract_running_processes_and_cancel"><a class="viewcode-back" href="../../../../pages.regions.taskbar.html#pages.regions.taskbar.vm_configuration.ConfigButton.extract_running_processes_and_cancel">[docs]</a>    <span class="k">def</span> <span class="nf">extract_running_processes_and_cancel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_running_processes_locator</span><span class="p">)</span>
+        <span class="n">ActionChains</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_root_element</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">()</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">handle_popup</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="c">#def edit_this_vm(self):</span>
+    <span class="c">#    item = self.selenium.find_element(*self._edit_vm_locator)</span>
+    <span class="c">#    ActionChains(self.selenium).click(self._root_element).click(item).perform() </span>
+    <span class="c">#    return Services.EditVm(self.testsetup)</span>
+
+    <span class="c">#def edit_this_vm_and_cancel(self):</span>
+    <span class="c">#    item = self.selenium.find_element(*self._edit_vm_locator)</span>
+    <span class="c">#    ActionChains(self.selenium).click(self._root_element).click(item).perform() </span>
+    <span class="c">#    #return Services.EditVm(self.testsetup)</span>
+
+    <span class="c">#def set_ownership(self):</span>
+    <span class="c">#    item = self.selenium.find_element(*self._set_ownership_locator)</span>
+    <span class="c">#    ActionChains(self.selenium).click(self._root_element).click(item).perform() </span>
+    <span class="c">#    return Services.SetOwnership(self.testsetup)</span>
+
+    <span class="c">#def set_ownership_and_cancel(self):</span>
+    <span class="c">#    item = self.selenium.find_element(*self._set_ownership_locator)</span>
+    <span class="c">#    ActionChains(self.selenium).click(self._root_element).click(item).perform() </span>
+    <span class="c">#    #return Services.SetOwnership(self.testsetup)</span>
+</div>
+<div class="viewcode-block" id="ConfigButton.remove_from_vmdb"><a class="viewcode-back" href="../../../../pages.regions.taskbar.html#pages.regions.taskbar.vm_configuration.ConfigButton.remove_from_vmdb">[docs]</a>    <span class="k">def</span> <span class="nf">remove_from_vmdb</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_vmdb_removal_locator</span><span class="p">)</span>
+        <span class="n">ActionChains</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_root_element</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">()</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">handle_popup</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ConfigButton.remove_from_vmdb_and_cancel"><a class="viewcode-back" href="../../../../pages.regions.taskbar.html#pages.regions.taskbar.vm_configuration.ConfigButton.remove_from_vmdb_and_cancel">[docs]</a>    <span class="k">def</span> <span class="nf">remove_from_vmdb_and_cancel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_vmdb_removal_locator</span><span class="p">)</span>
+        <span class="n">ActionChains</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_root_element</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">item</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">()</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">handle_popup</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="c">#def edit_mgmt_engine_relationship(self):</span>
+    <span class="c">#    item = self.selenium.find_element(*self._edit_mgmt_relationship_locator)</span>
+    <span class="c">#    ActionChains(self.selenium).click(self._root_element).click(item).perform() </span>
+    <span class="c">#    self.handle_popup(cancel)</span>
+
+    <span class="c">#def edit_mgmt_engine_relationship_and_cancel(self):</span>
+    <span class="c">#    item = self.selenium.find_element(*self._edit_mgmt_relationship_locator)</span>
+    <span class="c">#    ActionChains(self.selenium).click(self._root_element).click(item).perform() </span>
+    <span class="c">#    self.handle_popup(cancel)</span>
+
+    <span class="c">#def right_sized_recommendations(self):</span>
+    <span class="c">#    item = self.selenium.find_element(*self._size_recommendations_locator)</span>
+    <span class="c">#    ActionChains(self.selenium).click(self._root_element).click(item).perform() </span>
+    <span class="c">#    return Services.RightSize(self.testsetup) </span>
+
+    <span class="c">#def right_sized_recommendations_and_cancel(self):</span>
+    <span class="c">#    item = self.selenium.find_element(*self._size_recommendations_locator)</span>
+    <span class="c">#    ActionChains(self.selenium).click(self._root_element).click(item).perform() </span>
+    <span class="c">#    return Services.RightSize(self.testsetup) </span>
+
+    <span class="c">#def compare_selected_items(self):</span>
+    <span class="c">#    item = self.selenium.find_element(*self._compare_items_locator)</span>
+    <span class="c">#    ActionChains(self.selenium).click(self._root_element).click(item).perform() </span>
+
+    <span class="c">#def compare_selected_items_and_cancel(self):</span>
+    <span class="c">#    item = self.selenium.find_element(*self._compare_items_locator)</span>
+    <span class="c">#    ActionChains(self.selenium).click(self._root_element).click(item).perform() </span>
+
+    <span class="c">#def reconfigure_selected_items(self):</span>
+    <span class="c">#    item = self.selenium.find_element(*self._reconfigure_items_locator)</span>
+    <span class="c">#    ActionChains(self.selenium).click(self._root_element).click(item).perform() </span>
+    <span class="c">#    return Services.ReconfigureVm(self.testsetup)</span>
+
+    <span class="c">#def reconfigure_selected_items_and_cancel(self):</span>
+    <span class="c">#    item = self.selenium.find_element(*self._reconfigure_items_locator)</span>
+    <span class="c">#    ActionChains(self.selenium).click(self._root_element).click(item).perform() </span>
+    <span class="c">#    return Services.ReconfigureVm(self.testsetup)</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../../index.html">CloudForms Management Engine Page Objects library 0.1 documentation</a> &raquo;</li>
+          <li><a href="../../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Brad Crochet.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>

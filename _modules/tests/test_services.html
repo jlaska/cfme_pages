@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>tests.test_services &mdash; CloudForms Management Engine Page Objects library 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="CloudForms Management Engine Page Objects library 0.1 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">CloudForms Management Engine Page Objects library 0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for tests.test_services</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">pytest</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">unittestzero</span> <span class="kn">import</span> <span class="n">Assert</span>
+
+<span class="nd">@pytest.fixture</span>
+<div class="viewcode-block" id="pick_random_vm"><a class="viewcode-back" href="../../tests.html#tests.test_services.pick_random_vm">[docs]</a><span class="k">def</span> <span class="nf">pick_random_vm</span><span class="p">(</span><span class="n">mozwebqa</span><span class="p">,</span> <span class="n">home_page_logged_in</span><span class="p">):</span>
+    <span class="n">vm_pg</span> <span class="o">=</span> <span class="n">home_page_logged_in</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">site_navigation_menu</span><span class="p">(</span><span class="s">&quot;Services&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sub_navigation_menu</span><span class="p">(</span><span class="s">&quot;Virtual Machines&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+    <span class="n">vm_details</span> <span class="o">=</span> <span class="n">vm_pg</span><span class="o">.</span><span class="n">find_vm_page</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span><span class="s">&#39;on&#39;</span><span class="p">,</span><span class="bp">False</span><span class="p">,</span><span class="bp">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">vm_details</span>
+
+</div>
+<span class="nd">@pytest.mark.nondestructive</span>
+<div class="viewcode-block" id="TestServices"><a class="viewcode-back" href="../../tests.html#tests.test_services.TestServices">[docs]</a><span class="k">class</span> <span class="nc">TestServices</span><span class="p">:</span>
+<div class="viewcode-block" id="TestServices.test_virtual_machines"><a class="viewcode-back" href="../../tests.html#tests.test_services.TestServices.test_virtual_machines">[docs]</a>    <span class="k">def</span> <span class="nf">test_virtual_machines</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mozwebqa</span><span class="p">,</span> <span class="n">home_page_logged_in</span><span class="p">):</span>
+        <span class="n">home_pg</span> <span class="o">=</span> <span class="n">home_page_logged_in</span>
+        <span class="n">Assert</span><span class="o">.</span><span class="n">true</span><span class="p">(</span><span class="n">home_pg</span><span class="o">.</span><span class="n">is_logged_in</span><span class="p">,</span> <span class="s">&quot;Could not determine if logged in&quot;</span><span class="p">)</span>
+        <span class="n">vm_pg</span> <span class="o">=</span> <span class="n">home_pg</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">site_navigation_menu</span><span class="p">(</span><span class="s">&quot;Services&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sub_navigation_menu</span><span class="p">(</span><span class="s">&quot;Virtual Machines&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+        <span class="n">Assert</span><span class="o">.</span><span class="n">true</span><span class="p">(</span><span class="n">vm_pg</span><span class="o">.</span><span class="n">is_the_current_page</span><span class="p">)</span>
+        <span class="n">vm_pg</span><span class="o">.</span><span class="n">paginator</span><span class="o">.</span><span class="n">click_next_page</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">vm</span> <span class="ow">in</span> <span class="n">vm_pg</span><span class="o">.</span><span class="n">quadicon_region</span><span class="o">.</span><span class="n">quadicons</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">&quot;Snapshots &quot;</span> <span class="o">+</span> <span class="n">vm</span><span class="o">.</span><span class="n">snapshots</span>
+        <span class="n">vm_pg</span><span class="o">.</span><span class="n">paginator</span><span class="o">.</span><span class="n">click_last_page</span><span class="p">()</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">vm_pg</span><span class="o">.</span><span class="n">paginator</span><span class="o">.</span><span class="n">click_prev_page</span><span class="p">()</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">vm_pg</span><span class="o">.</span><span class="n">paginator</span><span class="o">.</span><span class="n">click_first_page</span><span class="p">()</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</div>
+    <span class="nd">@pytest.mark.nondestructive</span>
+<div class="viewcode-block" id="TestServices.test_vm_details"><a class="viewcode-back" href="../../tests.html#tests.test_services.TestServices.test_vm_details">[docs]</a>    <span class="k">def</span> <span class="nf">test_vm_details</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pick_random_vm</span><span class="p">):</span>
+        <span class="n">vm_details</span> <span class="o">=</span> <span class="n">pick_random_vm</span>
+        <span class="n">Assert</span><span class="o">.</span><span class="n">true</span><span class="p">(</span><span class="n">vm_details</span><span class="o">.</span><span class="n">details</span><span class="o">.</span><span class="n">does_info_section_exist</span><span class="p">(</span><span class="s">&#39;Properties&#39;</span><span class="p">))</span>
+        <span class="n">Assert</span><span class="o">.</span><span class="n">true</span><span class="p">(</span><span class="n">vm_details</span><span class="o">.</span><span class="n">details</span><span class="o">.</span><span class="n">get_section</span><span class="p">(</span><span class="s">&#39;Properties&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_item</span><span class="p">(</span><span class="s">&#39;Name&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">)</span>
+</div>
+    <span class="nd">@pytest.mark.nondestructive</span>
+<div class="viewcode-block" id="TestServices.test_vm_smart_state_scan"><a class="viewcode-back" href="../../tests.html#tests.test_services.TestServices.test_vm_smart_state_scan">[docs]</a>    <span class="k">def</span> <span class="nf">test_vm_smart_state_scan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pick_random_vm</span><span class="p">):</span>
+        <span class="n">vm_details</span> <span class="o">=</span> <span class="n">pick_random_vm</span>
+        <span class="n">vm_details</span><span class="o">.</span><span class="n">config_button</span><span class="o">.</span><span class="n">refresh_relationships</span><span class="p">()</span>
+        <span class="n">Assert</span><span class="o">.</span><span class="n">true</span><span class="p">(</span><span class="n">vm_details</span><span class="o">.</span><span class="n">flash</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&quot;Refresh Ems initiated&quot;</span><span class="p">))</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">CloudForms Management Engine Page Objects library 0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Brad Crochet.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>

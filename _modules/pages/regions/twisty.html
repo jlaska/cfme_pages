@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pages.regions.twisty &mdash; CloudForms Management Engine Page Objects library 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="CloudForms Management Engine Page Objects library 0.1 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">CloudForms Management Engine Page Objects library 0.1 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pages.regions.twisty</h1><div class="highlight"><pre>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Created on Mar 13, 2013</span>
+
+<span class="sd">@author: bcrochet</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">from</span> <span class="nn">pages.page</span> <span class="kn">import</span> <span class="n">Page</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<div class="viewcode-block" id="Twisty"><a class="viewcode-back" href="../../../pages.regions.html#pages.regions.twisty.Twisty">[docs]</a><span class="k">class</span> <span class="nc">Twisty</span><span class="p">(</span><span class="n">Page</span><span class="p">):</span>
+    <span class="n">_twisty_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;td.standartTreeImage:nth-child(1) &gt; img&quot;</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">setup</span><span class="p">,</span><span class="n">root_element</span><span class="p">):</span>
+        <span class="n">Page</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">setup</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_root_element</span> <span class="o">=</span> <span class="n">root_element</span>
+        
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">_twisty_state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">image_src</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_root_element</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_twisty_locator</span><span class="p">)</span><span class="o">.</span><span class="n">get_attribute</span><span class="p">(</span><span class="s">&#39;src&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s">&#39;.+/(.+)\.(png|gif)&#39;</span><span class="p">,</span><span class="n">image_src</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> 
+        
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Twisty.is_closed"><a class="viewcode-back" href="../../../pages.regions.html#pages.regions.twisty.Twisty.is_closed">[docs]</a>    <span class="k">def</span> <span class="nf">is_closed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&quot;closed&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_twisty_state</span>
+    </div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Twisty.is_opened"><a class="viewcode-back" href="../../../pages.regions.html#pages.regions.twisty.Twisty.is_opened">[docs]</a>    <span class="k">def</span> <span class="nf">is_opened</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&quot;open&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_twisty_state</span>
+    </div>
+<div class="viewcode-block" id="Twisty.click"><a class="viewcode-back" href="../../../pages.regions.html#pages.regions.twisty.Twisty.click">[docs]</a>    <span class="k">def</span> <span class="nf">click</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_root_element</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_twisty_locator</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_results_refresh</span><span class="p">()</span>
+    </div>
+<div class="viewcode-block" id="Twisty.expand"><a class="viewcode-back" href="../../../pages.regions.html#pages.regions.twisty.Twisty.expand">[docs]</a>    <span class="k">def</span> <span class="nf">expand</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">did_expand</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_closed</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+            <span class="n">did_expand</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="k">return</span> <span class="n">did_expand</span>
+        </div>
+<div class="viewcode-block" id="Twisty.collapse"><a class="viewcode-back" href="../../../pages.regions.html#pages.regions.twisty.Twisty.collapse">[docs]</a>    <span class="k">def</span> <span class="nf">collapse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">did_collapse</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_opened</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+            <span class="n">did_collapse</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="k">return</span> <span class="n">did_collapse</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">CloudForms Management Engine Page Objects library 0.1 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Brad Crochet.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>

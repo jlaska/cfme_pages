@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pages.page &mdash; CloudForms Management Engine Page Objects library 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="CloudForms Management Engine Page Objects library 0.1 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">CloudForms Management Engine Page Objects library 0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pages.page</h1><div class="highlight"><pre>
+<span class="c">#!/usr/bin/env python</span>
+
+<span class="kn">from</span> <span class="nn">unittestzero</span> <span class="kn">import</span> <span class="n">Assert</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.support.ui</span> <span class="kn">import</span> <span class="n">WebDriverWait</span>
+<span class="kn">from</span> <span class="nn">selenium.common.exceptions</span> <span class="kn">import</span> <span class="n">NoSuchElementException</span>
+<span class="kn">from</span> <span class="nn">selenium.common.exceptions</span> <span class="kn">import</span> <span class="n">ElementNotVisibleException</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.support</span> <span class="kn">import</span> <span class="n">expected_conditions</span> <span class="k">as</span> <span class="n">EC</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.support.ui</span> <span class="kn">import</span> <span class="n">Select</span>
+
+
+<div class="viewcode-block" id="Page"><a class="viewcode-back" href="../../pages.html#pages.page.Page">[docs]</a><span class="k">class</span> <span class="nc">Page</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Base class for all Pages</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">_updating_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;div#notification &gt; div:first-child&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">testsetup</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Constructor</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span> <span class="o">=</span> <span class="n">testsetup</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="n">testsetup</span><span class="o">.</span><span class="n">base_url</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span> <span class="o">=</span> <span class="n">testsetup</span><span class="o">.</span><span class="n">selenium</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="n">testsetup</span><span class="o">.</span><span class="n">timeout</span>
+
+    <span class="k">def</span> <span class="nf">_wait_for_results_refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c"># On pages that do not have ajax refresh this wait will have no effect.</span>
+        <span class="n">WebDriverWait</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">)</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_element_visible</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_updating_locator</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">_wait_for_visible_element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">locator</span><span class="p">):</span>
+        <span class="c"># Used in forms where an element (submit button) is displayed after ajax</span>
+        <span class="c"># validation is done, this validation request doesn&#39;t use the common</span>
+        <span class="c"># notification loadmask so _wait_for_results_refresh can&#39;t be used.</span>
+        <span class="c"># On pages that do not have ajax refresh this wait will have no effect.</span>
+        <span class="n">WebDriverWait</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">)</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_element_visible</span><span class="p">(</span><span class="o">*</span><span class="n">locator</span><span class="p">))</span>
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Page.is_the_current_page"><a class="viewcode-back" href="../../pages.html#pages.page.Page.is_the_current_page">[docs]</a>    <span class="k">def</span> <span class="nf">is_the_current_page</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_page_title</span><span class="p">:</span>  <span class="c"># IGNORE:E1101</span>
+            <span class="n">WebDriverWait</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">)</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+
+        <span class="n">Assert</span><span class="o">.</span><span class="n">equal</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">title</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_page_title</span><span class="p">,</span>  <span class="c"># IGNORE:E1101</span>
+            <span class="s">&quot;Expected page title: </span><span class="si">%s</span><span class="s">. Actual page title: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_page_title</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">title</span><span class="p">))</span>  <span class="c"># IGNORE:E1101</span>
+        <span class="k">return</span> <span class="bp">True</span>
+</div>
+<div class="viewcode-block" id="Page.get_url_current_page"><a class="viewcode-back" href="../../pages.html#pages.page.Page.get_url_current_page">[docs]</a>    <span class="k">def</span> <span class="nf">get_url_current_page</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">WebDriverWait</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">)</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">current_url</span>
+</div>
+<div class="viewcode-block" id="Page.is_element_present"><a class="viewcode-back" href="../../pages.html#pages.page.Page.is_element_present">[docs]</a>    <span class="k">def</span> <span class="nf">is_element_present</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">locator</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">implicitly_wait</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="n">locator</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">except</span> <span class="n">NoSuchElementException</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="c"># set back to where you once belonged</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">implicitly_wait</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="o">.</span><span class="n">default_implicit_wait</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Page.is_element_visible"><a class="viewcode-back" href="../../pages.html#pages.page.Page.is_element_visible">[docs]</a>    <span class="k">def</span> <span class="nf">is_element_visible</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">locator</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="n">locator</span><span class="p">)</span><span class="o">.</span><span class="n">is_displayed</span><span class="p">()</span>
+        <span class="k">except</span> <span class="n">NoSuchElementException</span><span class="p">,</span> <span class="n">ElementNotVisibleException</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+</div>
+<div class="viewcode-block" id="Page.return_to_previous_page"><a class="viewcode-back" href="../../pages.html#pages.page.Page.return_to_previous_page">[docs]</a>    <span class="k">def</span> <span class="nf">return_to_previous_page</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">back</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="Page.get_element"><a class="viewcode-back" href="../../pages.html#pages.page.Page.get_element">[docs]</a>    <span class="k">def</span> <span class="nf">get_element</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">element</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="n">element</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Page.handle_popup"><a class="viewcode-back" href="../../pages.html#pages.page.Page.handle_popup">[docs]</a>    <span class="k">def</span> <span class="nf">handle_popup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cancel</span> <span class="o">=</span> <span class="bp">False</span><span class="p">):</span>
+        <span class="n">wait</span> <span class="o">=</span> <span class="n">WebDriverWait</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">)</span>
+        <span class="n">wait</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="n">EC</span><span class="o">.</span><span class="n">alert_is_present</span><span class="p">())</span>    <span class="c"># throws timeout exception if not found</span>
+        <span class="n">popup</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">switch_to_alert</span><span class="p">()</span>
+        <span class="n">answer</span> <span class="o">=</span> <span class="s">&#39;cancel&#39;</span> <span class="k">if</span> <span class="n">cancel</span> <span class="k">else</span> <span class="s">&#39;ok&#39;</span>
+        <span class="k">print</span> <span class="n">popup</span><span class="o">.</span><span class="n">text</span> <span class="o">+</span> <span class="s">&quot; ...clicking &quot;</span> <span class="o">+</span> <span class="n">answer</span>
+        <span class="n">popup</span><span class="o">.</span><span class="n">dismiss</span><span class="p">()</span> <span class="k">if</span> <span class="n">cancel</span> <span class="k">else</span> <span class="n">popup</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="Page.select_dropdown"><a class="viewcode-back" href="../../pages.html#pages.page.Page.select_dropdown">[docs]</a>    <span class="k">def</span> <span class="nf">select_dropdown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="o">*</span><span class="n">element</span><span class="p">):</span>
+        <span class="n">select</span> <span class="o">=</span> <span class="n">Select</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="n">element</span><span class="p">))</span>
+        <span class="n">select</span><span class="o">.</span><span class="n">select_by_visible_text</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div></div></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">CloudForms Management Engine Page Objects library 0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Brad Crochet.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>

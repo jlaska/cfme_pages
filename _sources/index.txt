@@ -1,10 +1,10 @@
-.. CloudForms Test Automation - cfme_pages documentation master file, created by
-   sphinx-quickstart on Wed May  8 09:13:12 2013.
+.. CloudForms Management Engine Page Objects library documentation master file, created by
+   sphinx-quickstart on Fri May 10 10:19:44 2013.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to CloudForms Test Automation - cfme_pages's documentation!
-===================================================================
+Welcome to CloudForms Management Engine Page Objects library's documentation!
+=============================================================================
 
 Contents:
 
@@ -12,6 +12,7 @@ Contents:
    :maxdepth: 4
 
    pages
+   tests
 
 
 Indices and tables

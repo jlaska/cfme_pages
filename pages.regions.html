@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>regions Package &mdash; CloudForms Test Automation - cfme_pages beta documentation</title>
+    <title>regions Package &mdash; CloudForms Management Engine Page Objects library 0.1 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     'beta',
+        URL_ROOT:    './',
+        VERSION:     '0.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="CloudForms Test Automation - cfme_pages beta documentation" href="index.html" />
+    <link rel="top" title="CloudForms Management Engine Page Objects library 0.1 documentation" href="index.html" />
     <link rel="up" title="pages Package" href="pages.html" />
     <link rel="next" title="taskbar Package" href="pages.regions.taskbar.html" />
     <link rel="prev" title="server_settings_subpages Package" href="pages.configuration_subpages.settings_subpages.server_settings_subpages.html" /> 
@@ -38,12 +36,15 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="pages.regions.taskbar.html" title="taskbar Package"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="pages.configuration_subpages.settings_subpages.server_settings_subpages.html" title="server_settings_subpages Package"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">CloudForms Test Automation - cfme_pages beta documentation</a> &raquo;</li>
+        <li><a href="index.html">CloudForms Management Engine Page Objects library 0.1 documentation</a> &raquo;</li>
           <li><a href="pages.html" accesskey="U">pages Package</a> &raquo;</li> 
       </ul>
     </div>  
@@ -55,71 +56,674 @@
             
   <div class="section" id="regions-package">
 <h1>regions Package<a class="headerlink" href="#regions-package" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="accordion-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">accordion</span></tt> Module<a class="headerlink" href="#accordion-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.regions.accordion">
+<span id="accordion-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">accordion</span></tt> Module<a class="headerlink" href="#module-pages.regions.accordion" title="Permalink to this headline">¶</a></h2>
+<p>Created on Feb 26, 2013</p>
+<p>&#64;author: bcrochet</p>
+<dl class="class">
+<dt id="pages.regions.accordion.Accordion">
+<em class="property">class </em><tt class="descclassname">pages.regions.accordion.</tt><tt class="descname">Accordion</tt><big>(</big><em>testsetup</em>, <em>item_class=&lt;class 'pages.regions.accordionitem.AccordionItem'&gt;</em><big>)</big><a class="reference internal" href="_modules/pages/regions/accordion.html#Accordion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.accordion.Accordion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pages.html#pages.page.Page" title="pages.page.Page"><tt class="xref py py-class docutils literal"><span class="pre">pages.page.Page</span></tt></a></p>
+<p>Accordion</p>
+<dl class="method">
+<dt id="pages.regions.accordion.Accordion.accordion_by_name">
+<tt class="descname">accordion_by_name</tt><big>(</big><em>target_name</em><big>)</big><a class="reference internal" href="_modules/pages/regions/accordion.html#Accordion.accordion_by_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.accordion.Accordion.accordion_by_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.accordion.Accordion.accordion_items">
+<tt class="descname">accordion_items</tt><a class="reference internal" href="_modules/pages/regions/accordion.html#Accordion.accordion_items"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.accordion.Accordion.accordion_items" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.accordion.Accordion.current_content">
+<tt class="descname">current_content</tt><a class="reference internal" href="_modules/pages/regions/accordion.html#Accordion.current_content"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.accordion.Accordion.current_content" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="accordionitem-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">accordionitem</span></tt> Module<a class="headerlink" href="#accordionitem-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.regions.accordionitem">
+<span id="accordionitem-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">accordionitem</span></tt> Module<a class="headerlink" href="#module-pages.regions.accordionitem" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pages.regions.accordionitem.AccordionItem">
+<em class="property">class </em><tt class="descclassname">pages.regions.accordionitem.</tt><tt class="descname">AccordionItem</tt><big>(</big><em>testsetup</em>, <em>accordion_element</em><big>)</big><a class="reference internal" href="_modules/pages/regions/accordionitem.html#AccordionItem"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.accordionitem.AccordionItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pages.html#pages.page.Page" title="pages.page.Page"><tt class="xref py py-class docutils literal"><span class="pre">pages.page.Page</span></tt></a></p>
+<dl class="method">
+<dt id="pages.regions.accordionitem.AccordionItem.click">
+<tt class="descname">click</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/regions/accordionitem.html#AccordionItem.click"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.accordionitem.AccordionItem.click" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.accordionitem.AccordionItem.content">
+<tt class="descname">content</tt><a class="reference internal" href="_modules/pages/regions/accordionitem.html#AccordionItem.content"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.accordionitem.AccordionItem.content" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.accordionitem.AccordionItem.name">
+<tt class="descname">name</tt><a class="reference internal" href="_modules/pages/regions/accordionitem.html#AccordionItem.name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.accordionitem.AccordionItem.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="checkboxtree-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">checkboxtree</span></tt> Module<a class="headerlink" href="#checkboxtree-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.regions.checkboxtree">
+<span id="checkboxtree-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">checkboxtree</span></tt> Module<a class="headerlink" href="#module-pages.regions.checkboxtree" title="Permalink to this headline">¶</a></h2>
+<p>Created on Apr 11, 2013</p>
+<p>&#64;author: jprovazn</p>
+<dl class="class">
+<dt id="pages.regions.checkboxtree.CheckboxTree">
+<em class="property">class </em><tt class="descclassname">pages.regions.checkboxtree.</tt><tt class="descname">CheckboxTree</tt><big>(</big><em>setup</em>, <em>root_element</em>, <em>parent=None</em><big>)</big><a class="reference internal" href="_modules/pages/regions/checkboxtree.html#CheckboxTree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.checkboxtree.CheckboxTree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.regions.tree.Tree" title="pages.regions.tree.Tree"><tt class="xref py py-class docutils literal"><span class="pre">pages.regions.tree.Tree</span></tt></a></p>
+<p>classdocs</p>
+<dl class="method">
+<dt id="pages.regions.checkboxtree.CheckboxTree.check">
+<tt class="descname">check</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/regions/checkboxtree.html#CheckboxTree.check"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.checkboxtree.CheckboxTree.check" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.checkboxtree.CheckboxTree.children">
+<tt class="descname">children</tt><a class="reference internal" href="_modules/pages/regions/checkboxtree.html#CheckboxTree.children"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.checkboxtree.CheckboxTree.children" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.checkboxtree.CheckboxTree.is_checked">
+<tt class="descname">is_checked</tt><a class="reference internal" href="_modules/pages/regions/checkboxtree.html#CheckboxTree.is_checked"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.checkboxtree.CheckboxTree.is_checked" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.checkboxtree.CheckboxTree.uncheck">
+<tt class="descname">uncheck</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/regions/checkboxtree.html#CheckboxTree.uncheck"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.checkboxtree.CheckboxTree.uncheck" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="details-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">details</span></tt> Module<a class="headerlink" href="#details-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.regions.details">
+<span id="details-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">details</span></tt> Module<a class="headerlink" href="#module-pages.regions.details" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pages.regions.details.Details">
+<em class="property">class </em><tt class="descclassname">pages.regions.details.</tt><tt class="descname">Details</tt><big>(</big><em>testsetup</em>, <em>element</em><big>)</big><a class="reference internal" href="_modules/pages/regions/details.html#Details"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.details.Details" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pages.html#pages.page.Page" title="pages.page.Page"><tt class="xref py py-class docutils literal"><span class="pre">pages.page.Page</span></tt></a></p>
+<dl class="class">
+<dt id="pages.regions.details.Details.DetailsSection">
+<em class="property">class </em><tt class="descname">DetailsSection</tt><big>(</big><em>testsetup</em>, <em>element</em><big>)</big><a class="reference internal" href="_modules/pages/regions/details.html#Details.DetailsSection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.details.Details.DetailsSection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pages.html#pages.page.Page" title="pages.page.Page"><tt class="xref py py-class docutils literal"><span class="pre">pages.page.Page</span></tt></a></p>
+<dl class="class">
+<dt id="pages.regions.details.Details.DetailsSection.DetailsItem">
+<em class="property">class </em><tt class="descname">DetailsItem</tt><big>(</big><em>testsetup</em>, <em>element</em><big>)</big><a class="reference internal" href="_modules/pages/regions/details.html#Details.DetailsSection.DetailsItem"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.details.Details.DetailsSection.DetailsItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pages.html#pages.page.Page" title="pages.page.Page"><tt class="xref py py-class docutils literal"><span class="pre">pages.page.Page</span></tt></a></p>
+<dl class="attribute">
+<dt id="pages.regions.details.Details.DetailsSection.DetailsItem.key">
+<tt class="descname">key</tt><a class="reference internal" href="_modules/pages/regions/details.html#Details.DetailsSection.DetailsItem.key"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.details.Details.DetailsSection.DetailsItem.key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.details.Details.DetailsSection.DetailsItem.value">
+<tt class="descname">value</tt><a class="reference internal" href="_modules/pages/regions/details.html#Details.DetailsSection.DetailsItem.value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.details.Details.DetailsSection.DetailsItem.value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.details.Details.DetailsSection.get_item">
+<tt class="descclassname">Details.DetailsSection.</tt><tt class="descname">get_item</tt><big>(</big><em>item_key</em><big>)</big><a class="reference internal" href="_modules/pages/regions/details.html#Details.DetailsSection.get_item"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.details.Details.DetailsSection.get_item" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.details.Details.DetailsSection.items">
+<tt class="descclassname">Details.DetailsSection.</tt><tt class="descname">items</tt><a class="reference internal" href="_modules/pages/regions/details.html#Details.DetailsSection.items"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.details.Details.DetailsSection.items" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.details.Details.DetailsSection.name">
+<tt class="descclassname">Details.DetailsSection.</tt><tt class="descname">name</tt><a class="reference internal" href="_modules/pages/regions/details.html#Details.DetailsSection.name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.details.Details.DetailsSection.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.details.Details.does_info_section_exist">
+<tt class="descclassname">Details.</tt><tt class="descname">does_info_section_exist</tt><big>(</big><em>section_name</em><big>)</big><a class="reference internal" href="_modules/pages/regions/details.html#Details.does_info_section_exist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.details.Details.does_info_section_exist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.details.Details.get_section">
+<tt class="descclassname">Details.</tt><tt class="descname">get_section</tt><big>(</big><em>section_name</em><big>)</big><a class="reference internal" href="_modules/pages/regions/details.html#Details.get_section"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.details.Details.get_section" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.details.Details.sections">
+<tt class="descclassname">Details.</tt><tt class="descname">sections</tt><a class="reference internal" href="_modules/pages/regions/details.html#Details.sections"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.details.Details.sections" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="header-menu-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">header_menu</span></tt> Module<a class="headerlink" href="#header-menu-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.regions.header_menu">
+<span id="header-menu-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">header_menu</span></tt> Module<a class="headerlink" href="#module-pages.regions.header_menu" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pages.regions.header_menu.HeaderMenu">
+<em class="property">class </em><tt class="descclassname">pages.regions.header_menu.</tt><tt class="descname">HeaderMenu</tt><big>(</big><em>testsetup</em>, <em>element</em><big>)</big><a class="reference internal" href="_modules/pages/regions/header_menu.html#HeaderMenu"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.header_menu.HeaderMenu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pages.html#pages.page.Page" title="pages.page.Page"><tt class="xref py py-class docutils literal"><span class="pre">pages.page.Page</span></tt></a></p>
+<p>This class accesses the header area from the top-level Page.
+To access:</p>
+<blockquote>
+<div>HeaderMenu(self.testsetup, element_lookup)</div></blockquote>
+<dl class="docutils">
+<dt>Where element_lookup is:</dt>
+<dd><ul class="first last simple">
+<li>the web element of the menu you want</li>
+</ul>
+</dd>
+<dt>Example:</dt>
+<dd>HeaderMenu(self.testsetup, infrastructure_element) returns the Infrastructure menu</dd>
+</dl>
+<dl class="class">
+<dt id="pages.regions.header_menu.HeaderMenu.HeaderMenuItem">
+<em class="property">class </em><tt class="descname">HeaderMenuItem</tt><big>(</big><em>testsetup</em>, <em>element</em>, <em>menu</em><big>)</big><a class="reference internal" href="_modules/pages/regions/header_menu.html#HeaderMenu.HeaderMenuItem"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.header_menu.HeaderMenu.HeaderMenuItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pages.html#pages.page.Page" title="pages.page.Page"><tt class="xref py py-class docutils literal"><span class="pre">pages.page.Page</span></tt></a></p>
+<dl class="method">
+<dt id="pages.regions.header_menu.HeaderMenu.HeaderMenuItem.click">
+<tt class="descname">click</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/regions/header_menu.html#HeaderMenu.HeaderMenuItem.click"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.header_menu.HeaderMenu.HeaderMenuItem.click" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.header_menu.HeaderMenu.HeaderMenuItem.name">
+<tt class="descname">name</tt><a class="reference internal" href="_modules/pages/regions/header_menu.html#HeaderMenu.HeaderMenuItem.name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.header_menu.HeaderMenu.HeaderMenuItem.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.header_menu.HeaderMenu.click">
+<tt class="descclassname">HeaderMenu.</tt><tt class="descname">click</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/regions/header_menu.html#HeaderMenu.click"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.header_menu.HeaderMenu.click" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.header_menu.HeaderMenu.hover">
+<tt class="descclassname">HeaderMenu.</tt><tt class="descname">hover</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/regions/header_menu.html#HeaderMenu.hover"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.header_menu.HeaderMenu.hover" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.header_menu.HeaderMenu.is_menu_submenu_visible">
+<tt class="descclassname">HeaderMenu.</tt><tt class="descname">is_menu_submenu_visible</tt><a class="reference internal" href="_modules/pages/regions/header_menu.html#HeaderMenu.is_menu_submenu_visible"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.header_menu.HeaderMenu.is_menu_submenu_visible" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.header_menu.HeaderMenu.items">
+<tt class="descclassname">HeaderMenu.</tt><tt class="descname">items</tt><a class="reference internal" href="_modules/pages/regions/header_menu.html#HeaderMenu.items"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.header_menu.HeaderMenu.items" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.header_menu.HeaderMenu.name">
+<tt class="descclassname">HeaderMenu.</tt><tt class="descname">name</tt><a class="reference internal" href="_modules/pages/regions/header_menu.html#HeaderMenu.name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.header_menu.HeaderMenu.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.header_menu.HeaderMenu.sub_navigation_menu">
+<tt class="descclassname">HeaderMenu.</tt><tt class="descname">sub_navigation_menu</tt><big>(</big><em>value</em><big>)</big><a class="reference internal" href="_modules/pages/regions/header_menu.html#HeaderMenu.sub_navigation_menu"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.header_menu.HeaderMenu.sub_navigation_menu" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="paginator-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">paginator</span></tt> Module<a class="headerlink" href="#paginator-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.regions.paginator">
+<span id="paginator-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">paginator</span></tt> Module<a class="headerlink" href="#module-pages.regions.paginator" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pages.regions.paginator.Paginator">
+<em class="property">class </em><tt class="descclassname">pages.regions.paginator.</tt><tt class="descname">Paginator</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/regions/paginator.html#Paginator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.paginator.Paginator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pages.html#pages.page.Page" title="pages.page.Page"><tt class="xref py py-class docutils literal"><span class="pre">pages.page.Page</span></tt></a></p>
+<p>Add this region to your page with a property called paginator</p>
+<p>Example:
+&#64;property
+def paginator(self):</p>
+<blockquote>
+<div>from pages.regions.paginator import Paginator
+return Paginator(self.testsetup)</div></blockquote>
+<dl class="method">
+<dt id="pages.regions.paginator.Paginator.click_first_page">
+<tt class="descname">click_first_page</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/regions/paginator.html#Paginator.click_first_page"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.paginator.Paginator.click_first_page" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.paginator.Paginator.click_last_page">
+<tt class="descname">click_last_page</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/regions/paginator.html#Paginator.click_last_page"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.paginator.Paginator.click_last_page" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.paginator.Paginator.click_next_page">
+<tt class="descname">click_next_page</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/regions/paginator.html#Paginator.click_next_page"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.paginator.Paginator.click_next_page" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.paginator.Paginator.click_prev_page">
+<tt class="descname">click_prev_page</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/regions/paginator.html#Paginator.click_prev_page"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.paginator.Paginator.click_prev_page" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.paginator.Paginator.is_first_page_disabled">
+<tt class="descname">is_first_page_disabled</tt><a class="reference internal" href="_modules/pages/regions/paginator.html#Paginator.is_first_page_disabled"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.paginator.Paginator.is_first_page_disabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.paginator.Paginator.is_last_page_disabled">
+<tt class="descname">is_last_page_disabled</tt><a class="reference internal" href="_modules/pages/regions/paginator.html#Paginator.is_last_page_disabled"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.paginator.Paginator.is_last_page_disabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.paginator.Paginator.is_next_page_disabled">
+<tt class="descname">is_next_page_disabled</tt><a class="reference internal" href="_modules/pages/regions/paginator.html#Paginator.is_next_page_disabled"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.paginator.Paginator.is_next_page_disabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.paginator.Paginator.is_prev_page_disabled">
+<tt class="descname">is_prev_page_disabled</tt><a class="reference internal" href="_modules/pages/regions/paginator.html#Paginator.is_prev_page_disabled"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.paginator.Paginator.is_prev_page_disabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.paginator.Paginator.selected_per_page">
+<tt class="descname">selected_per_page</tt><a class="reference internal" href="_modules/pages/regions/paginator.html#Paginator.selected_per_page"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.paginator.Paginator.selected_per_page" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.paginator.Paginator.set_per_page">
+<tt class="descname">set_per_page</tt><big>(</big><em>value</em><big>)</big><a class="reference internal" href="_modules/pages/regions/paginator.html#Paginator.set_per_page"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.paginator.Paginator.set_per_page" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pages.regions.paginator.PaginatorMixin">
+<em class="property">class </em><tt class="descclassname">pages.regions.paginator.</tt><tt class="descname">PaginatorMixin</tt><a class="reference internal" href="_modules/pages/regions/paginator.html#PaginatorMixin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.paginator.PaginatorMixin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<dl class="attribute">
+<dt id="pages.regions.paginator.PaginatorMixin.paginator">
+<tt class="descname">paginator</tt><a class="reference internal" href="_modules/pages/regions/paginator.html#PaginatorMixin.paginator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.paginator.PaginatorMixin.paginator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="quadiconitem-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">quadiconitem</span></tt> Module<a class="headerlink" href="#quadiconitem-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.regions.quadiconitem">
+<span id="quadiconitem-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">quadiconitem</span></tt> Module<a class="headerlink" href="#module-pages.regions.quadiconitem" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pages.regions.quadiconitem.QuadiconItem">
+<em class="property">class </em><tt class="descclassname">pages.regions.quadiconitem.</tt><tt class="descname">QuadiconItem</tt><big>(</big><em>testsetup</em>, <em>quadicon_list_element</em><big>)</big><a class="reference internal" href="_modules/pages/regions/quadiconitem.html#QuadiconItem"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.quadiconitem.QuadiconItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pages.html#pages.page.Page" title="pages.page.Page"><tt class="xref py py-class docutils literal"><span class="pre">pages.page.Page</span></tt></a></p>
+<p>Extend this class to create a custom QuadiconItem</p>
+<p>Add additional properties in order to customize the lookup</p>
+<dl class="method">
+<dt id="pages.regions.quadiconitem.QuadiconItem.click">
+<tt class="descname">click</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/regions/quadiconitem.html#QuadiconItem.click"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.quadiconitem.QuadiconItem.click" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.quadiconitem.QuadiconItem.has_policy">
+<tt class="descname">has_policy</tt><a class="reference internal" href="_modules/pages/regions/quadiconitem.html#QuadiconItem.has_policy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.quadiconitem.QuadiconItem.has_policy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.quadiconitem.QuadiconItem.href_value">
+<tt class="descname">href_value</tt><a class="reference internal" href="_modules/pages/regions/quadiconitem.html#QuadiconItem.href_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.quadiconitem.QuadiconItem.href_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.quadiconitem.QuadiconItem.is_selected">
+<tt class="descname">is_selected</tt><a class="reference internal" href="_modules/pages/regions/quadiconitem.html#QuadiconItem.is_selected"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.quadiconitem.QuadiconItem.is_selected" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.quadiconitem.QuadiconItem.mark_checkbox">
+<tt class="descname">mark_checkbox</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/regions/quadiconitem.html#QuadiconItem.mark_checkbox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.quadiconitem.QuadiconItem.mark_checkbox" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.quadiconitem.QuadiconItem.name">
+<tt class="descname">name</tt><a class="reference internal" href="_modules/pages/regions/quadiconitem.html#QuadiconItem.name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.quadiconitem.QuadiconItem.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.quadiconitem.QuadiconItem.title">
+<tt class="descname">title</tt><a class="reference internal" href="_modules/pages/regions/quadiconitem.html#QuadiconItem.title"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.quadiconitem.QuadiconItem.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.quadiconitem.QuadiconItem.toggle_checkbox">
+<tt class="descname">toggle_checkbox</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/regions/quadiconitem.html#QuadiconItem.toggle_checkbox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.quadiconitem.QuadiconItem.toggle_checkbox" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.quadiconitem.QuadiconItem.unmark_checkbox">
+<tt class="descname">unmark_checkbox</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/regions/quadiconitem.html#QuadiconItem.unmark_checkbox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.quadiconitem.QuadiconItem.unmark_checkbox" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="quadicons-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">quadicons</span></tt> Module<a class="headerlink" href="#quadicons-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.regions.quadicons">
+<span id="quadicons-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">quadicons</span></tt> Module<a class="headerlink" href="#module-pages.regions.quadicons" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pages.regions.quadicons.Quadicons">
+<em class="property">class </em><tt class="descclassname">pages.regions.quadicons.</tt><tt class="descname">Quadicons</tt><big>(</big><em>setup</em>, <em>item_class=&lt;class 'pages.regions.quadiconitem.QuadiconItem'&gt;</em><big>)</big><a class="reference internal" href="_modules/pages/regions/quadicons.html#Quadicons"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.quadicons.Quadicons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pages.html#pages.page.Page" title="pages.page.Page"><tt class="xref py py-class docutils literal"><span class="pre">pages.page.Page</span></tt></a></p>
+<p>Represents a Quadicon on a page</p>
+<p>To use:</p>
+<p>Create a quadicon_region property on your page</p>
+<p>Example:
+&#64;property
+def quadicon_region(self):</p>
+<blockquote>
+<div>from pages.regions.quadicons import Quadicons
+return Quadicons(self.testsetup)</div></blockquote>
+<p>To extend the items returned, create a subclass of QuadiconItem, and add any additional properties
+Quadicons(self.testsetup, MyQuadiconItem)</p>
+<dl class="method">
+<dt id="pages.regions.quadicons.Quadicons.does_quadicon_exist">
+<tt class="descname">does_quadicon_exist</tt><big>(</big><em>title</em><big>)</big><a class="reference internal" href="_modules/pages/regions/quadicons.html#Quadicons.does_quadicon_exist"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.quadicons.Quadicons.does_quadicon_exist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.quadicons.Quadicons.get_quadicon_by_title">
+<tt class="descname">get_quadicon_by_title</tt><big>(</big><em>title</em><big>)</big><a class="reference internal" href="_modules/pages/regions/quadicons.html#Quadicons.get_quadicon_by_title"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.quadicons.Quadicons.get_quadicon_by_title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.quadicons.Quadicons.mark_icon_checkbox">
+<tt class="descname">mark_icon_checkbox</tt><big>(</big><em>vm_names</em><big>)</big><a class="reference internal" href="_modules/pages/regions/quadicons.html#Quadicons.mark_icon_checkbox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.quadicons.Quadicons.mark_icon_checkbox" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.quadicons.Quadicons.quadicons">
+<tt class="descname">quadicons</tt><a class="reference internal" href="_modules/pages/regions/quadicons.html#Quadicons.quadicons"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.quadicons.Quadicons.quadicons" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.quadicons.Quadicons.selected">
+<tt class="descname">selected</tt><a class="reference internal" href="_modules/pages/regions/quadicons.html#Quadicons.selected"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.quadicons.Quadicons.selected" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="search-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">search</span></tt> Module<a class="headerlink" href="#search-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.regions.search">
+<span id="search-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">search</span></tt> Module<a class="headerlink" href="#module-pages.regions.search" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pages.regions.search.Search">
+<em class="property">class </em><tt class="descclassname">pages.regions.search.</tt><tt class="descname">Search</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/regions/search.html#Search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.search.Search" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pages.html#pages.page.Page" title="pages.page.Page"><tt class="xref py py-class docutils literal"><span class="pre">pages.page.Page</span></tt></a></p>
+<p>Search</p>
+<dl class="method">
+<dt id="pages.regions.search.Search.search_by_name">
+<tt class="descname">search_by_name</tt><big>(</big><em>name</em><big>)</big><a class="reference internal" href="_modules/pages/regions/search.html#Search.search_by_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.search.Search.search_by_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="settingstasks-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">settingstasks</span></tt> Module<a class="headerlink" href="#settingstasks-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.regions.settingstasks">
+<span id="settingstasks-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">settingstasks</span></tt> Module<a class="headerlink" href="#module-pages.regions.settingstasks" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pages.regions.settingstasks.SettingsTasks">
+<em class="property">class </em><tt class="descclassname">pages.regions.settingstasks.</tt><tt class="descname">SettingsTasks</tt><big>(</big><em>testsetup</em>, <em>item_class=&lt;class 'pages.regions.settingstasksitem.STItem'&gt;</em><big>)</big><a class="reference internal" href="_modules/pages/regions/settingstasks.html#SettingsTasks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.settingstasks.SettingsTasks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pages.html#pages.page.Page" title="pages.page.Page"><tt class="xref py py-class docutils literal"><span class="pre">pages.page.Page</span></tt></a></p>
+<dl class="method">
+<dt id="pages.regions.settingstasks.SettingsTasks.ST_item_by_name">
+<tt class="descname">ST_item_by_name</tt><big>(</big><em>target_name</em><big>)</big><a class="reference internal" href="_modules/pages/regions/settingstasks.html#SettingsTasks.ST_item_by_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.settingstasks.SettingsTasks.ST_item_by_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.settingstasks.SettingsTasks.ST_items">
+<tt class="descname">ST_items</tt><a class="reference internal" href="_modules/pages/regions/settingstasks.html#SettingsTasks.ST_items"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.settingstasks.SettingsTasks.ST_items" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="settingstasksitem-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">settingstasksitem</span></tt> Module<a class="headerlink" href="#settingstasksitem-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.regions.settingstasksitem">
+<span id="settingstasksitem-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">settingstasksitem</span></tt> Module<a class="headerlink" href="#module-pages.regions.settingstasksitem" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pages.regions.settingstasksitem.STItem">
+<em class="property">class </em><tt class="descclassname">pages.regions.settingstasksitem.</tt><tt class="descname">STItem</tt><big>(</big><em>testsetup</em>, <em>st_element</em><big>)</big><a class="reference internal" href="_modules/pages/regions/settingstasksitem.html#STItem"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.settingstasksitem.STItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pages.html#pages.page.Page" title="pages.page.Page"><tt class="xref py py-class docutils literal"><span class="pre">pages.page.Page</span></tt></a></p>
+<dl class="method">
+<dt id="pages.regions.settingstasksitem.STItem.click">
+<tt class="descname">click</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/regions/settingstasksitem.html#STItem.click"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.settingstasksitem.STItem.click" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.settingstasksitem.STItem.name">
+<tt class="descname">name</tt><a class="reference internal" href="_modules/pages/regions/settingstasksitem.html#STItem.name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.settingstasksitem.STItem.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="tabbuttonitem-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">tabbuttonitem</span></tt> Module<a class="headerlink" href="#tabbuttonitem-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.regions.tabbuttonitem">
+<span id="tabbuttonitem-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">tabbuttonitem</span></tt> Module<a class="headerlink" href="#module-pages.regions.tabbuttonitem" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pages.regions.tabbuttonitem.TabButtonItem">
+<em class="property">class </em><tt class="descclassname">pages.regions.tabbuttonitem.</tt><tt class="descname">TabButtonItem</tt><big>(</big><em>testsetup</em>, <em>tabbutton_element</em><big>)</big><a class="reference internal" href="_modules/pages/regions/tabbuttonitem.html#TabButtonItem"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.tabbuttonitem.TabButtonItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pages.html#pages.page.Page" title="pages.page.Page"><tt class="xref py py-class docutils literal"><span class="pre">pages.page.Page</span></tt></a></p>
+<dl class="method">
+<dt id="pages.regions.tabbuttonitem.TabButtonItem.click">
+<tt class="descname">click</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/regions/tabbuttonitem.html#TabButtonItem.click"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.tabbuttonitem.TabButtonItem.click" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.tabbuttonitem.TabButtonItem.name">
+<tt class="descname">name</tt><a class="reference internal" href="_modules/pages/regions/tabbuttonitem.html#TabButtonItem.name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.tabbuttonitem.TabButtonItem.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="tabbuttons-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">tabbuttons</span></tt> Module<a class="headerlink" href="#tabbuttons-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.regions.tabbuttons">
+<span id="tabbuttons-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">tabbuttons</span></tt> Module<a class="headerlink" href="#module-pages.regions.tabbuttons" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pages.regions.tabbuttons.TabButtons">
+<em class="property">class </em><tt class="descclassname">pages.regions.tabbuttons.</tt><tt class="descname">TabButtons</tt><big>(</big><em>testsetup</em>, <em>locator_override</em><big>)</big><a class="reference internal" href="_modules/pages/regions/tabbuttons.html#TabButtons"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.tabbuttons.TabButtons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pages.html#pages.page.Page" title="pages.page.Page"><tt class="xref py py-class docutils literal"><span class="pre">pages.page.Page</span></tt></a></p>
+<dl class="method">
+<dt id="pages.regions.tabbuttons.TabButtons.tabbutton_by_name">
+<tt class="descname">tabbutton_by_name</tt><big>(</big><em>target_name</em><big>)</big><a class="reference internal" href="_modules/pages/regions/tabbuttons.html#TabButtons.tabbutton_by_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.tabbuttons.TabButtons.tabbutton_by_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.tabbuttons.TabButtons.tabbuttons">
+<tt class="descname">tabbuttons</tt><a class="reference internal" href="_modules/pages/regions/tabbuttons.html#TabButtons.tabbuttons"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.tabbuttons.TabButtons.tabbuttons" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="taggable-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">taggable</span></tt> Module<a class="headerlink" href="#taggable-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.regions.taggable">
+<span id="taggable-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">taggable</span></tt> Module<a class="headerlink" href="#module-pages.regions.taggable" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pages.regions.taggable.Taggable">
+<em class="property">class </em><tt class="descclassname">pages.regions.taggable.</tt><tt class="descname">Taggable</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/regions/taggable.html#Taggable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taggable.Taggable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pages.html#pages.page.Page" title="pages.page.Page"><tt class="xref py py-class docutils literal"><span class="pre">pages.page.Page</span></tt></a></p>
+<p>Add this mixin to your page in 3 easy steps:
+* import: from pages.regions.taggable import Taggable
+* add to class: class MyClass(Base, Taggable):
+* call directly from test or page</p>
+<dl class="attribute">
+<dt id="pages.regions.taggable.Taggable.cancel_tag_edits">
+<tt class="descname">cancel_tag_edits</tt><a class="reference internal" href="_modules/pages/regions/taggable.html#Taggable.cancel_tag_edits"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taggable.Taggable.cancel_tag_edits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.taggable.Taggable.current_tags">
+<tt class="descname">current_tags</tt><a class="reference internal" href="_modules/pages/regions/taggable.html#Taggable.current_tags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taggable.Taggable.current_tags" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.taggable.Taggable.delete_tag">
+<tt class="descname">delete_tag</tt><big>(</big><em>category</em><big>)</big><a class="reference internal" href="_modules/pages/regions/taggable.html#Taggable.delete_tag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taggable.Taggable.delete_tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.taggable.Taggable.is_tag_displayed">
+<tt class="descname">is_tag_displayed</tt><big>(</big><em>category</em>, <em>value</em><big>)</big><a class="reference internal" href="_modules/pages/regions/taggable.html#Taggable.is_tag_displayed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taggable.Taggable.is_tag_displayed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.taggable.Taggable.reset_tag_edits">
+<tt class="descname">reset_tag_edits</tt><a class="reference internal" href="_modules/pages/regions/taggable.html#Taggable.reset_tag_edits"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taggable.Taggable.reset_tag_edits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.taggable.Taggable.root">
+<tt class="descname">root</tt><a class="reference internal" href="_modules/pages/regions/taggable.html#Taggable.root"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taggable.Taggable.root" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.taggable.Taggable.save_tag_edits">
+<tt class="descname">save_tag_edits</tt><a class="reference internal" href="_modules/pages/regions/taggable.html#Taggable.save_tag_edits"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taggable.Taggable.save_tag_edits" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.taggable.Taggable.select_category">
+<tt class="descname">select_category</tt><big>(</big><em>category</em><big>)</big><a class="reference internal" href="_modules/pages/regions/taggable.html#Taggable.select_category"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taggable.Taggable.select_category" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.taggable.Taggable.select_value">
+<tt class="descname">select_value</tt><big>(</big><em>value</em><big>)</big><a class="reference internal" href="_modules/pages/regions/taggable.html#Taggable.select_value"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taggable.Taggable.select_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="tree-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">tree</span></tt> Module<a class="headerlink" href="#tree-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.regions.tree">
+<span id="tree-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">tree</span></tt> Module<a class="headerlink" href="#module-pages.regions.tree" title="Permalink to this headline">¶</a></h2>
+<p>Created on Mar 7, 2013</p>
+<p>&#64;author: bcrochet</p>
+<dl class="class">
+<dt id="pages.regions.tree.Tree">
+<em class="property">class </em><tt class="descclassname">pages.regions.tree.</tt><tt class="descname">Tree</tt><big>(</big><em>setup</em>, <em>root_element</em>, <em>parent=None</em><big>)</big><a class="reference internal" href="_modules/pages/regions/tree.html#Tree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.tree.Tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pages.html#pages.page.Page" title="pages.page.Page"><tt class="xref py py-class docutils literal"><span class="pre">pages.page.Page</span></tt></a></p>
+<p>classdocs</p>
+<dl class="attribute">
+<dt id="pages.regions.tree.Tree.children">
+<tt class="descname">children</tt><a class="reference internal" href="_modules/pages/regions/tree.html#Tree.children"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.tree.Tree.children" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.tree.Tree.click">
+<tt class="descname">click</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/regions/tree.html#Tree.click"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.tree.Tree.click" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.tree.Tree.find_node_by_name">
+<tt class="descname">find_node_by_name</tt><big>(</big><em>name</em><big>)</big><a class="reference internal" href="_modules/pages/regions/tree.html#Tree.find_node_by_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.tree.Tree.find_node_by_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.tree.Tree.find_node_by_regexp">
+<tt class="descname">find_node_by_regexp</tt><big>(</big><em>regexp_str</em><big>)</big><a class="reference internal" href="_modules/pages/regions/tree.html#Tree.find_node_by_regexp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.tree.Tree.find_node_by_regexp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.tree.Tree.find_node_by_substr">
+<tt class="descname">find_node_by_substr</tt><big>(</big><em>name</em><big>)</big><a class="reference internal" href="_modules/pages/regions/tree.html#Tree.find_node_by_substr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.tree.Tree.find_node_by_substr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.tree.Tree.is_displayed">
+<tt class="descname">is_displayed</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/regions/tree.html#Tree.is_displayed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.tree.Tree.is_displayed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.tree.Tree.name">
+<tt class="descname">name</tt><a class="reference internal" href="_modules/pages/regions/tree.html#Tree.name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.tree.Tree.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.tree.Tree.parent">
+<tt class="descname">parent</tt><a class="reference internal" href="_modules/pages/regions/tree.html#Tree.parent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.tree.Tree.parent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.tree.Tree.root">
+<tt class="descname">root</tt><a class="reference internal" href="_modules/pages/regions/tree.html#Tree.root"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.tree.Tree.root" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.tree.Tree.twisty">
+<tt class="descname">twisty</tt><a class="reference internal" href="_modules/pages/regions/tree.html#Tree.twisty"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.tree.Tree.twisty" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="treeaccordionitem-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">treeaccordionitem</span></tt> Module<a class="headerlink" href="#treeaccordionitem-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.regions.treeaccordionitem">
+<span id="treeaccordionitem-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">treeaccordionitem</span></tt> Module<a class="headerlink" href="#module-pages.regions.treeaccordionitem" title="Permalink to this headline">¶</a></h2>
+<p>Created on Mar 7, 2013</p>
+<p>&#64;author: bcrochet</p>
+<dl class="class">
+<dt id="pages.regions.treeaccordionitem.TreeAccordionItem">
+<em class="property">class </em><tt class="descclassname">pages.regions.treeaccordionitem.</tt><tt class="descname">TreeAccordionItem</tt><big>(</big><em>setup</em>, <em>accordion_element</em><big>)</big><a class="reference internal" href="_modules/pages/regions/treeaccordionitem.html#TreeAccordionItem"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.treeaccordionitem.TreeAccordionItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.regions.accordionitem.AccordionItem" title="pages.regions.accordionitem.AccordionItem"><tt class="xref py py-class docutils literal"><span class="pre">pages.regions.accordionitem.AccordionItem</span></tt></a></p>
+<p>classdocs</p>
+<dl class="attribute">
+<dt id="pages.regions.treeaccordionitem.TreeAccordionItem.content">
+<tt class="descname">content</tt><a class="reference internal" href="_modules/pages/regions/treeaccordionitem.html#TreeAccordionItem.content"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.treeaccordionitem.TreeAccordionItem.content" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="twisty-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">twisty</span></tt> Module<a class="headerlink" href="#twisty-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.regions.twisty">
+<span id="twisty-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">twisty</span></tt> Module<a class="headerlink" href="#module-pages.regions.twisty" title="Permalink to this headline">¶</a></h2>
+<p>Created on Mar 13, 2013</p>
+<p>&#64;author: bcrochet</p>
+<dl class="class">
+<dt id="pages.regions.twisty.Twisty">
+<em class="property">class </em><tt class="descclassname">pages.regions.twisty.</tt><tt class="descname">Twisty</tt><big>(</big><em>setup</em>, <em>root_element</em><big>)</big><a class="reference internal" href="_modules/pages/regions/twisty.html#Twisty"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.twisty.Twisty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pages.html#pages.page.Page" title="pages.page.Page"><tt class="xref py py-class docutils literal"><span class="pre">pages.page.Page</span></tt></a></p>
+<dl class="method">
+<dt id="pages.regions.twisty.Twisty.click">
+<tt class="descname">click</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/regions/twisty.html#Twisty.click"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.twisty.Twisty.click" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.twisty.Twisty.collapse">
+<tt class="descname">collapse</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/regions/twisty.html#Twisty.collapse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.twisty.Twisty.collapse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.twisty.Twisty.expand">
+<tt class="descname">expand</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/regions/twisty.html#Twisty.expand"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.twisty.Twisty.expand" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.twisty.Twisty.is_closed">
+<tt class="descname">is_closed</tt><a class="reference internal" href="_modules/pages/regions/twisty.html#Twisty.is_closed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.twisty.Twisty.is_closed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.twisty.Twisty.is_opened">
+<tt class="descname">is_opened</tt><a class="reference internal" href="_modules/pages/regions/twisty.html#Twisty.is_opened"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.twisty.Twisty.is_opened" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="subpackages">
 <h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="pages.regions.taskbar.html">taskbar Package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pages.regions.taskbar.html#button-module"><tt class="docutils literal"><span class="pre">button</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages.regions.taskbar.html#center-module"><tt class="docutils literal"><span class="pre">center</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages.regions.taskbar.html#custom-module"><tt class="docutils literal"><span class="pre">custom</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages.regions.taskbar.html#history-module"><tt class="docutils literal"><span class="pre">history</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages.regions.taskbar.html#power-module"><tt class="docutils literal"><span class="pre">power</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages.regions.taskbar.html#report-module"><tt class="docutils literal"><span class="pre">report</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages.regions.taskbar.html#taskbar-module"><tt class="docutils literal"><span class="pre">taskbar</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages.regions.taskbar.html#view-module"><tt class="docutils literal"><span class="pre">view</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages.regions.taskbar.html#vm-configuration-module"><tt class="docutils literal"><span class="pre">vm_configuration</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages.regions.taskbar.html#module-pages.regions.taskbar.button"><tt class="docutils literal"><span class="pre">button</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages.regions.taskbar.html#module-pages.regions.taskbar.center"><tt class="docutils literal"><span class="pre">center</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages.regions.taskbar.html#module-pages.regions.taskbar.custom"><tt class="docutils literal"><span class="pre">custom</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages.regions.taskbar.html#module-pages.regions.taskbar.history"><tt class="docutils literal"><span class="pre">history</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages.regions.taskbar.html#module-pages.regions.taskbar.power"><tt class="docutils literal"><span class="pre">power</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages.regions.taskbar.html#module-pages.regions.taskbar.report"><tt class="docutils literal"><span class="pre">report</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages.regions.taskbar.html#module-pages.regions.taskbar.taskbar"><tt class="docutils literal"><span class="pre">taskbar</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages.regions.taskbar.html#module-pages.regions.taskbar.view"><tt class="docutils literal"><span class="pre">view</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages.regions.taskbar.html#module-pages.regions.taskbar.vm_configuration"><tt class="docutils literal"><span class="pre">vm_configuration</span></tt> Module</a></li>
 </ul>
 </li>
 </ul>
@@ -136,23 +740,23 @@
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">regions Package</a><ul>
-<li><a class="reference internal" href="#accordion-module"><tt class="docutils literal"><span class="pre">accordion</span></tt> Module</a></li>
-<li><a class="reference internal" href="#accordionitem-module"><tt class="docutils literal"><span class="pre">accordionitem</span></tt> Module</a></li>
-<li><a class="reference internal" href="#checkboxtree-module"><tt class="docutils literal"><span class="pre">checkboxtree</span></tt> Module</a></li>
-<li><a class="reference internal" href="#details-module"><tt class="docutils literal"><span class="pre">details</span></tt> Module</a></li>
-<li><a class="reference internal" href="#header-menu-module"><tt class="docutils literal"><span class="pre">header_menu</span></tt> Module</a></li>
-<li><a class="reference internal" href="#paginator-module"><tt class="docutils literal"><span class="pre">paginator</span></tt> Module</a></li>
-<li><a class="reference internal" href="#quadiconitem-module"><tt class="docutils literal"><span class="pre">quadiconitem</span></tt> Module</a></li>
-<li><a class="reference internal" href="#quadicons-module"><tt class="docutils literal"><span class="pre">quadicons</span></tt> Module</a></li>
-<li><a class="reference internal" href="#search-module"><tt class="docutils literal"><span class="pre">search</span></tt> Module</a></li>
-<li><a class="reference internal" href="#settingstasks-module"><tt class="docutils literal"><span class="pre">settingstasks</span></tt> Module</a></li>
-<li><a class="reference internal" href="#settingstasksitem-module"><tt class="docutils literal"><span class="pre">settingstasksitem</span></tt> Module</a></li>
-<li><a class="reference internal" href="#tabbuttonitem-module"><tt class="docutils literal"><span class="pre">tabbuttonitem</span></tt> Module</a></li>
-<li><a class="reference internal" href="#tabbuttons-module"><tt class="docutils literal"><span class="pre">tabbuttons</span></tt> Module</a></li>
-<li><a class="reference internal" href="#taggable-module"><tt class="docutils literal"><span class="pre">taggable</span></tt> Module</a></li>
-<li><a class="reference internal" href="#tree-module"><tt class="docutils literal"><span class="pre">tree</span></tt> Module</a></li>
-<li><a class="reference internal" href="#treeaccordionitem-module"><tt class="docutils literal"><span class="pre">treeaccordionitem</span></tt> Module</a></li>
-<li><a class="reference internal" href="#twisty-module"><tt class="docutils literal"><span class="pre">twisty</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.regions.accordion"><tt class="docutils literal"><span class="pre">accordion</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.regions.accordionitem"><tt class="docutils literal"><span class="pre">accordionitem</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.regions.checkboxtree"><tt class="docutils literal"><span class="pre">checkboxtree</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.regions.details"><tt class="docutils literal"><span class="pre">details</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.regions.header_menu"><tt class="docutils literal"><span class="pre">header_menu</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.regions.paginator"><tt class="docutils literal"><span class="pre">paginator</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.regions.quadiconitem"><tt class="docutils literal"><span class="pre">quadiconitem</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.regions.quadicons"><tt class="docutils literal"><span class="pre">quadicons</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.regions.search"><tt class="docutils literal"><span class="pre">search</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.regions.settingstasks"><tt class="docutils literal"><span class="pre">settingstasks</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.regions.settingstasksitem"><tt class="docutils literal"><span class="pre">settingstasksitem</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.regions.tabbuttonitem"><tt class="docutils literal"><span class="pre">tabbuttonitem</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.regions.tabbuttons"><tt class="docutils literal"><span class="pre">tabbuttons</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.regions.taggable"><tt class="docutils literal"><span class="pre">taggable</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.regions.tree"><tt class="docutils literal"><span class="pre">tree</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.regions.treeaccordionitem"><tt class="docutils literal"><span class="pre">treeaccordionitem</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.regions.twisty"><tt class="docutils literal"><span class="pre">twisty</span></tt> Module</a></li>
 <li><a class="reference internal" href="#subpackages">Subpackages</a><ul>
 </ul>
 </li>
@@ -195,18 +799,21 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="pages.regions.taskbar.html" title="taskbar Package"
              >next</a> |</li>
         <li class="right" >
           <a href="pages.configuration_subpages.settings_subpages.server_settings_subpages.html" title="server_settings_subpages Package"
              >previous</a> |</li>
-        <li><a href="index.html">CloudForms Test Automation - cfme_pages beta documentation</a> &raquo;</li>
+        <li><a href="index.html">CloudForms Management Engine Page Objects library 0.1 documentation</a> &raquo;</li>
           <li><a href="pages.html" >pages Package</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2013, Brad Crochet.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
     </div>
   </body>
 </html>

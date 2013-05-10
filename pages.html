@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>pages Package &mdash; CloudForms Test Automation - cfme_pages beta documentation</title>
+    <title>pages Package &mdash; CloudForms Management Engine Page Objects library 0.1 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     'beta',
+        URL_ROOT:    './',
+        VERSION:     '0.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,9 +23,9 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="CloudForms Test Automation - cfme_pages beta documentation" href="index.html" />
+    <link rel="top" title="CloudForms Management Engine Page Objects library 0.1 documentation" href="index.html" />
     <link rel="next" title="configuration_subpages Package" href="pages.configuration_subpages.html" />
-    <link rel="prev" title="Welcome to CloudForms Test Automation - cfme_pages’s documentation!" href="index.html" /> 
+    <link rel="prev" title="Welcome to CloudForms Management Engine Page Objects library’s documentation!" href="index.html" /> 
   </head>
   <body>
     <div class="related">
@@ -37,12 +35,15 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="pages.configuration_subpages.html" title="configuration_subpages Package"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Welcome to CloudForms Test Automation - cfme_pages’s documentation!"
+          <a href="index.html" title="Welcome to CloudForms Management Engine Page Objects library’s documentation!"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">CloudForms Test Automation - cfme_pages beta documentation</a> &raquo;</li> 
+        <li><a href="index.html">CloudForms Management Engine Page Objects library 0.1 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -53,52 +54,1238 @@
             
   <div class="section" id="pages-package">
 <h1>pages Package<a class="headerlink" href="#pages-package" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="automate-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">automate</span></tt> Module<a class="headerlink" href="#automate-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.automate">
+<span id="automate-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">automate</span></tt> Module<a class="headerlink" href="#module-pages.automate" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pages.automate.Automate">
+<em class="property">class </em><tt class="descclassname">pages.automate.</tt><tt class="descname">Automate</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/automate.html#Automate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.automate.Automate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+<dl class="class">
+<dt id="pages.automate.Automate.Explorer">
+<em class="property">class </em><tt class="descname">Explorer</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/automate.html#Automate.Explorer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.automate.Automate.Explorer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+<dl class="attribute">
+<dt id="pages.automate.Automate.Explorer.accordion">
+<tt class="descname">accordion</tt><a class="reference internal" href="_modules/pages/automate.html#Automate.Explorer.accordion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.automate.Automate.Explorer.accordion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.automate.Automate.Explorer.add_namespace_button">
+<tt class="descname">add_namespace_button</tt><a class="reference internal" href="_modules/pages/automate.html#Automate.Explorer.add_namespace_button"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.automate.Automate.Explorer.add_namespace_button" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.automate.Automate.Explorer.click_on_add_new_namespace">
+<tt class="descname">click_on_add_new_namespace</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/automate.html#Automate.Explorer.click_on_add_new_namespace"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.automate.Automate.Explorer.click_on_add_new_namespace" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.automate.Automate.Explorer.configuration_button">
+<tt class="descname">configuration_button</tt><a class="reference internal" href="_modules/pages/automate.html#Automate.Explorer.configuration_button"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.automate.Automate.Explorer.configuration_button" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.automate.Automate.Explorer.fill_info">
+<tt class="descname">fill_info</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/automate.html#Automate.Explorer.fill_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.automate.Automate.Explorer.fill_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.automate.Automate.Explorer.return_flash_message">
+<tt class="descname">return_flash_message</tt><a class="reference internal" href="_modules/pages/automate.html#Automate.Explorer.return_flash_message"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.automate.Automate.Explorer.return_flash_message" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pages.automate.Automate.ImportExport">
+<em class="property">class </em><tt class="descclassname">Automate.</tt><tt class="descname">ImportExport</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/automate.html#Automate.ImportExport"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.automate.Automate.ImportExport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+<dl class="method">
+<dt id="pages.automate.Automate.ImportExport.click_on_commit">
+<tt class="descname">click_on_commit</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/automate.html#Automate.ImportExport.click_on_commit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.automate.Automate.ImportExport.click_on_commit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.automate.Automate.ImportExport.click_on_export">
+<tt class="descname">click_on_export</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/automate.html#Automate.ImportExport.click_on_export"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.automate.Automate.ImportExport.click_on_export" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.automate.Automate.ImportExport.click_on_reset">
+<tt class="descname">click_on_reset</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/automate.html#Automate.ImportExport.click_on_reset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.automate.Automate.ImportExport.click_on_reset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.automate.Automate.ImportExport.click_on_reset_and_wait">
+<tt class="descname">click_on_reset_and_wait</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/automate.html#Automate.ImportExport.click_on_reset_and_wait"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.automate.Automate.ImportExport.click_on_reset_and_wait" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.automate.Automate.ImportExport.click_on_upload">
+<tt class="descname">click_on_upload</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/automate.html#Automate.ImportExport.click_on_upload"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.automate.Automate.ImportExport.click_on_upload" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.automate.Automate.ImportExport.commit">
+<tt class="descname">commit</tt><a class="reference internal" href="_modules/pages/automate.html#Automate.ImportExport.commit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.automate.Automate.ImportExport.commit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.automate.Automate.ImportExport.export">
+<tt class="descname">export</tt><a class="reference internal" href="_modules/pages/automate.html#Automate.ImportExport.export"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.automate.Automate.ImportExport.export" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.automate.Automate.ImportExport.export_automate">
+<tt class="descname">export_automate</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/automate.html#Automate.ImportExport.export_automate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.automate.Automate.ImportExport.export_automate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.automate.Automate.ImportExport.import_automate">
+<tt class="descname">import_automate</tt><big>(</big><em>import_automate_file</em><big>)</big><a class="reference internal" href="_modules/pages/automate.html#Automate.ImportExport.import_automate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.automate.Automate.ImportExport.import_automate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.automate.Automate.ImportExport.reset">
+<tt class="descname">reset</tt><a class="reference internal" href="_modules/pages/automate.html#Automate.ImportExport.reset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.automate.Automate.ImportExport.reset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.automate.Automate.ImportExport.reset_automate">
+<tt class="descname">reset_automate</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/automate.html#Automate.ImportExport.reset_automate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.automate.Automate.ImportExport.reset_automate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.automate.Automate.ImportExport.upload">
+<tt class="descname">upload</tt><a class="reference internal" href="_modules/pages/automate.html#Automate.ImportExport.upload"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.automate.Automate.ImportExport.upload" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pages.automate.Automate.submenus">
+<tt class="descclassname">Automate.</tt><tt class="descname">submenus</tt><a class="reference internal" href="_modules/pages/automate.html#Automate.submenus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.automate.Automate.submenus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="base-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">base</span></tt> Module<a class="headerlink" href="#base-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.base">
+<span id="base-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">base</span></tt> Module<a class="headerlink" href="#module-pages.base" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pages.base.Base">
+<em class="property">class </em><tt class="descclassname">pages.base.</tt><tt class="descname">Base</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/base.html#Base"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.base.Base" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.page.Page" title="pages.page.Page"><tt class="xref py py-class docutils literal"><span class="pre">pages.page.Page</span></tt></a></p>
+<p>Base class for global project specific functions</p>
+<dl class="class">
+<dt id="pages.base.Base.FlashRegion">
+<em class="property">class </em><tt class="descname">FlashRegion</tt><big>(</big><em>setup</em><big>)</big><a class="reference internal" href="_modules/pages/base.html#Base.FlashRegion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.base.Base.FlashRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.page.Page" title="pages.page.Page"><tt class="xref py py-class docutils literal"><span class="pre">pages.page.Page</span></tt></a></p>
+<dl class="attribute">
+<dt id="pages.base.Base.FlashRegion.message">
+<tt class="descname">message</tt><a class="reference internal" href="_modules/pages/base.html#Base.FlashRegion.message"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.base.Base.FlashRegion.message" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pages.base.Base.HeaderRegion">
+<em class="property">class </em><tt class="descclassname">Base.</tt><tt class="descname">HeaderRegion</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/base.html#Base.HeaderRegion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.base.Base.HeaderRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.page.Page" title="pages.page.Page"><tt class="xref py py-class docutils literal"><span class="pre">pages.page.Page</span></tt></a></p>
+<dl class="attribute">
+<dt id="pages.base.Base.HeaderRegion.is_logged_in">
+<tt class="descname">is_logged_in</tt><a class="reference internal" href="_modules/pages/base.html#Base.HeaderRegion.is_logged_in"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.base.Base.HeaderRegion.is_logged_in" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.base.Base.HeaderRegion.is_logout_visible">
+<tt class="descname">is_logout_visible</tt><a class="reference internal" href="_modules/pages/base.html#Base.HeaderRegion.is_logout_visible"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.base.Base.HeaderRegion.is_logout_visible" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.base.Base.HeaderRegion.logout">
+<tt class="descname">logout</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/base.html#Base.HeaderRegion.logout"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.base.Base.HeaderRegion.logout" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.base.Base.HeaderRegion.site_navigation_menu">
+<tt class="descname">site_navigation_menu</tt><big>(</big><em>value</em><big>)</big><a class="reference internal" href="_modules/pages/base.html#Base.HeaderRegion.site_navigation_menu"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.base.Base.HeaderRegion.site_navigation_menu" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.base.Base.HeaderRegion.site_navigation_menus">
+<tt class="descname">site_navigation_menus</tt><a class="reference internal" href="_modules/pages/base.html#Base.HeaderRegion.site_navigation_menus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.base.Base.HeaderRegion.site_navigation_menus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pages.base.Base.current_subpage">
+<tt class="descclassname">Base.</tt><tt class="descname">current_subpage</tt><a class="reference internal" href="_modules/pages/base.html#Base.current_subpage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.base.Base.current_subpage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.base.Base.flash">
+<tt class="descclassname">Base.</tt><tt class="descname">flash</tt><a class="reference internal" href="_modules/pages/base.html#Base.flash"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.base.Base.flash" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.base.Base.go_to_login_page">
+<tt class="descclassname">Base.</tt><tt class="descname">go_to_login_page</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/base.html#Base.go_to_login_page"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.base.Base.go_to_login_page" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.base.Base.header">
+<tt class="descclassname">Base.</tt><tt class="descname">header</tt><a class="reference internal" href="_modules/pages/base.html#Base.header"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.base.Base.header" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.base.Base.is_logged_in">
+<tt class="descclassname">Base.</tt><tt class="descname">is_logged_in</tt><a class="reference internal" href="_modules/pages/base.html#Base.is_logged_in"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.base.Base.is_logged_in" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.base.Base.page_title">
+<tt class="descclassname">Base.</tt><tt class="descname">page_title</tt><a class="reference internal" href="_modules/pages/base.html#Base.page_title"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.base.Base.page_title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="configuration-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">configuration</span></tt> Module<a class="headerlink" href="#configuration-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.configuration">
+<span id="configuration-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">configuration</span></tt> Module<a class="headerlink" href="#module-pages.configuration" title="Permalink to this headline">¶</a></h2>
+<p>Created on Mar 5, 2013</p>
+<p>&#64;author: bcrochet</p>
+<dl class="class">
+<dt id="pages.configuration.Configuration">
+<em class="property">class </em><tt class="descclassname">pages.configuration.</tt><tt class="descname">Configuration</tt><big>(</big><em>setup</em><big>)</big><a class="reference internal" href="_modules/pages/configuration.html#Configuration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration.Configuration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+<dl class="class">
+<dt id="pages.configuration.Configuration.About">
+<em class="property">class </em><tt class="descname">About</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/configuration.html#Configuration.About"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration.Configuration.About" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pages.configuration.Configuration.Configuration">
+<em class="property">class </em><tt class="descclassname">Configuration.</tt><tt class="descname">Configuration</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/configuration.html#Configuration.Configuration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration.Configuration.Configuration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+<dl class="attribute">
+<dt id="pages.configuration.Configuration.Configuration.accordion">
+<tt class="descname">accordion</tt><a class="reference internal" href="_modules/pages/configuration.html#Configuration.Configuration.accordion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration.Configuration.Configuration.accordion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.configuration.Configuration.Configuration.click_on_access_control">
+<tt class="descname">click_on_access_control</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/configuration.html#Configuration.Configuration.click_on_access_control"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration.Configuration.Configuration.click_on_access_control" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.configuration.Configuration.Configuration.click_on_settings">
+<tt class="descname">click_on_settings</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/configuration.html#Configuration.Configuration.click_on_settings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration.Configuration.Configuration.click_on_settings" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.configuration.Configuration.Configuration.tabbutton_region">
+<tt class="descname">tabbutton_region</tt><a class="reference internal" href="_modules/pages/configuration.html#Configuration.Configuration.tabbutton_region"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration.Configuration.Configuration.tabbutton_region" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pages.configuration.Configuration.MySettings">
+<em class="property">class </em><tt class="descclassname">Configuration.</tt><tt class="descname">MySettings</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/configuration.html#Configuration.MySettings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration.Configuration.MySettings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+<dl class="attribute">
+<dt id="pages.configuration.Configuration.MySettings.tabbutton_region">
+<tt class="descname">tabbutton_region</tt><a class="reference internal" href="_modules/pages/configuration.html#Configuration.MySettings.tabbutton_region"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration.Configuration.MySettings.tabbutton_region" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pages.configuration.Configuration.SmartProxies">
+<em class="property">class </em><tt class="descclassname">Configuration.</tt><tt class="descname">SmartProxies</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/configuration.html#Configuration.SmartProxies"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration.Configuration.SmartProxies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pages.configuration.Configuration.Tasks">
+<em class="property">class </em><tt class="descclassname">Configuration.</tt><tt class="descname">Tasks</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/configuration.html#Configuration.Tasks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration.Configuration.Tasks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+<dl class="attribute">
+<dt id="pages.configuration.Configuration.Tasks.tabbutton_region">
+<tt class="descname">tabbutton_region</tt><a class="reference internal" href="_modules/pages/configuration.html#Configuration.Tasks.tabbutton_region"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration.Configuration.Tasks.tabbutton_region" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pages.configuration.Configuration.submenus">
+<tt class="descclassname">Configuration.</tt><tt class="descname">submenus</tt><a class="reference internal" href="_modules/pages/configuration.html#Configuration.submenus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration.Configuration.submenus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="control-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">control</span></tt> Module<a class="headerlink" href="#control-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.control">
+<span id="control-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">control</span></tt> Module<a class="headerlink" href="#module-pages.control" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pages.control.Control">
+<em class="property">class </em><tt class="descclassname">pages.control.</tt><tt class="descname">Control</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/control.html#Control"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.control.Control" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+<dl class="class">
+<dt id="pages.control.Control.Actions">
+<em class="property">class </em><tt class="descname">Actions</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/control.html#Control.Actions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.control.Control.Actions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">pages.control.Explorer</span></tt></p>
+<dl class="attribute">
+<dt id="pages.control.Control.Actions.actions">
+<tt class="descname">actions</tt><a class="reference internal" href="_modules/pages/control.html#Control.Actions.actions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.control.Control.Actions.actions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.control.Control.Actions.actions_list">
+<tt class="descname">actions_list</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/control.html#Control.Actions.actions_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.control.Control.Actions.actions_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.control.Control.Actions.add_action_button">
+<tt class="descname">add_action_button</tt><a class="reference internal" href="_modules/pages/control.html#Control.Actions.add_action_button"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.control.Control.Actions.add_action_button" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.control.Control.Actions.click_on_add_new">
+<tt class="descname">click_on_add_new</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/control.html#Control.Actions.click_on_add_new"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.control.Control.Actions.click_on_add_new" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.control.Control.Actions.configuration_button">
+<tt class="descname">configuration_button</tt><a class="reference internal" href="_modules/pages/control.html#Control.Actions.configuration_button"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.control.Control.Actions.configuration_button" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.control.Control.Actions.print_actions_list">
+<tt class="descname">print_actions_list</tt><a class="reference internal" href="_modules/pages/control.html#Control.Actions.print_actions_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.control.Control.Actions.print_actions_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.control.Control.Actions.root">
+<tt class="descname">root</tt><a class="reference internal" href="_modules/pages/control.html#Control.Actions.root"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.control.Control.Actions.root" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pages.control.Control.Events">
+<em class="property">class </em><tt class="descclassname">Control.</tt><tt class="descname">Events</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/control.html#Control.Events"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.control.Control.Events" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">pages.control.Explorer</span></tt></p>
+<dl class="attribute">
+<dt id="pages.control.Control.Events.events">
+<tt class="descname">events</tt><a class="reference internal" href="_modules/pages/control.html#Control.Events.events"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.control.Control.Events.events" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.control.Control.Events.events_list">
+<tt class="descname">events_list</tt><a class="reference internal" href="_modules/pages/control.html#Control.Events.events_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.control.Control.Events.events_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.control.Control.Events.print_events_list">
+<tt class="descname">print_events_list</tt><a class="reference internal" href="_modules/pages/control.html#Control.Events.print_events_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.control.Control.Events.print_events_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.control.Control.Events.root">
+<tt class="descname">root</tt><a class="reference internal" href="_modules/pages/control.html#Control.Events.root"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.control.Control.Events.root" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pages.control.Control.Explorer">
+<em class="property">class </em><tt class="descclassname">Control.</tt><tt class="descname">Explorer</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/control.html#Control.Explorer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.control.Control.Explorer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+<dl class="attribute">
+<dt id="pages.control.Control.Explorer.accordion">
+<tt class="descname">accordion</tt><a class="reference internal" href="_modules/pages/control.html#Control.Explorer.accordion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.control.Control.Explorer.accordion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.control.Control.Explorer.click_on_actions_accordion">
+<tt class="descname">click_on_actions_accordion</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/control.html#Control.Explorer.click_on_actions_accordion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.control.Control.Explorer.click_on_actions_accordion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.control.Control.Explorer.click_on_events_accordion">
+<tt class="descname">click_on_events_accordion</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/control.html#Control.Explorer.click_on_events_accordion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.control.Control.Explorer.click_on_events_accordion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pages.control.Control.ImportExport">
+<em class="property">class </em><tt class="descclassname">Control.</tt><tt class="descname">ImportExport</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/control.html#Control.ImportExport"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.control.Control.ImportExport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+<dl class="method">
+<dt id="pages.control.Control.ImportExport.click_on_commit">
+<tt class="descname">click_on_commit</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/control.html#Control.ImportExport.click_on_commit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.control.Control.ImportExport.click_on_commit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.control.Control.ImportExport.click_on_upload">
+<tt class="descname">click_on_upload</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/control.html#Control.ImportExport.click_on_upload"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.control.Control.ImportExport.click_on_upload" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.control.Control.ImportExport.commit">
+<tt class="descname">commit</tt><a class="reference internal" href="_modules/pages/control.html#Control.ImportExport.commit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.control.Control.ImportExport.commit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.control.Control.ImportExport.import_policies">
+<tt class="descname">import_policies</tt><big>(</big><em>import_policy_file</em><big>)</big><a class="reference internal" href="_modules/pages/control.html#Control.ImportExport.import_policies"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.control.Control.ImportExport.import_policies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.control.Control.ImportExport.upload">
+<tt class="descname">upload</tt><a class="reference internal" href="_modules/pages/control.html#Control.ImportExport.upload"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.control.Control.ImportExport.upload" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pages.control.Control.NewAction">
+<em class="property">class </em><tt class="descclassname">Control.</tt><tt class="descname">NewAction</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/control.html#Control.NewAction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.control.Control.NewAction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+<dl class="method">
+<dt id="pages.control.Control.NewAction.add_invalid_action">
+<tt class="descname">add_invalid_action</tt><big>(</big><em>description=None</em><big>)</big><a class="reference internal" href="_modules/pages/control.html#Control.NewAction.add_invalid_action"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.control.Control.NewAction.add_invalid_action" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.control.Control.NewAction.click_on_add">
+<tt class="descname">click_on_add</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/control.html#Control.NewAction.click_on_add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.control.Control.NewAction.click_on_add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pages.control.Control.submenus">
+<tt class="descclassname">Control.</tt><tt class="descname">submenus</tt><a class="reference internal" href="_modules/pages/control.html#Control.submenus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.control.Control.submenus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="dashboard-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">dashboard</span></tt> Module<a class="headerlink" href="#dashboard-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.dashboard">
+<span id="dashboard-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">dashboard</span></tt> Module<a class="headerlink" href="#module-pages.dashboard" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pages.dashboard.DashboardPage">
+<em class="property">class </em><tt class="descclassname">pages.dashboard.</tt><tt class="descname">DashboardPage</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/dashboard.html#DashboardPage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.dashboard.DashboardPage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+</dd></dl>
+
 </div>
-<div class="section" id="infrastructure-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">infrastructure</span></tt> Module<a class="headerlink" href="#infrastructure-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.infrastructure">
+<span id="infrastructure-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">infrastructure</span></tt> Module<a class="headerlink" href="#module-pages.infrastructure" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pages.infrastructure.Infrastructure">
+<em class="property">class </em><tt class="descclassname">pages.infrastructure.</tt><tt class="descname">Infrastructure</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+<dl class="class">
+<dt id="pages.infrastructure.Infrastructure.Hosts">
+<em class="property">class </em><tt class="descname">Hosts</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.Hosts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.Hosts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+<dl class="class">
+<dt id="pages.infrastructure.Infrastructure.Hosts.HostQuadIconItem">
+<em class="property">class </em><tt class="descname">HostQuadIconItem</tt><big>(</big><em>testsetup</em>, <em>quadicon_list_element</em><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.Hosts.HostQuadIconItem"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.Hosts.HostQuadIconItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pages.regions.html#pages.regions.quadiconitem.QuadiconItem" title="pages.regions.quadiconitem.QuadiconItem"><tt class="xref py py-class docutils literal"><span class="pre">pages.regions.quadiconitem.QuadiconItem</span></tt></a></p>
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.Hosts.HostQuadIconItem.current_state">
+<tt class="descname">current_state</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.Hosts.HostQuadIconItem.current_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.Hosts.HostQuadIconItem.current_state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.Hosts.HostQuadIconItem.valid_credentials">
+<tt class="descname">valid_credentials</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.Hosts.HostQuadIconItem.valid_credentials"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.Hosts.HostQuadIconItem.valid_credentials" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.Hosts.HostQuadIconItem.vendor">
+<tt class="descname">vendor</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.Hosts.HostQuadIconItem.vendor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.Hosts.HostQuadIconItem.vendor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.Hosts.HostQuadIconItem.vm_count">
+<tt class="descname">vm_count</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.Hosts.HostQuadIconItem.vm_count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.Hosts.HostQuadIconItem.vm_count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.Hosts.accordion_region">
+<tt class="descclassname">Infrastructure.Hosts.</tt><tt class="descname">accordion_region</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.Hosts.accordion_region"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.Hosts.accordion_region" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.Hosts.quadicon_region">
+<tt class="descclassname">Infrastructure.Hosts.</tt><tt class="descname">quadicon_region</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.Hosts.quadicon_region"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.Hosts.quadicon_region" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.Hosts.taskbar">
+<tt class="descclassname">Infrastructure.Hosts.</tt><tt class="descname">taskbar</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.Hosts.taskbar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.Hosts.taskbar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystems">
+<em class="property">class </em><tt class="descclassname">Infrastructure.</tt><tt class="descname">ManagementSystems</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystems"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystems" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a>, <a class="reference internal" href="pages.regions.html#pages.regions.paginator.PaginatorMixin" title="pages.regions.paginator.PaginatorMixin"><tt class="xref py py-class docutils literal"><span class="pre">pages.regions.paginator.PaginatorMixin</span></tt></a></p>
+<dl class="class">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystems.ManagementSystemsQuadIconItem">
+<em class="property">class </em><tt class="descname">ManagementSystemsQuadIconItem</tt><big>(</big><em>testsetup</em>, <em>quadicon_list_element</em><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystems.ManagementSystemsQuadIconItem"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystems.ManagementSystemsQuadIconItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pages.regions.html#pages.regions.quadiconitem.QuadiconItem" title="pages.regions.quadiconitem.QuadiconItem"><tt class="xref py py-class docutils literal"><span class="pre">pages.regions.quadiconitem.QuadiconItem</span></tt></a></p>
+<dl class="method">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystems.ManagementSystemsQuadIconItem.click">
+<tt class="descname">click</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystems.ManagementSystemsQuadIconItem.click"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystems.ManagementSystemsQuadIconItem.click" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystems.ManagementSystemsQuadIconItem.hypervisor_count">
+<tt class="descname">hypervisor_count</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystems.ManagementSystemsQuadIconItem.hypervisor_count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystems.ManagementSystemsQuadIconItem.hypervisor_count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystems.ManagementSystemsQuadIconItem.valid_credentials">
+<tt class="descname">valid_credentials</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystems.ManagementSystemsQuadIconItem.valid_credentials"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystems.ManagementSystemsQuadIconItem.valid_credentials" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystems.ManagementSystemsQuadIconItem.vendor">
+<tt class="descname">vendor</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystems.ManagementSystemsQuadIconItem.vendor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystems.ManagementSystemsQuadIconItem.vendor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystems.add_button">
+<tt class="descclassname">Infrastructure.ManagementSystems.</tt><tt class="descname">add_button</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystems.add_button"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystems.add_button" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystems.center_buttons">
+<tt class="descclassname">Infrastructure.ManagementSystems.</tt><tt class="descname">center_buttons</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystems.center_buttons"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystems.center_buttons" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystems.click_on_add_new_management_system">
+<tt class="descclassname">Infrastructure.ManagementSystems.</tt><tt class="descname">click_on_add_new_management_system</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystems.click_on_add_new_management_system"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystems.click_on_add_new_management_system" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystems.click_on_discover_management_systems">
+<tt class="descclassname">Infrastructure.ManagementSystems.</tt><tt class="descname">click_on_discover_management_systems</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystems.click_on_discover_management_systems"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystems.click_on_discover_management_systems" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystems.click_on_edit_management_systems">
+<tt class="descclassname">Infrastructure.ManagementSystems.</tt><tt class="descname">click_on_edit_management_systems</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystems.click_on_edit_management_systems"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystems.click_on_edit_management_systems" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystems.click_on_remove_management_system">
+<tt class="descclassname">Infrastructure.ManagementSystems.</tt><tt class="descname">click_on_remove_management_system</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystems.click_on_remove_management_system"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystems.click_on_remove_management_system" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystems.click_on_remove_management_system_and_cancel">
+<tt class="descclassname">Infrastructure.ManagementSystems.</tt><tt class="descname">click_on_remove_management_system_and_cancel</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystems.click_on_remove_management_system_and_cancel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystems.click_on_remove_management_system_and_cancel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystems.configuration_button">
+<tt class="descclassname">Infrastructure.ManagementSystems.</tt><tt class="descname">configuration_button</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystems.configuration_button"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystems.configuration_button" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystems.discover_button">
+<tt class="descclassname">Infrastructure.ManagementSystems.</tt><tt class="descname">discover_button</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystems.discover_button"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystems.discover_button" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystems.edit_button">
+<tt class="descclassname">Infrastructure.ManagementSystems.</tt><tt class="descname">edit_button</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystems.edit_button"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystems.edit_button" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystems.quadicon_region">
+<tt class="descclassname">Infrastructure.ManagementSystems.</tt><tt class="descname">quadicon_region</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystems.quadicon_region"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystems.quadicon_region" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystems.remove_button">
+<tt class="descclassname">Infrastructure.ManagementSystems.</tt><tt class="descname">remove_button</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystems.remove_button"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystems.remove_button" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystems.select_management_system">
+<tt class="descclassname">Infrastructure.ManagementSystems.</tt><tt class="descname">select_management_system</tt><big>(</big><em>management_system_name</em><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystems.select_management_system"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystems.select_management_system" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystems.taskbar">
+<tt class="descclassname">Infrastructure.ManagementSystems.</tt><tt class="descname">taskbar</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystems.taskbar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystems.taskbar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsAdd">
+<em class="property">class </em><tt class="descclassname">Infrastructure.</tt><tt class="descname">ManagementSystemsAdd</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsAdd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsAdd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsAdd.add_button">
+<tt class="descname">add_button</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsAdd.add_button"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsAdd.add_button" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsAdd.click_on_add">
+<tt class="descname">click_on_add</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsAdd.click_on_add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsAdd.click_on_add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsAdd.click_on_credentials_verify">
+<tt class="descname">click_on_credentials_verify</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsAdd.click_on_credentials_verify"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsAdd.click_on_credentials_verify" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsAdd.hostname_input">
+<tt class="descname">hostname_input</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsAdd.hostname_input"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsAdd.hostname_input" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsAdd.ipaddress_input">
+<tt class="descname">ipaddress_input</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsAdd.ipaddress_input"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsAdd.ipaddress_input" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsAdd.name_input">
+<tt class="descname">name_input</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsAdd.name_input"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsAdd.name_input" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsAdd.new_management_system_fill_data">
+<tt class="descname">new_management_system_fill_data</tt><big>(</big><em>name='test_name'</em>, <em>hostname='test_hostname'</em>, <em>ip_address='127.0.0.1'</em>, <em>user_id='test_user'</em>, <em>password='test_password'</em><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsAdd.new_management_system_fill_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsAdd.new_management_system_fill_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsAdd.password_input">
+<tt class="descname">password_input</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsAdd.password_input"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsAdd.password_input" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsAdd.password_verify_input">
+<tt class="descname">password_verify_input</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsAdd.password_verify_input"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsAdd.password_verify_input" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsAdd.select_management_system_type">
+<tt class="descname">select_management_system_type</tt><big>(</big><em>management_system_type</em><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsAdd.select_management_system_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsAdd.select_management_system_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsAdd.userid_input">
+<tt class="descname">userid_input</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsAdd.userid_input"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsAdd.userid_input" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsAdd.verify_button">
+<tt class="descname">verify_button</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsAdd.verify_button"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsAdd.verify_button" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsDetail">
+<em class="property">class </em><tt class="descclassname">Infrastructure.</tt><tt class="descname">ManagementSystemsDetail</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsDetail"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsDetail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsDetail.credentials_validity">
+<tt class="descname">credentials_validity</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsDetail.credentials_validity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsDetail.credentials_validity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsDetail.details">
+<tt class="descname">details</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsDetail.details"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsDetail.details" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsDetail.hostname">
+<tt class="descname">hostname</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsDetail.hostname"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsDetail.hostname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsDetail.name">
+<tt class="descname">name</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsDetail.name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsDetail.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsDetail.vnc_port_range">
+<tt class="descname">vnc_port_range</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsDetail.vnc_port_range"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsDetail.vnc_port_range" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsDetail.zone">
+<tt class="descname">zone</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsDetail.zone"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsDetail.zone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsDiscovery">
+<em class="property">class </em><tt class="descclassname">Infrastructure.</tt><tt class="descname">ManagementSystemsDiscovery</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsDiscovery"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsDiscovery" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+<dl class="method">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsDiscovery.click_on_cancel">
+<tt class="descname">click_on_cancel</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsDiscovery.click_on_cancel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsDiscovery.click_on_cancel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsDiscovery.click_on_start">
+<tt class="descname">click_on_start</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsDiscovery.click_on_start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsDiscovery.click_on_start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsDiscovery.discover_systems">
+<tt class="descname">discover_systems</tt><big>(</big><em>management_system_type</em>, <em>from_address</em>, <em>to_address</em><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsDiscovery.discover_systems"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsDiscovery.discover_systems" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsDiscovery.is_selected">
+<tt class="descname">is_selected</tt><big>(</big><em>checkbox_locator</em><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsDiscovery.is_selected"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsDiscovery.is_selected" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsDiscovery.mark_checkbox">
+<tt class="descname">mark_checkbox</tt><big>(</big><em>checkbox_locator</em><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsDiscovery.mark_checkbox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsDiscovery.mark_checkbox" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsDiscovery.toggle_checkbox">
+<tt class="descname">toggle_checkbox</tt><big>(</big><em>checkbox_locator</em><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsDiscovery.toggle_checkbox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsDiscovery.toggle_checkbox" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsDiscovery.unmark_checkbox">
+<tt class="descname">unmark_checkbox</tt><big>(</big><em>checkbox_locator</em><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsDiscovery.unmark_checkbox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsDiscovery.unmark_checkbox" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsEdit">
+<em class="property">class </em><tt class="descclassname">Infrastructure.</tt><tt class="descname">ManagementSystemsEdit</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsEdit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsEdit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+<dl class="method">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsEdit.click_on_cancel">
+<tt class="descname">click_on_cancel</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsEdit.click_on_cancel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsEdit.click_on_cancel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsEdit.click_on_save">
+<tt class="descname">click_on_save</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsEdit.click_on_save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsEdit.click_on_save" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsEdit.default_password">
+<tt class="descname">default_password</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsEdit.default_password"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsEdit.default_password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsEdit.default_userid">
+<tt class="descname">default_userid</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsEdit.default_userid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsEdit.default_userid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsEdit.default_verify">
+<tt class="descname">default_verify</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsEdit.default_verify"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsEdit.default_verify" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsEdit.edit_management_system">
+<tt class="descname">edit_management_system</tt><big>(</big><em>management_system</em><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsEdit.edit_management_system"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsEdit.edit_management_system" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsEdit.host_default_vnc_port_end">
+<tt class="descname">host_default_vnc_port_end</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsEdit.host_default_vnc_port_end"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsEdit.host_default_vnc_port_end" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsEdit.host_default_vnc_port_start">
+<tt class="descname">host_default_vnc_port_start</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsEdit.host_default_vnc_port_start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsEdit.host_default_vnc_port_start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsEdit.hostname">
+<tt class="descname">hostname</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsEdit.hostname"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsEdit.hostname" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsEdit.ipaddress">
+<tt class="descname">ipaddress</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsEdit.ipaddress"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsEdit.ipaddress" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsEdit.name">
+<tt class="descname">name</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsEdit.name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsEdit.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.ManagementSystemsEdit.server_zone">
+<tt class="descname">server_zone</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.ManagementSystemsEdit.server_zone"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.ManagementSystemsEdit.server_zone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pages.infrastructure.Infrastructure.PXE">
+<em class="property">class </em><tt class="descclassname">Infrastructure.</tt><tt class="descname">PXE</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.PXE"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.PXE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.PXE.accordion_region">
+<tt class="descname">accordion_region</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.PXE.accordion_region"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.PXE.accordion_region" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.PXE.center_buttons">
+<tt class="descname">center_buttons</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.PXE.center_buttons"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.PXE.center_buttons" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.infrastructure.Infrastructure.PXE.click_on_add">
+<tt class="descname">click_on_add</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.PXE.click_on_add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.PXE.click_on_add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.infrastructure.Infrastructure.PXE.click_on_add_pxe_server">
+<tt class="descname">click_on_add_pxe_server</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.PXE.click_on_add_pxe_server"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.PXE.click_on_add_pxe_server" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.infrastructure.Infrastructure.PXE.click_on_copy_template">
+<tt class="descname">click_on_copy_template</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.PXE.click_on_copy_template"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.PXE.click_on_copy_template" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.infrastructure.Infrastructure.PXE.click_on_refresh">
+<tt class="descname">click_on_refresh</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.PXE.click_on_refresh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.PXE.click_on_refresh" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.PXE.history_buttons">
+<tt class="descname">history_buttons</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.PXE.history_buttons"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.PXE.history_buttons" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.infrastructure.Infrastructure.PXE.new_pxe_server_fill_data">
+<tt class="descname">new_pxe_server_fill_data</tt><big>(</big><em>name='pxe_server'</em>, <em>uri='127.0.0.1/var/www/html/pub/miq/ipxe/'</em>, <em>access_url='http://127.0.0.1/ipxe'</em>, <em>pxe_dir='pxe'</em>, <em>windows_img_dir='sources/microsoft'</em>, <em>customization_dir='customization'</em>, <em>pxe_img_menus_filename='menu.php'</em><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.PXE.new_pxe_server_fill_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.PXE.new_pxe_server_fill_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.infrastructure.Infrastructure.PXE.pxe_image_names">
+<tt class="descname">pxe_image_names</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.PXE.pxe_image_names"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.PXE.pxe_image_names" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.infrastructure.Infrastructure.PXE.rename_template">
+<tt class="descname">rename_template</tt><big>(</big><em>name</em><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.PXE.rename_template"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.PXE.rename_template" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.infrastructure.Infrastructure.PXE.select_depot_type">
+<tt class="descname">select_depot_type</tt><big>(</big><em>depot_type</em><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.PXE.select_depot_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.PXE.select_depot_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.infrastructure.Infrastructure.PXE.select_image_type">
+<tt class="descname">select_image_type</tt><big>(</big><em>image_type</em><big>)</big><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.PXE.select_image_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.PXE.select_image_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pages.infrastructure.Infrastructure.submenus">
+<tt class="descclassname">Infrastructure.</tt><tt class="descname">submenus</tt><a class="reference internal" href="_modules/pages/infrastructure.html#Infrastructure.submenus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.infrastructure.Infrastructure.submenus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="login-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">login</span></tt> Module<a class="headerlink" href="#login-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.login">
+<span id="login-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">login</span></tt> Module<a class="headerlink" href="#module-pages.login" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pages.login.LoginPage">
+<em class="property">class </em><tt class="descclassname">pages.login.</tt><tt class="descname">LoginPage</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/login.html#LoginPage"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.login.LoginPage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+<dl class="attribute">
+<dt id="pages.login.LoginPage.is_the_current_page">
+<tt class="descname">is_the_current_page</tt><a class="reference internal" href="_modules/pages/login.html#LoginPage.is_the_current_page"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.login.LoginPage.is_the_current_page" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override the base implementation to make sure that we are actually on the login screen
+and not the actual dashboard</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pages.login.LoginPage.login">
+<tt class="descname">login</tt><big>(</big><em>user='default'</em><big>)</big><a class="reference internal" href="_modules/pages/login.html#LoginPage.login"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.login.LoginPage.login" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.login.LoginPage.login_button">
+<tt class="descname">login_button</tt><a class="reference internal" href="_modules/pages/login.html#LoginPage.login_button"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.login.LoginPage.login_button" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.login.LoginPage.login_with_enter_key">
+<tt class="descname">login_with_enter_key</tt><big>(</big><em>user='default'</em><big>)</big><a class="reference internal" href="_modules/pages/login.html#LoginPage.login_with_enter_key"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.login.LoginPage.login_with_enter_key" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.login.LoginPage.login_with_mouse_click">
+<tt class="descname">login_with_mouse_click</tt><big>(</big><em>user='default'</em><big>)</big><a class="reference internal" href="_modules/pages/login.html#LoginPage.login_with_mouse_click"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.login.LoginPage.login_with_mouse_click" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.login.LoginPage.password">
+<tt class="descname">password</tt><a class="reference internal" href="_modules/pages/login.html#LoginPage.password"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.login.LoginPage.password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.login.LoginPage.username">
+<tt class="descname">username</tt><a class="reference internal" href="_modules/pages/login.html#LoginPage.username"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.login.LoginPage.username" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="page-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">page</span></tt> Module<a class="headerlink" href="#page-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.page">
+<span id="page-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">page</span></tt> Module<a class="headerlink" href="#module-pages.page" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pages.page.Page">
+<em class="property">class </em><tt class="descclassname">pages.page.</tt><tt class="descname">Page</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/page.html#Page"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.page.Page" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">object</span></tt></p>
+<p>Base class for all Pages</p>
+<dl class="method">
+<dt id="pages.page.Page.get_element">
+<tt class="descname">get_element</tt><big>(</big><em>*element</em><big>)</big><a class="reference internal" href="_modules/pages/page.html#Page.get_element"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.page.Page.get_element" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.page.Page.get_url_current_page">
+<tt class="descname">get_url_current_page</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/page.html#Page.get_url_current_page"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.page.Page.get_url_current_page" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.page.Page.handle_popup">
+<tt class="descname">handle_popup</tt><big>(</big><em>cancel=False</em><big>)</big><a class="reference internal" href="_modules/pages/page.html#Page.handle_popup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.page.Page.handle_popup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.page.Page.is_element_present">
+<tt class="descname">is_element_present</tt><big>(</big><em>*locator</em><big>)</big><a class="reference internal" href="_modules/pages/page.html#Page.is_element_present"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.page.Page.is_element_present" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.page.Page.is_element_visible">
+<tt class="descname">is_element_visible</tt><big>(</big><em>*locator</em><big>)</big><a class="reference internal" href="_modules/pages/page.html#Page.is_element_visible"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.page.Page.is_element_visible" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.page.Page.is_the_current_page">
+<tt class="descname">is_the_current_page</tt><a class="reference internal" href="_modules/pages/page.html#Page.is_the_current_page"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.page.Page.is_the_current_page" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.page.Page.return_to_previous_page">
+<tt class="descname">return_to_previous_page</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/page.html#Page.return_to_previous_page"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.page.Page.return_to_previous_page" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.page.Page.select_dropdown">
+<tt class="descname">select_dropdown</tt><big>(</big><em>value</em>, <em>*element</em><big>)</big><a class="reference internal" href="_modules/pages/page.html#Page.select_dropdown"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.page.Page.select_dropdown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="services-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">services</span></tt> Module<a class="headerlink" href="#services-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.services">
+<span id="services-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">services</span></tt> Module<a class="headerlink" href="#module-pages.services" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pages.services.Services">
+<em class="property">class </em><tt class="descclassname">pages.services.</tt><tt class="descname">Services</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/services.html#Services"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+<dl class="class">
+<dt id="pages.services.Services.VirtualMachineDetails">
+<em class="property">class </em><tt class="descname">VirtualMachineDetails</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/services.html#Services.VirtualMachineDetails"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.VirtualMachineDetails" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">pages.services.VmCommonComponents</span></tt></p>
+<dl class="attribute">
+<dt id="pages.services.Services.VirtualMachineDetails.details">
+<tt class="descname">details</tt><a class="reference internal" href="_modules/pages/services.html#Services.VirtualMachineDetails.details"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.VirtualMachineDetails.details" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.services.Services.VirtualMachineDetails.last_boot_time">
+<tt class="descname">last_boot_time</tt><a class="reference internal" href="_modules/pages/services.html#Services.VirtualMachineDetails.last_boot_time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.VirtualMachineDetails.last_boot_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.services.Services.VirtualMachineDetails.last_pwr_state_change">
+<tt class="descname">last_pwr_state_change</tt><a class="reference internal" href="_modules/pages/services.html#Services.VirtualMachineDetails.last_pwr_state_change"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.VirtualMachineDetails.last_pwr_state_change" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.services.Services.VirtualMachineDetails.power_state">
+<tt class="descname">power_state</tt><a class="reference internal" href="_modules/pages/services.html#Services.VirtualMachineDetails.power_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.VirtualMachineDetails.power_state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.services.Services.VirtualMachineDetails.wait_for_vm_state_change">
+<tt class="descname">wait_for_vm_state_change</tt><big>(</big><em>desired_state</em>, <em>timeout_in_minutes</em><big>)</big><a class="reference internal" href="_modules/pages/services.html#Services.VirtualMachineDetails.wait_for_vm_state_change"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.VirtualMachineDetails.wait_for_vm_state_change" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pages.services.Services.VirtualMachines">
+<em class="property">class </em><tt class="descclassname">Services.</tt><tt class="descname">VirtualMachines</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/services.html#Services.VirtualMachines"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.VirtualMachines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">pages.services.VmCommonComponents</span></tt></p>
+<dl class="class">
+<dt id="pages.services.Services.VirtualMachines.VirtualMachineQuadIconItem">
+<em class="property">class </em><tt class="descname">VirtualMachineQuadIconItem</tt><big>(</big><em>testsetup</em>, <em>quadicon_list_element</em><big>)</big><a class="reference internal" href="_modules/pages/services.html#Services.VirtualMachines.VirtualMachineQuadIconItem"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.VirtualMachines.VirtualMachineQuadIconItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pages.regions.html#pages.regions.quadiconitem.QuadiconItem" title="pages.regions.quadiconitem.QuadiconItem"><tt class="xref py py-class docutils literal"><span class="pre">pages.regions.quadiconitem.QuadiconItem</span></tt></a></p>
+<dl class="method">
+<dt id="pages.services.Services.VirtualMachines.VirtualMachineQuadIconItem.click">
+<tt class="descname">click</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/services.html#Services.VirtualMachines.VirtualMachineQuadIconItem.click"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.VirtualMachines.VirtualMachineQuadIconItem.click" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.services.Services.VirtualMachines.VirtualMachineQuadIconItem.current_state">
+<tt class="descname">current_state</tt><a class="reference internal" href="_modules/pages/services.html#Services.VirtualMachines.VirtualMachineQuadIconItem.current_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.VirtualMachines.VirtualMachineQuadIconItem.current_state" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.services.Services.VirtualMachines.VirtualMachineQuadIconItem.os">
+<tt class="descname">os</tt><a class="reference internal" href="_modules/pages/services.html#Services.VirtualMachines.VirtualMachineQuadIconItem.os"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.VirtualMachines.VirtualMachineQuadIconItem.os" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.services.Services.VirtualMachines.VirtualMachineQuadIconItem.snapshots">
+<tt class="descname">snapshots</tt><a class="reference internal" href="_modules/pages/services.html#Services.VirtualMachines.VirtualMachineQuadIconItem.snapshots"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.VirtualMachines.VirtualMachineQuadIconItem.snapshots" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.services.Services.VirtualMachines.VirtualMachineQuadIconItem.vendor">
+<tt class="descname">vendor</tt><a class="reference internal" href="_modules/pages/services.html#Services.VirtualMachines.VirtualMachineQuadIconItem.vendor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.VirtualMachines.VirtualMachineQuadIconItem.vendor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="pages.services.Services.VirtualMachines.extract_running_processes">
+<tt class="descclassname">Services.VirtualMachines.</tt><tt class="descname">extract_running_processes</tt><big>(</big><em>vm_names</em>, <em>click_cancel</em><big>)</big><a class="reference internal" href="_modules/pages/services.html#Services.VirtualMachines.extract_running_processes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.VirtualMachines.extract_running_processes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.services.Services.VirtualMachines.find_vm_page">
+<tt class="descclassname">Services.VirtualMachines.</tt><tt class="descname">find_vm_page</tt><big>(</big><em>vm_name</em>, <em>vm_type</em>, <em>mark_checkbox</em>, <em>load_details=False</em><big>)</big><a class="reference internal" href="_modules/pages/services.html#Services.VirtualMachines.find_vm_page"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.VirtualMachines.find_vm_page" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.services.Services.VirtualMachines.power_off">
+<tt class="descclassname">Services.VirtualMachines.</tt><tt class="descname">power_off</tt><big>(</big><em>vm_names</em>, <em>click_cancel</em><big>)</big><a class="reference internal" href="_modules/pages/services.html#Services.VirtualMachines.power_off"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.VirtualMachines.power_off" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.services.Services.VirtualMachines.power_on">
+<tt class="descclassname">Services.VirtualMachines.</tt><tt class="descname">power_on</tt><big>(</big><em>vm_names</em>, <em>click_cancel</em><big>)</big><a class="reference internal" href="_modules/pages/services.html#Services.VirtualMachines.power_on"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.VirtualMachines.power_on" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.services.Services.VirtualMachines.quadicon_region">
+<tt class="descclassname">Services.VirtualMachines.</tt><tt class="descname">quadicon_region</tt><a class="reference internal" href="_modules/pages/services.html#Services.VirtualMachines.quadicon_region"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.VirtualMachines.quadicon_region" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.services.Services.VirtualMachines.refresh_relationships">
+<tt class="descclassname">Services.VirtualMachines.</tt><tt class="descname">refresh_relationships</tt><big>(</big><em>vm_names</em>, <em>click_cancel</em><big>)</big><a class="reference internal" href="_modules/pages/services.html#Services.VirtualMachines.refresh_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.VirtualMachines.refresh_relationships" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.services.Services.VirtualMachines.remove_from_vmdb">
+<tt class="descclassname">Services.VirtualMachines.</tt><tt class="descname">remove_from_vmdb</tt><big>(</big><em>vm_names</em>, <em>click_cancel</em><big>)</big><a class="reference internal" href="_modules/pages/services.html#Services.VirtualMachines.remove_from_vmdb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.VirtualMachines.remove_from_vmdb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.services.Services.VirtualMachines.reset">
+<tt class="descclassname">Services.VirtualMachines.</tt><tt class="descname">reset</tt><big>(</big><em>vm_names</em>, <em>click_cancel</em><big>)</big><a class="reference internal" href="_modules/pages/services.html#Services.VirtualMachines.reset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.VirtualMachines.reset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.services.Services.VirtualMachines.restart">
+<tt class="descclassname">Services.VirtualMachines.</tt><tt class="descname">restart</tt><big>(</big><em>vm_names</em>, <em>click_cancel</em><big>)</big><a class="reference internal" href="_modules/pages/services.html#Services.VirtualMachines.restart"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.VirtualMachines.restart" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.services.Services.VirtualMachines.search">
+<tt class="descclassname">Services.VirtualMachines.</tt><tt class="descname">search</tt><a class="reference internal" href="_modules/pages/services.html#Services.VirtualMachines.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.VirtualMachines.search" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.services.Services.VirtualMachines.shutdown">
+<tt class="descclassname">Services.VirtualMachines.</tt><tt class="descname">shutdown</tt><big>(</big><em>vm_names</em>, <em>click_cancel</em><big>)</big><a class="reference internal" href="_modules/pages/services.html#Services.VirtualMachines.shutdown"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.VirtualMachines.shutdown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.services.Services.VirtualMachines.smart_state_scan">
+<tt class="descclassname">Services.VirtualMachines.</tt><tt class="descname">smart_state_scan</tt><big>(</big><em>vm_names</em>, <em>click_cancel</em><big>)</big><a class="reference internal" href="_modules/pages/services.html#Services.VirtualMachines.smart_state_scan"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.VirtualMachines.smart_state_scan" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.services.Services.VirtualMachines.suspend">
+<tt class="descclassname">Services.VirtualMachines.</tt><tt class="descname">suspend</tt><big>(</big><em>vm_names</em>, <em>click_cancel</em><big>)</big><a class="reference internal" href="_modules/pages/services.html#Services.VirtualMachines.suspend"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.VirtualMachines.suspend" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.services.Services.VirtualMachines.wait_for_vm_state_change">
+<tt class="descclassname">Services.VirtualMachines.</tt><tt class="descname">wait_for_vm_state_change</tt><big>(</big><em>vm_quadicon_title</em>, <em>desired_state</em>, <em>timeout_in_minutes</em><big>)</big><a class="reference internal" href="_modules/pages/services.html#Services.VirtualMachines.wait_for_vm_state_change"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.VirtualMachines.wait_for_vm_state_change" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pages.services.Services.VmCommonComponents">
+<em class="property">class </em><tt class="descclassname">Services.</tt><tt class="descname">VmCommonComponents</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/services.html#Services.VmCommonComponents"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.VmCommonComponents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a>, <a class="reference internal" href="pages.regions.html#pages.regions.paginator.PaginatorMixin" title="pages.regions.paginator.PaginatorMixin"><tt class="xref py py-class docutils literal"><span class="pre">pages.regions.paginator.PaginatorMixin</span></tt></a></p>
+<dl class="attribute">
+<dt id="pages.services.Services.VmCommonComponents.accordion">
+<tt class="descname">accordion</tt><a class="reference internal" href="_modules/pages/services.html#Services.VmCommonComponents.accordion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.VmCommonComponents.accordion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.services.Services.VmCommonComponents.config_button">
+<tt class="descname">config_button</tt><a class="reference internal" href="_modules/pages/services.html#Services.VmCommonComponents.config_button"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.VmCommonComponents.config_button" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.services.Services.VmCommonComponents.history_buttons">
+<tt class="descname">history_buttons</tt><a class="reference internal" href="_modules/pages/services.html#Services.VmCommonComponents.history_buttons"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.VmCommonComponents.history_buttons" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.services.Services.VmCommonComponents.power_button">
+<tt class="descname">power_button</tt><a class="reference internal" href="_modules/pages/services.html#Services.VmCommonComponents.power_button"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.VmCommonComponents.power_button" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.services.Services.VmCommonComponents.refresh">
+<tt class="descname">refresh</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/services.html#Services.VmCommonComponents.refresh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.VmCommonComponents.refresh" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.services.Services.VmCommonComponents.view_buttons">
+<tt class="descname">view_buttons</tt><a class="reference internal" href="_modules/pages/services.html#Services.VmCommonComponents.view_buttons"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.VmCommonComponents.view_buttons" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pages.services.Services.is_the_current_page">
+<tt class="descclassname">Services.</tt><tt class="descname">is_the_current_page</tt><a class="reference internal" href="_modules/pages/services.html#Services.is_the_current_page"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.is_the_current_page" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override for top-level menu class</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pages.services.Services.submenus">
+<tt class="descclassname">Services.</tt><tt class="descname">submenus</tt><a class="reference internal" href="_modules/pages/services.html#Services.submenus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.services.Services.submenus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="virtual-intelligence-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">virtual_intelligence</span></tt> Module<a class="headerlink" href="#virtual-intelligence-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.virtual_intelligence">
+<span id="virtual-intelligence-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">virtual_intelligence</span></tt> Module<a class="headerlink" href="#module-pages.virtual_intelligence" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pages.virtual_intelligence.VirtualIntelligence">
+<em class="property">class </em><tt class="descclassname">pages.virtual_intelligence.</tt><tt class="descname">VirtualIntelligence</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/virtual_intelligence.html#VirtualIntelligence"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.virtual_intelligence.VirtualIntelligence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+<dl class="class">
+<dt id="pages.virtual_intelligence.VirtualIntelligence.ImportExport">
+<em class="property">class </em><tt class="descname">ImportExport</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/virtual_intelligence.html#VirtualIntelligence.ImportExport"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.virtual_intelligence.VirtualIntelligence.ImportExport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">pages.virtual_intelligence.Reports</span></tt></p>
+<dl class="method">
+<dt id="pages.virtual_intelligence.VirtualIntelligence.ImportExport.check_overwrite_box">
+<tt class="descname">check_overwrite_box</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/virtual_intelligence.html#VirtualIntelligence.ImportExport.check_overwrite_box"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.virtual_intelligence.VirtualIntelligence.ImportExport.check_overwrite_box" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.virtual_intelligence.VirtualIntelligence.ImportExport.click_on_upload">
+<tt class="descname">click_on_upload</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/virtual_intelligence.html#VirtualIntelligence.ImportExport.click_on_upload"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.virtual_intelligence.VirtualIntelligence.ImportExport.click_on_upload" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.virtual_intelligence.VirtualIntelligence.ImportExport.import_reports">
+<tt class="descname">import_reports</tt><big>(</big><em>import_reports_file</em>, <em>overwrite=True</em><big>)</big><a class="reference internal" href="_modules/pages/virtual_intelligence.html#VirtualIntelligence.ImportExport.import_reports"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.virtual_intelligence.VirtualIntelligence.ImportExport.import_reports" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.virtual_intelligence.VirtualIntelligence.ImportExport.upload">
+<tt class="descname">upload</tt><a class="reference internal" href="_modules/pages/virtual_intelligence.html#VirtualIntelligence.ImportExport.upload"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.virtual_intelligence.VirtualIntelligence.ImportExport.upload" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pages.virtual_intelligence.VirtualIntelligence.Reports">
+<em class="property">class </em><tt class="descclassname">VirtualIntelligence.</tt><tt class="descname">Reports</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/virtual_intelligence.html#VirtualIntelligence.Reports"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.virtual_intelligence.VirtualIntelligence.Reports" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+<dl class="attribute">
+<dt id="pages.virtual_intelligence.VirtualIntelligence.Reports.accordion">
+<tt class="descname">accordion</tt><a class="reference internal" href="_modules/pages/virtual_intelligence.html#VirtualIntelligence.Reports.accordion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.virtual_intelligence.VirtualIntelligence.Reports.accordion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.virtual_intelligence.VirtualIntelligence.Reports.click_on_import_export">
+<tt class="descname">click_on_import_export</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/virtual_intelligence.html#VirtualIntelligence.Reports.click_on_import_export"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.virtual_intelligence.VirtualIntelligence.Reports.click_on_import_export" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pages.virtual_intelligence.VirtualIntelligence.submenus">
+<tt class="descclassname">VirtualIntelligence.</tt><tt class="descname">submenus</tt><a class="reference internal" href="_modules/pages/virtual_intelligence.html#VirtualIntelligence.submenus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.virtual_intelligence.VirtualIntelligence.submenus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="subpackages">
 <h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="pages.configuration_subpages.html">configuration_subpages Package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pages.configuration_subpages.html#access-control-module"><tt class="docutils literal"><span class="pre">access_control</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages.configuration_subpages.html#settings-module"><tt class="docutils literal"><span class="pre">settings</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages.configuration_subpages.html#module-pages.configuration_subpages.access_control"><tt class="docutils literal"><span class="pre">access_control</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages.configuration_subpages.html#module-pages.configuration_subpages.settings"><tt class="docutils literal"><span class="pre">settings</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pages.configuration_subpages.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="pages.configuration_subpages.settings_subpages.html">settings_subpages Package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="pages.configuration_subpages.settings_subpages.html#region-settings-module"><tt class="docutils literal"><span class="pre">region_settings</span></tt> Module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pages.configuration_subpages.settings_subpages.html#server-settings-module"><tt class="docutils literal"><span class="pre">server_settings</span></tt> Module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pages.configuration_subpages.settings_subpages.html#zone-settings-module"><tt class="docutils literal"><span class="pre">zone_settings</span></tt> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pages.configuration_subpages.settings_subpages.html#module-pages.configuration_subpages.settings_subpages.region_settings"><tt class="docutils literal"><span class="pre">region_settings</span></tt> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pages.configuration_subpages.settings_subpages.html#module-pages.configuration_subpages.settings_subpages.server_settings"><tt class="docutils literal"><span class="pre">server_settings</span></tt> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pages.configuration_subpages.settings_subpages.html#module-pages.configuration_subpages.settings_subpages.zone_settings"><tt class="docutils literal"><span class="pre">zone_settings</span></tt> Module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pages.configuration_subpages.settings_subpages.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="pages.configuration_subpages.settings_subpages.server_settings_subpages.html">server_settings_subpages Package</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="pages.configuration_subpages.settings_subpages.server_settings_subpages.html#database-settings-tab-module"><tt class="docutils literal"><span class="pre">database_settings_tab</span></tt> Module</a></li>
-<li class="toctree-l6"><a class="reference internal" href="pages.configuration_subpages.settings_subpages.server_settings_subpages.html#server-settings-tab-module"><tt class="docutils literal"><span class="pre">server_settings_tab</span></tt> Module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pages.configuration_subpages.settings_subpages.server_settings_subpages.html#module-pages.configuration_subpages.settings_subpages.server_settings_subpages.database_settings_tab"><tt class="docutils literal"><span class="pre">database_settings_tab</span></tt> Module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pages.configuration_subpages.settings_subpages.server_settings_subpages.html#module-pages.configuration_subpages.settings_subpages.server_settings_subpages.server_settings_tab"><tt class="docutils literal"><span class="pre">server_settings_tab</span></tt> Module</a></li>
 </ul>
 </li>
 </ul>
@@ -110,34 +1297,34 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="pages.regions.html">regions Package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pages.regions.html#accordion-module"><tt class="docutils literal"><span class="pre">accordion</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages.regions.html#accordionitem-module"><tt class="docutils literal"><span class="pre">accordionitem</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages.regions.html#checkboxtree-module"><tt class="docutils literal"><span class="pre">checkboxtree</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages.regions.html#details-module"><tt class="docutils literal"><span class="pre">details</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages.regions.html#header-menu-module"><tt class="docutils literal"><span class="pre">header_menu</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages.regions.html#paginator-module"><tt class="docutils literal"><span class="pre">paginator</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages.regions.html#quadiconitem-module"><tt class="docutils literal"><span class="pre">quadiconitem</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages.regions.html#quadicons-module"><tt class="docutils literal"><span class="pre">quadicons</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages.regions.html#search-module"><tt class="docutils literal"><span class="pre">search</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages.regions.html#settingstasks-module"><tt class="docutils literal"><span class="pre">settingstasks</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages.regions.html#settingstasksitem-module"><tt class="docutils literal"><span class="pre">settingstasksitem</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages.regions.html#tabbuttonitem-module"><tt class="docutils literal"><span class="pre">tabbuttonitem</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages.regions.html#tabbuttons-module"><tt class="docutils literal"><span class="pre">tabbuttons</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages.regions.html#taggable-module"><tt class="docutils literal"><span class="pre">taggable</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages.regions.html#tree-module"><tt class="docutils literal"><span class="pre">tree</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages.regions.html#treeaccordionitem-module"><tt class="docutils literal"><span class="pre">treeaccordionitem</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages.regions.html#twisty-module"><tt class="docutils literal"><span class="pre">twisty</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages.regions.html#module-pages.regions.accordion"><tt class="docutils literal"><span class="pre">accordion</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages.regions.html#module-pages.regions.accordionitem"><tt class="docutils literal"><span class="pre">accordionitem</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages.regions.html#module-pages.regions.checkboxtree"><tt class="docutils literal"><span class="pre">checkboxtree</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages.regions.html#module-pages.regions.details"><tt class="docutils literal"><span class="pre">details</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages.regions.html#module-pages.regions.header_menu"><tt class="docutils literal"><span class="pre">header_menu</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages.regions.html#module-pages.regions.paginator"><tt class="docutils literal"><span class="pre">paginator</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages.regions.html#module-pages.regions.quadiconitem"><tt class="docutils literal"><span class="pre">quadiconitem</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages.regions.html#module-pages.regions.quadicons"><tt class="docutils literal"><span class="pre">quadicons</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages.regions.html#module-pages.regions.search"><tt class="docutils literal"><span class="pre">search</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages.regions.html#module-pages.regions.settingstasks"><tt class="docutils literal"><span class="pre">settingstasks</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages.regions.html#module-pages.regions.settingstasksitem"><tt class="docutils literal"><span class="pre">settingstasksitem</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages.regions.html#module-pages.regions.tabbuttonitem"><tt class="docutils literal"><span class="pre">tabbuttonitem</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages.regions.html#module-pages.regions.tabbuttons"><tt class="docutils literal"><span class="pre">tabbuttons</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages.regions.html#module-pages.regions.taggable"><tt class="docutils literal"><span class="pre">taggable</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages.regions.html#module-pages.regions.tree"><tt class="docutils literal"><span class="pre">tree</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages.regions.html#module-pages.regions.treeaccordionitem"><tt class="docutils literal"><span class="pre">treeaccordionitem</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages.regions.html#module-pages.regions.twisty"><tt class="docutils literal"><span class="pre">twisty</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pages.regions.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="pages.regions.taskbar.html">taskbar Package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="pages.regions.taskbar.html#button-module"><tt class="docutils literal"><span class="pre">button</span></tt> Module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pages.regions.taskbar.html#center-module"><tt class="docutils literal"><span class="pre">center</span></tt> Module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pages.regions.taskbar.html#custom-module"><tt class="docutils literal"><span class="pre">custom</span></tt> Module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pages.regions.taskbar.html#history-module"><tt class="docutils literal"><span class="pre">history</span></tt> Module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pages.regions.taskbar.html#power-module"><tt class="docutils literal"><span class="pre">power</span></tt> Module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pages.regions.taskbar.html#report-module"><tt class="docutils literal"><span class="pre">report</span></tt> Module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pages.regions.taskbar.html#taskbar-module"><tt class="docutils literal"><span class="pre">taskbar</span></tt> Module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pages.regions.taskbar.html#view-module"><tt class="docutils literal"><span class="pre">view</span></tt> Module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pages.regions.taskbar.html#vm-configuration-module"><tt class="docutils literal"><span class="pre">vm_configuration</span></tt> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pages.regions.taskbar.html#module-pages.regions.taskbar.button"><tt class="docutils literal"><span class="pre">button</span></tt> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pages.regions.taskbar.html#module-pages.regions.taskbar.center"><tt class="docutils literal"><span class="pre">center</span></tt> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pages.regions.taskbar.html#module-pages.regions.taskbar.custom"><tt class="docutils literal"><span class="pre">custom</span></tt> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pages.regions.taskbar.html#module-pages.regions.taskbar.history"><tt class="docutils literal"><span class="pre">history</span></tt> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pages.regions.taskbar.html#module-pages.regions.taskbar.power"><tt class="docutils literal"><span class="pre">power</span></tt> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pages.regions.taskbar.html#module-pages.regions.taskbar.report"><tt class="docutils literal"><span class="pre">report</span></tt> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pages.regions.taskbar.html#module-pages.regions.taskbar.taskbar"><tt class="docutils literal"><span class="pre">taskbar</span></tt> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pages.regions.taskbar.html#module-pages.regions.taskbar.view"><tt class="docutils literal"><span class="pre">view</span></tt> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pages.regions.taskbar.html#module-pages.regions.taskbar.vm_configuration"><tt class="docutils literal"><span class="pre">vm_configuration</span></tt> Module</a></li>
 </ul>
 </li>
 </ul>
@@ -158,16 +1345,16 @@
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">pages Package</a><ul>
-<li><a class="reference internal" href="#automate-module"><tt class="docutils literal"><span class="pre">automate</span></tt> Module</a></li>
-<li><a class="reference internal" href="#base-module"><tt class="docutils literal"><span class="pre">base</span></tt> Module</a></li>
-<li><a class="reference internal" href="#configuration-module"><tt class="docutils literal"><span class="pre">configuration</span></tt> Module</a></li>
-<li><a class="reference internal" href="#control-module"><tt class="docutils literal"><span class="pre">control</span></tt> Module</a></li>
-<li><a class="reference internal" href="#dashboard-module"><tt class="docutils literal"><span class="pre">dashboard</span></tt> Module</a></li>
-<li><a class="reference internal" href="#infrastructure-module"><tt class="docutils literal"><span class="pre">infrastructure</span></tt> Module</a></li>
-<li><a class="reference internal" href="#login-module"><tt class="docutils literal"><span class="pre">login</span></tt> Module</a></li>
-<li><a class="reference internal" href="#page-module"><tt class="docutils literal"><span class="pre">page</span></tt> Module</a></li>
-<li><a class="reference internal" href="#services-module"><tt class="docutils literal"><span class="pre">services</span></tt> Module</a></li>
-<li><a class="reference internal" href="#virtual-intelligence-module"><tt class="docutils literal"><span class="pre">virtual_intelligence</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.automate"><tt class="docutils literal"><span class="pre">automate</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.base"><tt class="docutils literal"><span class="pre">base</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.configuration"><tt class="docutils literal"><span class="pre">configuration</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.control"><tt class="docutils literal"><span class="pre">control</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.dashboard"><tt class="docutils literal"><span class="pre">dashboard</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.infrastructure"><tt class="docutils literal"><span class="pre">infrastructure</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.login"><tt class="docutils literal"><span class="pre">login</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.page"><tt class="docutils literal"><span class="pre">page</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.services"><tt class="docutils literal"><span class="pre">services</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.virtual_intelligence"><tt class="docutils literal"><span class="pre">virtual_intelligence</span></tt> Module</a></li>
 <li><a class="reference internal" href="#subpackages">Subpackages</a><ul>
 </ul>
 </li>
@@ -177,7 +1364,7 @@
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="index.html"
-                        title="previous chapter">Welcome to CloudForms Test Automation - cfme_pages&#8217;s documentation!</a></p>
+                        title="previous chapter">Welcome to CloudForms Management Engine Page Objects library&#8217;s documentation!</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="pages.configuration_subpages.html"
                         title="next chapter">configuration_subpages Package</a></p>
@@ -210,17 +1397,20 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="pages.configuration_subpages.html" title="configuration_subpages Package"
              >next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Welcome to CloudForms Test Automation - cfme_pages’s documentation!"
+          <a href="index.html" title="Welcome to CloudForms Management Engine Page Objects library’s documentation!"
              >previous</a> |</li>
-        <li><a href="index.html">CloudForms Test Automation - cfme_pages beta documentation</a> &raquo;</li> 
+        <li><a href="index.html">CloudForms Management Engine Page Objects library 0.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2013, Brad Crochet.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
     </div>
   </body>
 </html>

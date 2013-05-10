@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pages.virtual_intelligence &mdash; CloudForms Management Engine Page Objects library 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="CloudForms Management Engine Page Objects library 0.1 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">CloudForms Management Engine Page Objects library 0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pages.virtual_intelligence</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">from</span> <span class="nn">pages.base</span> <span class="kn">import</span> <span class="n">Base</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
+
+<div class="viewcode-block" id="VirtualIntelligence"><a class="viewcode-back" href="../../pages.html#pages.virtual_intelligence.VirtualIntelligence">[docs]</a><span class="k">class</span> <span class="nc">VirtualIntelligence</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="VirtualIntelligence.submenus"><a class="viewcode-back" href="../../pages.html#pages.virtual_intelligence.VirtualIntelligence.submenus">[docs]</a>    <span class="k">def</span> <span class="nf">submenus</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s">&quot;report&quot;</span><span class="p">:</span> <span class="n">VirtualIntelligence</span><span class="o">.</span><span class="n">Reports</span>
+                <span class="p">}</span>
+</div>
+<div class="viewcode-block" id="VirtualIntelligence.Reports"><a class="viewcode-back" href="../../pages.html#pages.virtual_intelligence.VirtualIntelligence.Reports">[docs]</a>    <span class="k">class</span> <span class="nc">Reports</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+        <span class="n">_page_title</span> <span class="o">=</span> <span class="s">&#39;CloudForms Management Engine: Reports&#39;</span>
+
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="VirtualIntelligence.Reports.accordion"><a class="viewcode-back" href="../../pages.html#pages.virtual_intelligence.VirtualIntelligence.Reports.accordion">[docs]</a>        <span class="k">def</span> <span class="nf">accordion</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="kn">from</span> <span class="nn">pages.regions.accordion</span> <span class="kn">import</span> <span class="n">Accordion</span>
+            <span class="kn">from</span> <span class="nn">pages.regions.treeaccordionitem</span> <span class="kn">import</span> <span class="n">TreeAccordionItem</span>
+            <span class="k">return</span> <span class="n">Accordion</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">,</span> <span class="n">TreeAccordionItem</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="VirtualIntelligence.Reports.click_on_import_export"><a class="viewcode-back" href="../../pages.html#pages.virtual_intelligence.VirtualIntelligence.Reports.click_on_import_export">[docs]</a>        <span class="k">def</span> <span class="nf">click_on_import_export</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">accordion</span><span class="o">.</span><span class="n">accordion_by_name</span><span class="p">(</span><span class="s">&quot;Import/Export&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_results_refresh</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">VirtualIntelligence</span><span class="o">.</span><span class="n">ImportExport</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+</div></div>
+<div class="viewcode-block" id="VirtualIntelligence.ImportExport"><a class="viewcode-back" href="../../pages.html#pages.virtual_intelligence.VirtualIntelligence.ImportExport">[docs]</a>    <span class="k">class</span> <span class="nc">ImportExport</span><span class="p">(</span><span class="n">Reports</span><span class="p">):</span>
+        <span class="n">_reports_import_field</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s">&quot;upload_file&quot;</span><span class="p">)</span>
+        <span class="n">_upload_button</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s">&quot;upload_atags&quot;</span><span class="p">)</span>
+        <span class="n">_overwrite_checkbox</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s">&quot;overwrite&quot;</span><span class="p">)</span>
+
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="VirtualIntelligence.ImportExport.upload"><a class="viewcode-back" href="../../pages.html#pages.virtual_intelligence.VirtualIntelligence.ImportExport.upload">[docs]</a>        <span class="k">def</span> <span class="nf">upload</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_upload_button</span><span class="p">)</span>
+        </div>
+<div class="viewcode-block" id="VirtualIntelligence.ImportExport.check_overwrite_box"><a class="viewcode-back" href="../../pages.html#pages.virtual_intelligence.VirtualIntelligence.ImportExport.check_overwrite_box">[docs]</a>        <span class="k">def</span> <span class="nf">check_overwrite_box</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_overwrite_checkbox</span><span class="p">)</span><span class="o">.</span><span class="n">is_selected</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_overwrite_checkbox</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="VirtualIntelligence.ImportExport.click_on_upload"><a class="viewcode-back" href="../../pages.html#pages.virtual_intelligence.VirtualIntelligence.ImportExport.click_on_upload">[docs]</a>        <span class="k">def</span> <span class="nf">click_on_upload</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">upload</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_results_refresh</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">VirtualIntelligence</span><span class="o">.</span><span class="n">Reports</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="VirtualIntelligence.ImportExport.import_reports"><a class="viewcode-back" href="../../pages.html#pages.virtual_intelligence.VirtualIntelligence.ImportExport.import_reports">[docs]</a>        <span class="k">def</span> <span class="nf">import_reports</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">import_reports_file</span><span class="p">,</span> <span class="n">overwrite</span> <span class="o">=</span> <span class="bp">True</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_results_refresh</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">overwrite</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">check_overwrite_box</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_reports_import_field</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">import_reports_file</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">click_on_upload</span><span class="p">()</span></div></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">CloudForms Management Engine Page Objects library 0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Brad Crochet.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>

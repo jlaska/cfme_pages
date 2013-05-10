@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>tests.test_infra_refresh_pxe_server &mdash; CloudForms Management Engine Page Objects library 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="CloudForms Management Engine Page Objects library 0.1 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">CloudForms Management Engine Page Objects library 0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for tests.test_infra_refresh_pxe_server</h1><div class="highlight"><pre>
+<span class="c">#!/usr/bin/env python</span>
+
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">pytest</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">unittestzero</span> <span class="kn">import</span> <span class="n">Assert</span>
+<span class="kn">from</span> <span class="nn">selenium.common.exceptions</span> <span class="kn">import</span> <span class="n">NoSuchElementException</span>
+
+<span class="n">EXPECTED_NAMES</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;rhel63server&quot;</span><span class="p">,</span> <span class="s">&quot;winpex64&quot;</span><span class="p">]</span>
+<span class="n">PXE_SERVER_NAME</span> <span class="o">=</span> <span class="s">&quot;rhel_pxe_server&quot;</span>
+
+<span class="nd">@pytest.mark.nondestructive</span>
+<div class="viewcode-block" id="TestInfrastructureRefreshPXEServer"><a class="viewcode-back" href="../../tests.html#tests.test_infra_refresh_pxe_server.TestInfrastructureRefreshPXEServer">[docs]</a><span class="k">class</span> <span class="nc">TestInfrastructureRefreshPXEServer</span><span class="p">:</span>
+<div class="viewcode-block" id="TestInfrastructureRefreshPXEServer.test_infrastructure_refresh_pxe_server"><a class="viewcode-back" href="../../tests.html#tests.test_infra_refresh_pxe_server.TestInfrastructureRefreshPXEServer.test_infrastructure_refresh_pxe_server">[docs]</a>    <span class="k">def</span> <span class="nf">test_infrastructure_refresh_pxe_server</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mozwebqa</span><span class="p">,</span> <span class="n">home_page_logged_in</span><span class="p">):</span>
+        <span class="n">home_pg</span> <span class="o">=</span> <span class="n">home_page_logged_in</span>
+        <span class="n">pxe_pg</span> <span class="o">=</span> <span class="n">home_pg</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">site_navigation_menu</span><span class="p">(</span><span class="s">&quot;Infrastructure&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sub_navigation_menu</span><span class="p">(</span><span class="s">&quot;PXE&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+        <span class="n">Assert</span><span class="o">.</span><span class="n">true</span><span class="p">(</span><span class="n">pxe_pg</span><span class="o">.</span><span class="n">is_the_current_page</span><span class="p">)</span>
+
+        <span class="n">pxe_pg</span><span class="o">.</span><span class="n">accordion_region</span><span class="o">.</span><span class="n">accordion_by_name</span><span class="p">(</span><span class="s">&quot;PXE Servers&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+
+        <span class="n">children_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pxe_pg</span><span class="o">.</span><span class="n">accordion_region</span><span class="o">.</span><span class="n">current_content</span><span class="o">.</span><span class="n">children</span><span class="p">)</span>
+
+        <span class="n">Assert</span><span class="o">.</span><span class="n">true</span><span class="p">(</span><span class="n">children_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&quot;There is no PXE server&quot;</span><span class="p">)</span>
+
+        <span class="c">#TODO for now, I&#39;m refreshing only the first PXE server in line</span>
+        <span class="n">pxe_pg</span><span class="o">.</span><span class="n">accordion_region</span><span class="o">.</span><span class="n">current_content</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+
+        <span class="c">#This needs to be here. We must wait for page to refresh</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+        <span class="n">pxe_pg</span><span class="o">.</span><span class="n">center_buttons</span><span class="o">.</span><span class="n">configuration_button</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+
+        <span class="n">pxe_pg</span><span class="o">.</span><span class="n">click_on_refresh</span><span class="p">()</span>
+        <span class="n">pxe_pg</span><span class="o">.</span><span class="n">handle_popup</span><span class="p">()</span>
+
+        <span class="n">flash_message</span> <span class="o">=</span> <span class="s">&#39;PXE Server &quot;</span><span class="si">%s</span><span class="s">&quot;: synchronize_advertised_images_queue successfully initiated&#39;</span> <span class="o">%</span> <span class="n">PXE_SERVER_NAME</span>
+
+        <span class="n">Assert</span><span class="o">.</span><span class="n">true</span><span class="p">(</span><span class="n">pxe_pg</span><span class="o">.</span><span class="n">flash</span><span class="o">.</span><span class="n">message</span> <span class="o">==</span> <span class="n">flash_message</span><span class="p">,</span> <span class="s">&quot;Flash message: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">pxe_pg</span><span class="o">.</span><span class="n">flash</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="c">#To refresh the page</span>
+                <span class="c">#TODO for now, I&#39;m refreshing only the first PXE server in line</span>
+                <span class="n">pxe_pg</span><span class="o">.</span><span class="n">accordion_region</span><span class="o">.</span><span class="n">current_content</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+                <span class="c">#This needs to be here</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+                <span class="n">pxe_image_names</span> <span class="o">=</span> <span class="n">pxe_pg</span><span class="o">.</span><span class="n">pxe_image_names</span><span class="p">()</span>
+            <span class="k">except</span> <span class="n">NoSuchElementException</span><span class="p">:</span>
+                <span class="k">print</span><span class="p">(</span><span class="s">&quot;Waiting....&quot;</span><span class="p">)</span>
+                <span class="k">pass</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">break</span>
+
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">EXPECTED_NAMES</span><span class="p">:</span>
+            <span class="n">Assert</span><span class="o">.</span><span class="n">true</span><span class="p">(</span><span class="n">name</span> <span class="ow">in</span> <span class="n">pxe_image_names</span><span class="p">,</span> <span class="s">&quot;This image has not been found: &#39;</span><span class="si">%s</span><span class="s">&#39;&quot;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
+</pre></div></div></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">CloudForms Management Engine Page Objects library 0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Brad Crochet.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>

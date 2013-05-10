@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>configuration_subpages Package &mdash; CloudForms Test Automation - cfme_pages beta documentation</title>
+    <title>configuration_subpages Package &mdash; CloudForms Management Engine Page Objects library 0.1 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     'beta',
+        URL_ROOT:    './',
+        VERSION:     '0.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="CloudForms Test Automation - cfme_pages beta documentation" href="index.html" />
+    <link rel="top" title="CloudForms Management Engine Page Objects library 0.1 documentation" href="index.html" />
     <link rel="up" title="pages Package" href="pages.html" />
     <link rel="next" title="settings_subpages Package" href="pages.configuration_subpages.settings_subpages.html" />
     <link rel="prev" title="pages Package" href="pages.html" /> 
@@ -38,12 +36,15 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="pages.configuration_subpages.settings_subpages.html" title="settings_subpages Package"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="pages.html" title="pages Package"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">CloudForms Test Automation - cfme_pages beta documentation</a> &raquo;</li>
+        <li><a href="index.html">CloudForms Management Engine Page Objects library 0.1 documentation</a> &raquo;</li>
           <li><a href="pages.html" accesskey="U">pages Package</a> &raquo;</li> 
       </ul>
     </div>  
@@ -55,24 +56,240 @@
             
   <div class="section" id="configuration-subpages-package">
 <h1>configuration_subpages Package<a class="headerlink" href="#configuration-subpages-package" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="access-control-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">access_control</span></tt> Module<a class="headerlink" href="#access-control-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.configuration_subpages.access_control">
+<span id="access-control-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">access_control</span></tt> Module<a class="headerlink" href="#module-pages.configuration_subpages.access_control" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pages.configuration_subpages.access_control.AccessControl">
+<em class="property">class </em><tt class="descclassname">pages.configuration_subpages.access_control.</tt><tt class="descname">AccessControl</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pages.html#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+<dl class="class">
+<dt id="pages.configuration_subpages.access_control.AccessControl.EditGroup">
+<em class="property">class </em><tt class="descname">EditGroup</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.EditGroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.EditGroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">pages.configuration_subpages.access_control.NewGroup</span></tt></p>
+<dl class="method">
+<dt id="pages.configuration_subpages.access_control.AccessControl.EditGroup.fill_info">
+<tt class="descname">fill_info</tt><big>(</big><em>description</em>, <em>role</em><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.EditGroup.fill_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.EditGroup.fill_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pages.configuration_subpages.access_control.AccessControl.EditRole">
+<em class="property">class </em><tt class="descclassname">AccessControl.</tt><tt class="descname">EditRole</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.EditRole"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.EditRole" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">pages.configuration_subpages.access_control.NewRole</span></tt></p>
+<dl class="method">
+<dt id="pages.configuration_subpages.access_control.AccessControl.EditRole.fill_name">
+<tt class="descname">fill_name</tt><big>(</big><em>name</em><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.EditRole.fill_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.EditRole.fill_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pages.configuration_subpages.access_control.AccessControl.Groups">
+<em class="property">class </em><tt class="descclassname">AccessControl.</tt><tt class="descname">Groups</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.Groups"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.Groups" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pages.html#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+<dl class="method">
+<dt id="pages.configuration_subpages.access_control.AccessControl.Groups.click_on_add_new">
+<tt class="descname">click_on_add_new</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.Groups.click_on_add_new"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.Groups.click_on_add_new" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.configuration_subpages.access_control.AccessControl.Groups.click_on_group">
+<tt class="descname">click_on_group</tt><big>(</big><em>group_name</em><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.Groups.click_on_group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.Groups.click_on_group" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pages.configuration_subpages.access_control.AccessControl.NewGroup">
+<em class="property">class </em><tt class="descclassname">AccessControl.</tt><tt class="descname">NewGroup</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.NewGroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.NewGroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pages.html#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+<dl class="attribute">
+<dt id="pages.configuration_subpages.access_control.AccessControl.NewGroup.company_tags">
+<tt class="descname">company_tags</tt><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.NewGroup.company_tags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.NewGroup.company_tags" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.configuration_subpages.access_control.AccessControl.NewGroup.fill_info">
+<tt class="descname">fill_info</tt><big>(</big><em>description</em>, <em>role</em><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.NewGroup.fill_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.NewGroup.fill_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.configuration_subpages.access_control.AccessControl.NewGroup.hosts_clusters">
+<tt class="descname">hosts_clusters</tt><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.NewGroup.hosts_clusters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.NewGroup.hosts_clusters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.configuration_subpages.access_control.AccessControl.NewGroup.save">
+<tt class="descname">save</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.NewGroup.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.NewGroup.save" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.configuration_subpages.access_control.AccessControl.NewGroup.vms_templates">
+<tt class="descname">vms_templates</tt><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.NewGroup.vms_templates"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.NewGroup.vms_templates" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pages.configuration_subpages.access_control.AccessControl.NewRole">
+<em class="property">class </em><tt class="descclassname">AccessControl.</tt><tt class="descname">NewRole</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.NewRole"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.NewRole" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pages.html#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+<dl class="method">
+<dt id="pages.configuration_subpages.access_control.AccessControl.NewRole.fill_name">
+<tt class="descname">fill_name</tt><big>(</big><em>name</em><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.NewRole.fill_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.NewRole.fill_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.configuration_subpages.access_control.AccessControl.NewRole.product_features">
+<tt class="descname">product_features</tt><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.NewRole.product_features"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.NewRole.product_features" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.configuration_subpages.access_control.AccessControl.NewRole.save">
+<tt class="descname">save</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.NewRole.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.NewRole.save" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.configuration_subpages.access_control.AccessControl.NewRole.select_access_restriction">
+<tt class="descname">select_access_restriction</tt><big>(</big><em>value</em><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.NewRole.select_access_restriction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.NewRole.select_access_restriction" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pages.configuration_subpages.access_control.AccessControl.Roles">
+<em class="property">class </em><tt class="descclassname">AccessControl.</tt><tt class="descname">Roles</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.Roles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.Roles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pages.html#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+<dl class="method">
+<dt id="pages.configuration_subpages.access_control.AccessControl.Roles.click_on_add_new">
+<tt class="descname">click_on_add_new</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.Roles.click_on_add_new"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.Roles.click_on_add_new" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.configuration_subpages.access_control.AccessControl.Roles.click_on_role">
+<tt class="descname">click_on_role</tt><big>(</big><em>role_name</em><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.Roles.click_on_role"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.Roles.click_on_role" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pages.configuration_subpages.access_control.AccessControl.ShowGroup">
+<em class="property">class </em><tt class="descclassname">AccessControl.</tt><tt class="descname">ShowGroup</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.ShowGroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.ShowGroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pages.html#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+<dl class="method">
+<dt id="pages.configuration_subpages.access_control.AccessControl.ShowGroup.click_on_delete">
+<tt class="descname">click_on_delete</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.ShowGroup.click_on_delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.ShowGroup.click_on_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.configuration_subpages.access_control.AccessControl.ShowGroup.click_on_edit">
+<tt class="descname">click_on_edit</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.ShowGroup.click_on_edit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.ShowGroup.click_on_edit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.configuration_subpages.access_control.AccessControl.ShowGroup.click_on_edit_tags">
+<tt class="descname">click_on_edit_tags</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.ShowGroup.click_on_edit_tags"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.ShowGroup.click_on_edit_tags" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.configuration_subpages.access_control.AccessControl.ShowGroup.group_name">
+<tt class="descname">group_name</tt><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.ShowGroup.group_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.ShowGroup.group_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pages.configuration_subpages.access_control.AccessControl.ShowRole">
+<em class="property">class </em><tt class="descclassname">AccessControl.</tt><tt class="descname">ShowRole</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.ShowRole"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.ShowRole" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pages.html#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+<dl class="method">
+<dt id="pages.configuration_subpages.access_control.AccessControl.ShowRole.click_on_delete">
+<tt class="descname">click_on_delete</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.ShowRole.click_on_delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.ShowRole.click_on_delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.configuration_subpages.access_control.AccessControl.ShowRole.click_on_edit">
+<tt class="descname">click_on_edit</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.ShowRole.click_on_edit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.ShowRole.click_on_edit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.configuration_subpages.access_control.AccessControl.ShowRole.role_name">
+<tt class="descname">role_name</tt><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.ShowRole.role_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.ShowRole.role_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pages.configuration_subpages.access_control.AccessControl.TagGroup">
+<em class="property">class </em><tt class="descclassname">AccessControl.</tt><tt class="descname">TagGroup</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.TagGroup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.TagGroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">pages.configuration_subpages.access_control.ShowGroup</span></tt>, <a class="reference internal" href="pages.regions.html#pages.regions.taggable.Taggable" title="pages.regions.taggable.Taggable"><tt class="xref py py-class docutils literal"><span class="pre">pages.regions.taggable.Taggable</span></tt></a></p>
+<dl class="attribute">
+<dt id="pages.configuration_subpages.access_control.AccessControl.TagGroup.cancel">
+<tt class="descname">cancel</tt><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.TagGroup.cancel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.TagGroup.cancel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.configuration_subpages.access_control.AccessControl.TagGroup.reset">
+<tt class="descname">reset</tt><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.TagGroup.reset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.TagGroup.reset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.configuration_subpages.access_control.AccessControl.TagGroup.save">
+<tt class="descname">save</tt><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.TagGroup.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.TagGroup.save" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="pages.configuration_subpages.access_control.AccessControl.click_on_groups">
+<tt class="descclassname">AccessControl.</tt><tt class="descname">click_on_groups</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.click_on_groups"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.click_on_groups" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.configuration_subpages.access_control.AccessControl.click_on_roles">
+<tt class="descclassname">AccessControl.</tt><tt class="descname">click_on_roles</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/access_control.html#AccessControl.click_on_roles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.access_control.AccessControl.click_on_roles" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="settings-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">settings</span></tt> Module<a class="headerlink" href="#settings-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.configuration_subpages.settings">
+<span id="settings-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">settings</span></tt> Module<a class="headerlink" href="#module-pages.configuration_subpages.settings" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pages.configuration_subpages.settings.Settings">
+<em class="property">class </em><tt class="descclassname">pages.configuration_subpages.settings.</tt><tt class="descname">Settings</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/settings.html#Settings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.settings.Settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pages.html#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+<dl class="attribute">
+<dt id="pages.configuration_subpages.settings.Settings.accordion">
+<tt class="descname">accordion</tt><a class="reference internal" href="_modules/pages/configuration_subpages/settings.html#Settings.accordion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.settings.Settings.accordion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.configuration_subpages.settings.Settings.click_on_current_server_tree_node">
+<tt class="descname">click_on_current_server_tree_node</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/settings.html#Settings.click_on_current_server_tree_node"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.settings.Settings.click_on_current_server_tree_node" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.configuration_subpages.settings.Settings.click_on_first_region">
+<tt class="descname">click_on_first_region</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/settings.html#Settings.click_on_first_region"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.settings.Settings.click_on_first_region" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="subpackages">
 <h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="pages.configuration_subpages.settings_subpages.html">settings_subpages Package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pages.configuration_subpages.settings_subpages.html#region-settings-module"><tt class="docutils literal"><span class="pre">region_settings</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages.configuration_subpages.settings_subpages.html#server-settings-module"><tt class="docutils literal"><span class="pre">server_settings</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pages.configuration_subpages.settings_subpages.html#zone-settings-module"><tt class="docutils literal"><span class="pre">zone_settings</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages.configuration_subpages.settings_subpages.html#module-pages.configuration_subpages.settings_subpages.region_settings"><tt class="docutils literal"><span class="pre">region_settings</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages.configuration_subpages.settings_subpages.html#module-pages.configuration_subpages.settings_subpages.server_settings"><tt class="docutils literal"><span class="pre">server_settings</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pages.configuration_subpages.settings_subpages.html#module-pages.configuration_subpages.settings_subpages.zone_settings"><tt class="docutils literal"><span class="pre">zone_settings</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pages.configuration_subpages.settings_subpages.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="pages.configuration_subpages.settings_subpages.server_settings_subpages.html">server_settings_subpages Package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="pages.configuration_subpages.settings_subpages.server_settings_subpages.html#database-settings-tab-module"><tt class="docutils literal"><span class="pre">database_settings_tab</span></tt> Module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pages.configuration_subpages.settings_subpages.server_settings_subpages.html#server-settings-tab-module"><tt class="docutils literal"><span class="pre">server_settings_tab</span></tt> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pages.configuration_subpages.settings_subpages.server_settings_subpages.html#module-pages.configuration_subpages.settings_subpages.server_settings_subpages.database_settings_tab"><tt class="docutils literal"><span class="pre">database_settings_tab</span></tt> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pages.configuration_subpages.settings_subpages.server_settings_subpages.html#module-pages.configuration_subpages.settings_subpages.server_settings_subpages.server_settings_tab"><tt class="docutils literal"><span class="pre">server_settings_tab</span></tt> Module</a></li>
 </ul>
 </li>
 </ul>
@@ -93,8 +310,8 @@
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">configuration_subpages Package</a><ul>
-<li><a class="reference internal" href="#access-control-module"><tt class="docutils literal"><span class="pre">access_control</span></tt> Module</a></li>
-<li><a class="reference internal" href="#settings-module"><tt class="docutils literal"><span class="pre">settings</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.configuration_subpages.access_control"><tt class="docutils literal"><span class="pre">access_control</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.configuration_subpages.settings"><tt class="docutils literal"><span class="pre">settings</span></tt> Module</a></li>
 <li><a class="reference internal" href="#subpackages">Subpackages</a><ul>
 </ul>
 </li>
@@ -137,18 +354,21 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="pages.configuration_subpages.settings_subpages.html" title="settings_subpages Package"
              >next</a> |</li>
         <li class="right" >
           <a href="pages.html" title="pages Package"
              >previous</a> |</li>
-        <li><a href="index.html">CloudForms Test Automation - cfme_pages beta documentation</a> &raquo;</li>
+        <li><a href="index.html">CloudForms Management Engine Page Objects library 0.1 documentation</a> &raquo;</li>
           <li><a href="pages.html" >pages Package</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2013, Brad Crochet.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
     </div>
   </body>
 </html>

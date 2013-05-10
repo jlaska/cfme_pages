@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pages.automate &mdash; CloudForms Management Engine Page Objects library 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="CloudForms Management Engine Page Objects library 0.1 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">CloudForms Management Engine Page Objects library 0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pages.automate</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">from</span> <span class="nn">pages.base</span> <span class="kn">import</span> <span class="n">Base</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.action_chains</span> <span class="kn">import</span> <span class="n">ActionChains</span>
+
+<div class="viewcode-block" id="Automate"><a class="viewcode-back" href="../../pages.html#pages.automate.Automate">[docs]</a><span class="k">class</span> <span class="nc">Automate</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Automate.submenus"><a class="viewcode-back" href="../../pages.html#pages.automate.Automate.submenus">[docs]</a>    <span class="k">def</span> <span class="nf">submenus</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s">&quot;miq_ae_class&quot;</span>         <span class="p">:</span> <span class="n">Automate</span><span class="o">.</span><span class="n">Explorer</span><span class="p">,</span>
+                <span class="s">&quot;miq_ae_tools&quot;</span>         <span class="p">:</span> <span class="n">Automate</span><span class="o">.</span><span class="n">Simulation</span><span class="p">,</span>
+                <span class="s">&quot;miq_ae_customization&quot;</span> <span class="p">:</span> <span class="n">Automate</span><span class="o">.</span><span class="n">Customization</span><span class="p">,</span>
+                <span class="s">&quot;miq_ae_export&quot;</span>        <span class="p">:</span> <span class="n">Automate</span><span class="o">.</span><span class="n">ImportExport</span><span class="p">,</span>
+                <span class="s">&quot;miq_ae_logs&quot;</span>          <span class="p">:</span> <span class="n">Automate</span><span class="o">.</span><span class="n">Log</span><span class="p">,</span>
+                <span class="s">&quot;miq_request_ae&quot;</span>       <span class="p">:</span> <span class="n">Automate</span><span class="o">.</span><span class="n">Requests</span>
+                <span class="p">}</span>
+</div>
+<div class="viewcode-block" id="Automate.ImportExport"><a class="viewcode-back" href="../../pages.html#pages.automate.Automate.ImportExport">[docs]</a>    <span class="k">class</span> <span class="nc">ImportExport</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+        <span class="n">_page_title</span> <span class="o">=</span> <span class="s">&#39;CloudForms Management Engine: Automate&#39;</span>
+        <span class="n">_upload_button</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s">&quot;upload_atags&quot;</span><span class="p">)</span>
+        <span class="n">_commit_button</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;a[title=&#39;Commit Import&#39;]&quot;</span><span class="p">)</span>
+        <span class="n">_automate_import_field</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s">&quot;upload_datastore&quot;</span><span class="p">)</span>
+        <span class="n">_export_button</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;a[title=&#39;Export all classes and instances&#39;]&quot;</span><span class="p">)</span>
+        <span class="n">_reset_button</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;a[title=&#39;Reset all custom classes and instances to default&#39;]&quot;</span><span class="p">)</span>
+
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Automate.ImportExport.upload"><a class="viewcode-back" href="../../pages.html#pages.automate.Automate.ImportExport.upload">[docs]</a>        <span class="k">def</span> <span class="nf">upload</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_upload_button</span><span class="p">)</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Automate.ImportExport.commit"><a class="viewcode-back" href="../../pages.html#pages.automate.Automate.ImportExport.commit">[docs]</a>        <span class="k">def</span> <span class="nf">commit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_commit_button</span><span class="p">)</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Automate.ImportExport.export"><a class="viewcode-back" href="../../pages.html#pages.automate.Automate.ImportExport.export">[docs]</a>        <span class="k">def</span> <span class="nf">export</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_export_button</span><span class="p">)</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Automate.ImportExport.reset"><a class="viewcode-back" href="../../pages.html#pages.automate.Automate.ImportExport.reset">[docs]</a>        <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_reset_button</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Automate.ImportExport.click_on_upload"><a class="viewcode-back" href="../../pages.html#pages.automate.Automate.ImportExport.click_on_upload">[docs]</a>        <span class="k">def</span> <span class="nf">click_on_upload</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">upload</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_results_refresh</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">Automate</span><span class="o">.</span><span class="n">ImportExport</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Automate.ImportExport.click_on_commit"><a class="viewcode-back" href="../../pages.html#pages.automate.Automate.ImportExport.click_on_commit">[docs]</a>        <span class="k">def</span> <span class="nf">click_on_commit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">commit</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_results_refresh</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">Automate</span><span class="o">.</span><span class="n">ImportExport</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Automate.ImportExport.click_on_export"><a class="viewcode-back" href="../../pages.html#pages.automate.Automate.ImportExport.click_on_export">[docs]</a>        <span class="k">def</span> <span class="nf">click_on_export</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">export</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+            <span class="c"># use pytest arg --firefoxpref=str to supress browser prompt</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_results_refresh</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">Automate</span><span class="o">.</span><span class="n">ImportExport</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Automate.ImportExport.click_on_reset"><a class="viewcode-back" href="../../pages.html#pages.automate.Automate.ImportExport.click_on_reset">[docs]</a>        <span class="k">def</span> <span class="nf">click_on_reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">reset</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">handle_popup</span><span class="p">()</span>
+            <span class="k">return</span>
+</div>
+<div class="viewcode-block" id="Automate.ImportExport.click_on_reset_and_wait"><a class="viewcode-back" href="../../pages.html#pages.automate.Automate.ImportExport.click_on_reset_and_wait">[docs]</a>        <span class="k">def</span> <span class="nf">click_on_reset_and_wait</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">click_on_reset</span><span class="p">()</span>
+            <span class="c"># reset takes ~30 secs. prevent selenium timeout</span>
+            <span class="c"># imp_wait will return sooner if completed earlier</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">implicitly_wait</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">Automate</span><span class="o">.</span><span class="n">ImportExport</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Automate.ImportExport.import_automate"><a class="viewcode-back" href="../../pages.html#pages.automate.Automate.ImportExport.import_automate">[docs]</a>        <span class="k">def</span> <span class="nf">import_automate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">import_automate_file</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_automate_import_field</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">import_automate_file</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">click_on_upload</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="Automate.ImportExport.export_automate"><a class="viewcode-back" href="../../pages.html#pages.automate.Automate.ImportExport.export_automate">[docs]</a>        <span class="k">def</span> <span class="nf">export_automate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">click_on_export</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="Automate.ImportExport.reset_automate"><a class="viewcode-back" href="../../pages.html#pages.automate.Automate.ImportExport.reset_automate">[docs]</a>        <span class="k">def</span> <span class="nf">reset_automate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">click_on_reset_and_wait</span><span class="p">()</span>
+</div></div>
+<div class="viewcode-block" id="Automate.Explorer"><a class="viewcode-back" href="../../pages.html#pages.automate.Automate.Explorer">[docs]</a>    <span class="k">class</span> <span class="nc">Explorer</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+        <span class="n">_page_title</span> <span class="o">=</span> <span class="s">&#39;CloudForms Management Engine: Automate&#39;</span>
+        <span class="n">_ae_tree</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s">&quot;ae_tree&quot;</span><span class="p">)</span>
+        <span class="n">_configuration_button</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;div.dhx_toolbar_btn[title=&#39;Configuration&#39;]&quot;</span><span class="p">)</span>
+        <span class="n">_add_namespace_button</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;table.buttons_cont tr[title=&#39;Add a New Namespace&#39;]&quot;</span><span class="p">)</span>
+        <span class="n">_name_text_field</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s">&quot;ns_name&quot;</span><span class="p">)</span>
+        <span class="n">_description_text_field</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s">&quot;ns_description&quot;</span><span class="p">)</span>
+        <span class="n">_add_system_button</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;ul#form_buttons &gt; li &gt; img[title=&#39;Add&#39;]&quot;</span><span class="p">)</span>
+        <span class="n">_flash_message_area</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s">&quot;flash_msg_div_ns_list&quot;</span><span class="p">)</span>
+
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Automate.Explorer.accordion"><a class="viewcode-back" href="../../pages.html#pages.automate.Automate.Explorer.accordion">[docs]</a>        <span class="k">def</span> <span class="nf">accordion</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="kn">from</span> <span class="nn">pages.regions.accordion</span> <span class="kn">import</span> <span class="n">Accordion</span>
+            <span class="kn">from</span> <span class="nn">pages.regions.treeaccordionitem</span> <span class="kn">import</span> <span class="n">TreeAccordionItem</span>
+            <span class="k">return</span> <span class="n">Accordion</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">,</span><span class="n">TreeAccordionItem</span><span class="p">)</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Automate.Explorer.configuration_button"><a class="viewcode-back" href="../../pages.html#pages.automate.Automate.Explorer.configuration_button">[docs]</a>        <span class="k">def</span> <span class="nf">configuration_button</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_configuration_button</span><span class="p">)</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Automate.Explorer.add_namespace_button"><a class="viewcode-back" href="../../pages.html#pages.automate.Automate.Explorer.add_namespace_button">[docs]</a>        <span class="k">def</span> <span class="nf">add_namespace_button</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_add_namespace_button</span><span class="p">)</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Automate.Explorer.return_flash_message"><a class="viewcode-back" href="../../pages.html#pages.automate.Automate.Explorer.return_flash_message">[docs]</a>        <span class="k">def</span> <span class="nf">return_flash_message</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_flash_message_area</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+</div>
+<div class="viewcode-block" id="Automate.Explorer.click_on_add_new_namespace"><a class="viewcode-back" href="../../pages.html#pages.automate.Automate.Explorer.click_on_add_new_namespace">[docs]</a>        <span class="k">def</span> <span class="nf">click_on_add_new_namespace</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="n">ActionChains</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">configuration_button</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">add_namespace_button</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_results_refresh</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">Automate</span><span class="o">.</span><span class="n">Explorer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Automate.Explorer.fill_info"><a class="viewcode-back" href="../../pages.html#pages.automate.Automate.Explorer.fill_info">[docs]</a>        <span class="k">def</span> <span class="nf">fill_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_name_text_field</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s">&quot;Training&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_description_text_field</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s">&quot;Training&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_add_system_button</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_results_refresh</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">Automate</span><span class="o">.</span><span class="n">Explorer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span></div></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">CloudForms Management Engine Page Objects library 0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Brad Crochet.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>

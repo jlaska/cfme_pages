@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pages.regions.paginator &mdash; CloudForms Management Engine Page Objects library 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="top" title="CloudForms Management Engine Page Objects library 0.1 documentation" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">CloudForms Management Engine Page Objects library 0.1 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pages.regions.paginator</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+<span class="kn">from</span> <span class="nn">pages.page</span> <span class="kn">import</span> <span class="n">Page</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.support.ui</span> <span class="kn">import</span> <span class="n">WebDriverWait</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.support.select</span> <span class="kn">import</span> <span class="n">Select</span>
+
+<div class="viewcode-block" id="Paginator"><a class="viewcode-back" href="../../../pages.regions.html#pages.regions.paginator.Paginator">[docs]</a><span class="k">class</span> <span class="nc">Paginator</span><span class="p">(</span><span class="n">Page</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Add this region to your page with a property called paginator</span>
+<span class="sd">    </span>
+<span class="sd">    Example:</span>
+<span class="sd">    @property</span>
+<span class="sd">    def paginator(self):</span>
+<span class="sd">        from pages.regions.paginator import Paginator</span>
+<span class="sd">        return Paginator(self.testsetup)</span>
+<span class="sd">        </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c">#Navigation</span>
+    <span class="n">_first_page_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;#paging_div * img[alt=&#39;First&#39;]&quot;</span><span class="p">)</span>
+    <span class="n">_prev_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;#paging_div * img[alt=&#39;Previous&#39;]&quot;</span><span class="p">)</span>
+    <span class="n">_next_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;#paging_div * img[alt=&#39;Next&#39;]&quot;</span><span class="p">)</span>
+    <span class="n">_last_page_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;#paging_div * img[alt=&#39;Last&#39;]&quot;</span><span class="p">)</span>
+    <span class="n">_per_page_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;#paging_div * select[name=&#39;ppsetting&#39;]&quot;</span><span class="p">)</span>
+
+    <span class="c">#Position</span>
+    <span class="n">_position_text_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&#39;#paging_div &gt; #pc_div_1 &gt; table &gt; tbody &gt; tr &gt; td &gt; table &gt; tbody &gt; tr &gt; td:last-child&#39;</span><span class="p">)</span>
+    
+<div class="viewcode-block" id="Paginator.click_first_page"><a class="viewcode-back" href="../../../pages.regions.html#pages.regions.paginator.Paginator.click_first_page">[docs]</a>    <span class="k">def</span> <span class="nf">click_first_page</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_first_page_locator</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_results_refresh</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="Paginator.click_prev_page"><a class="viewcode-back" href="../../../pages.regions.html#pages.regions.paginator.Paginator.click_prev_page">[docs]</a>    <span class="k">def</span> <span class="nf">click_prev_page</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_prev_locator</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_results_refresh</span><span class="p">()</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Paginator.is_prev_page_disabled"><a class="viewcode-back" href="../../../pages.regions.html#pages.regions.paginator.Paginator.is_prev_page_disabled">[docs]</a>    <span class="k">def</span> <span class="nf">is_prev_page_disabled</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&#39;dimmed&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_prev_locator</span><span class="p">)</span><span class="o">.</span><span class="n">get_attribute</span><span class="p">(</span><span class="s">&#39;class&#39;</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Paginator.is_first_page_disabled"><a class="viewcode-back" href="../../../pages.regions.html#pages.regions.paginator.Paginator.is_first_page_disabled">[docs]</a>    <span class="k">def</span> <span class="nf">is_first_page_disabled</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&#39;dimmed&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_first_page_locator</span><span class="p">)</span><span class="o">.</span><span class="n">get_attribute</span><span class="p">(</span><span class="s">&#39;class&#39;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Paginator.click_next_page"><a class="viewcode-back" href="../../../pages.regions.html#pages.regions.paginator.Paginator.click_next_page">[docs]</a>    <span class="k">def</span> <span class="nf">click_next_page</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_next_locator</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_results_refresh</span><span class="p">()</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Paginator.is_next_page_disabled"><a class="viewcode-back" href="../../../pages.regions.html#pages.regions.paginator.Paginator.is_next_page_disabled">[docs]</a>    <span class="k">def</span> <span class="nf">is_next_page_disabled</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&#39;dimmed&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_next_locator</span><span class="p">)</span><span class="o">.</span><span class="n">get_attribute</span><span class="p">(</span><span class="s">&#39;class&#39;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Paginator.click_last_page"><a class="viewcode-back" href="../../../pages.regions.html#pages.regions.paginator.Paginator.click_last_page">[docs]</a>    <span class="k">def</span> <span class="nf">click_last_page</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_last_page_locator</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_results_refresh</span><span class="p">()</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Paginator.is_last_page_disabled"><a class="viewcode-back" href="../../../pages.regions.html#pages.regions.paginator.Paginator.is_last_page_disabled">[docs]</a>    <span class="k">def</span> <span class="nf">is_last_page_disabled</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&#39;dimmed&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_last_page_locator</span><span class="p">)</span><span class="o">.</span><span class="n">get_attribute</span><span class="p">(</span><span class="s">&#39;class&#39;</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Paginator.selected_per_page"><a class="viewcode-back" href="../../../pages.regions.html#pages.regions.paginator.Paginator.selected_per_page">[docs]</a>    <span class="k">def</span> <span class="nf">selected_per_page</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Select</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_per_page_locator</span><span class="p">))</span><span class="o">.</span><span class="n">first_selected_option</span>
+</div>
+<div class="viewcode-block" id="Paginator.set_per_page"><a class="viewcode-back" href="../../../pages.regions.html#pages.regions.paginator.Paginator.set_per_page">[docs]</a>    <span class="k">def</span> <span class="nf">set_per_page</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">Select</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_per_page_locator</span><span class="p">))</span><span class="o">.</span><span class="n">select_by_value</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_results_refresh</span><span class="p">()</span>
+</div></div>
+<div class="viewcode-block" id="PaginatorMixin"><a class="viewcode-back" href="../../../pages.regions.html#pages.regions.paginator.PaginatorMixin">[docs]</a><span class="k">class</span> <span class="nc">PaginatorMixin</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="PaginatorMixin.paginator"><a class="viewcode-back" href="../../../pages.regions.html#pages.regions.paginator.PaginatorMixin.paginator">[docs]</a>    <span class="k">def</span> <span class="nf">paginator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Paginator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../../index.html">CloudForms Management Engine Page Objects library 0.1 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Brad Crochet.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>

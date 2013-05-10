@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pages.control &mdash; CloudForms Management Engine Page Objects library 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="CloudForms Management Engine Page Objects library 0.1 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">CloudForms Management Engine Page Objects library 0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pages.control</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">from</span> <span class="nn">pages.base</span> <span class="kn">import</span> <span class="n">Base</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.action_chains</span> <span class="kn">import</span> <span class="n">ActionChains</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+
+<div class="viewcode-block" id="Control"><a class="viewcode-back" href="../../pages.html#pages.control.Control">[docs]</a><span class="k">class</span> <span class="nc">Control</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Control.submenus"><a class="viewcode-back" href="../../pages.html#pages.control.Control.submenus">[docs]</a>    <span class="k">def</span> <span class="nf">submenus</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s">&quot;miq_policy&quot;</span><span class="p">:</span> <span class="n">Control</span><span class="o">.</span><span class="n">Explorer</span><span class="p">,</span>
+                <span class="s">&quot;miq_policy_export&quot;</span><span class="p">:</span> <span class="n">Control</span><span class="o">.</span><span class="n">ImportExport</span>
+                <span class="p">}</span>
+</div>
+<div class="viewcode-block" id="Control.Explorer"><a class="viewcode-back" href="../../pages.html#pages.control.Control.Explorer">[docs]</a>    <span class="k">class</span> <span class="nc">Explorer</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+        <span class="n">_page_title</span> <span class="o">=</span> <span class="s">&#39;CloudForms Management Engine: Control&#39;</span>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Control.Explorer.accordion"><a class="viewcode-back" href="../../pages.html#pages.control.Control.Explorer.accordion">[docs]</a>        <span class="k">def</span> <span class="nf">accordion</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="kn">from</span> <span class="nn">pages.regions.accordion</span> <span class="kn">import</span> <span class="n">Accordion</span>
+            <span class="kn">from</span> <span class="nn">pages.regions.treeaccordionitem</span> <span class="kn">import</span> <span class="n">TreeAccordionItem</span>
+            <span class="k">return</span> <span class="n">Accordion</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">,</span> <span class="n">TreeAccordionItem</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Control.Explorer.click_on_events_accordion"><a class="viewcode-back" href="../../pages.html#pages.control.Control.Explorer.click_on_events_accordion">[docs]</a>        <span class="k">def</span> <span class="nf">click_on_events_accordion</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">accordion</span><span class="o">.</span><span class="n">accordion_by_name</span><span class="p">(</span><span class="s">&quot;Events&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_results_refresh</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">Control</span><span class="o">.</span><span class="n">Events</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Control.Explorer.click_on_actions_accordion"><a class="viewcode-back" href="../../pages.html#pages.control.Control.Explorer.click_on_actions_accordion">[docs]</a>        <span class="k">def</span> <span class="nf">click_on_actions_accordion</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">accordion</span><span class="o">.</span><span class="n">accordion_by_name</span><span class="p">(</span><span class="s">&quot;Actions&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_results_refresh</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">Control</span><span class="o">.</span><span class="n">Actions</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+</div></div>
+<div class="viewcode-block" id="Control.Events"><a class="viewcode-back" href="../../pages.html#pages.control.Control.Events">[docs]</a>    <span class="k">class</span> <span class="nc">Events</span><span class="p">(</span><span class="n">Explorer</span><span class="p">):</span>
+        <span class="n">_events_table</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;div#event_list_div fieldset table tbody&quot;</span><span class="p">)</span>
+        <span class="n">_event_row_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="s">&quot;tr&quot;</span><span class="p">)</span>
+        <span class="n">_event_items_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="s">&quot;td&quot;</span><span class="p">)</span>
+
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Control.Events.root"><a class="viewcode-back" href="../../pages.html#pages.control.Control.Events.root">[docs]</a>        <span class="k">def</span> <span class="nf">root</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_events_table</span><span class="p">)</span><span class="o">.</span><span class="n">find_elements</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_event_row_locator</span><span class="p">)</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Control.Events.events"><a class="viewcode-back" href="../../pages.html#pages.control.Control.Events.events">[docs]</a>        <span class="k">def</span> <span class="nf">events</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="n">elements</span> <span class="o">=</span> <span class="p">[</span><span class="n">element</span><span class="o">.</span><span class="n">find_elements</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_event_items_locator</span><span class="p">)</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">]</span>
+            <span class="n">events</span> <span class="o">=</span> <span class="p">[(</span><span class="n">img</span><span class="p">,</span> <span class="n">event_desc</span><span class="o">.</span><span class="n">text</span><span class="p">)</span> <span class="k">for</span> <span class="n">img</span><span class="p">,</span> <span class="n">event_desc</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">events</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Control.Events.events_list"><a class="viewcode-back" href="../../pages.html#pages.control.Control.Events.events_list">[docs]</a>        <span class="k">def</span> <span class="nf">events_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">event</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">]</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Control.Events.print_events_list"><a class="viewcode-back" href="../../pages.html#pages.control.Control.Events.print_events_list">[docs]</a>        <span class="k">def</span> <span class="nf">print_events_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="c"># for generating default events list</span>
+            <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">:</span>
+                <span class="k">print</span> <span class="s">&quot;&#39;</span><span class="si">%s</span><span class="s">&#39;,&quot;</span> <span class="o">%</span> <span class="n">event</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</div></div>
+<div class="viewcode-block" id="Control.Actions"><a class="viewcode-back" href="../../pages.html#pages.control.Control.Actions">[docs]</a>    <span class="k">class</span> <span class="nc">Actions</span><span class="p">(</span><span class="n">Explorer</span><span class="p">):</span>
+        <span class="n">_actions_table</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;div#records_div table tbody&quot;</span><span class="p">)</span>
+        <span class="n">_action_row_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="s">&quot;tr&quot;</span><span class="p">)</span>
+        <span class="n">_action_items_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="s">&quot;td&quot;</span><span class="p">)</span>
+
+        <span class="n">_configuration_button_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;div.dhx_toolbar_btn[title=&#39;Configuration&#39;]&quot;</span><span class="p">)</span>
+        <span class="n">_add_action_button_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;table.buttons_cont tr[title=&#39;Add a new Action&#39;]&quot;</span><span class="p">)</span>
+
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Control.Actions.configuration_button"><a class="viewcode-back" href="../../pages.html#pages.control.Control.Actions.configuration_button">[docs]</a>        <span class="k">def</span> <span class="nf">configuration_button</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_configuration_button_locator</span><span class="p">)</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Control.Actions.add_action_button"><a class="viewcode-back" href="../../pages.html#pages.control.Control.Actions.add_action_button">[docs]</a>        <span class="k">def</span> <span class="nf">add_action_button</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_add_action_button_locator</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Control.Actions.click_on_add_new"><a class="viewcode-back" href="../../pages.html#pages.control.Control.Actions.click_on_add_new">[docs]</a>        <span class="k">def</span> <span class="nf">click_on_add_new</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="n">ActionChains</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">configuration_button</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">add_action_button</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_results_refresh</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">Control</span><span class="o">.</span><span class="n">NewAction</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Control.Actions.root"><a class="viewcode-back" href="../../pages.html#pages.control.Control.Actions.root">[docs]</a>        <span class="k">def</span> <span class="nf">root</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_actions_table</span><span class="p">)</span><span class="o">.</span><span class="n">find_elements</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_action_row_locator</span><span class="p">)</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Control.Actions.actions"><a class="viewcode-back" href="../../pages.html#pages.control.Control.Actions.actions">[docs]</a>        <span class="k">def</span> <span class="nf">actions</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="n">elements</span> <span class="o">=</span> <span class="p">[</span><span class="n">element</span><span class="o">.</span><span class="n">find_elements</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_action_items_locator</span><span class="p">)</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">]</span>
+            <span class="k">return</span> <span class="p">[[</span><span class="n">img</span><span class="p">,</span> <span class="n">a_desc</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">a_type</span><span class="o">.</span><span class="n">text</span><span class="p">]</span> <span class="k">for</span> <span class="n">img</span><span class="p">,</span> <span class="n">a_desc</span><span class="p">,</span> <span class="n">a_type</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">]</span>
+</div>
+        <span class="nd">@property</span>
+        <span class="k">def</span> <span class="nf">actions_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="n">elements</span> <span class="o">=</span> <span class="p">[</span><span class="n">element</span><span class="o">.</span><span class="n">find_elements</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_action_items_locator</span><span class="p">)</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">]</span>
+            <span class="k">return</span> <span class="p">[(</span><span class="n">action</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">action</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="k">for</span> <span class="n">action</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">actions</span><span class="p">]</span>
+
+        <span class="nd">@property</span>
+        <span class="k">def</span> <span class="nf">print_actions_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="c"># for generating default actions list</span>
+            <span class="k">for</span> <span class="n">action</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">actions</span><span class="p">:</span>
+                <span class="k">print</span> <span class="s">&quot;(&#39;</span><span class="si">%s</span><span class="s">&#39;, &#39;</span><span class="si">%s</span><span class="s">&#39;),&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">action</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">action</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+<div class="viewcode-block" id="Control.Actions.actions_list"><a class="viewcode-back" href="../../pages.html#pages.control.Control.Actions.actions_list">[docs]</a>        <span class="k">def</span> <span class="nf">actions_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">[(</span><span class="n">action</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">action</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="k">for</span> <span class="n">action</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">actions</span><span class="p">]</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Control.Actions.print_actions_list"><a class="viewcode-back" href="../../pages.html#pages.control.Control.Actions.print_actions_list">[docs]</a>        <span class="k">def</span> <span class="nf">print_actions_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="c"># for generating default actions list</span>
+            <span class="k">for</span> <span class="n">action</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">actions</span><span class="p">:</span>
+                <span class="k">print</span> <span class="s">&quot;(&#39;</span><span class="si">%s</span><span class="s">&#39;, &#39;</span><span class="si">%s</span><span class="s">&#39;),&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">action</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">action</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+</div></div>
+<div class="viewcode-block" id="Control.NewAction"><a class="viewcode-back" href="../../pages.html#pages.control.Control.NewAction">[docs]</a>    <span class="k">class</span> <span class="nc">NewAction</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+        <span class="n">_description_field</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;input#description&quot;</span><span class="p">)</span>
+        <span class="n">_type</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;select#miq_action_type&quot;</span><span class="p">)</span>
+        <span class="n">_add_button</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;img[title=&#39;Add&#39;]&quot;</span><span class="p">)</span>
+
+        <span class="c"># TODO: resolve wait after select dropdown issue and save valid action</span>
+
+<div class="viewcode-block" id="Control.NewAction.add_invalid_action"><a class="viewcode-back" href="../../pages.html#pages.control.Control.NewAction.add_invalid_action">[docs]</a>        <span class="k">def</span> <span class="nf">add_invalid_action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_description_field</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">description</span> <span class="ow">or</span> <span class="s">&quot;custom action&quot;</span><span class="p">)</span>
+            <span class="c">#self.select_dropdown(_a_type, *self._type)</span>
+            <span class="c">#self._wait_for_results_refresh()</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">click_on_add</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="Control.NewAction.click_on_add"><a class="viewcode-back" href="../../pages.html#pages.control.Control.NewAction.click_on_add">[docs]</a>        <span class="k">def</span> <span class="nf">click_on_add</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_add_button</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_results_refresh</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">Control</span><span class="o">.</span><span class="n">Actions</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+</div></div>
+<div class="viewcode-block" id="Control.ImportExport"><a class="viewcode-back" href="../../pages.html#pages.control.Control.ImportExport">[docs]</a>    <span class="k">class</span> <span class="nc">ImportExport</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+        <span class="n">_page_title</span> <span class="o">=</span> <span class="s">&#39;CloudForms Management Engine: Control&#39;</span>
+        <span class="n">_upload_button</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s">&quot;upload_atags&quot;</span><span class="p">)</span>
+        <span class="n">_commit_button</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;a[title=&#39;Commit Import&#39;]&quot;</span><span class="p">)</span>
+        <span class="n">_policy_import_field</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s">&quot;upload_file&quot;</span><span class="p">)</span>
+
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Control.ImportExport.upload"><a class="viewcode-back" href="../../pages.html#pages.control.Control.ImportExport.upload">[docs]</a>        <span class="k">def</span> <span class="nf">upload</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_upload_button</span><span class="p">)</span>
+        </div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Control.ImportExport.commit"><a class="viewcode-back" href="../../pages.html#pages.control.Control.ImportExport.commit">[docs]</a>        <span class="k">def</span> <span class="nf">commit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_commit_button</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Control.ImportExport.click_on_upload"><a class="viewcode-back" href="../../pages.html#pages.control.Control.ImportExport.click_on_upload">[docs]</a>        <span class="k">def</span> <span class="nf">click_on_upload</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">upload</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_results_refresh</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">Control</span><span class="o">.</span><span class="n">ImportExport</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Control.ImportExport.click_on_commit"><a class="viewcode-back" href="../../pages.html#pages.control.Control.ImportExport.click_on_commit">[docs]</a>        <span class="k">def</span> <span class="nf">click_on_commit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">commit</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_results_refresh</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">Control</span><span class="o">.</span><span class="n">ImportExport</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Control.ImportExport.import_policies"><a class="viewcode-back" href="../../pages.html#pages.control.Control.ImportExport.import_policies">[docs]</a>        <span class="k">def</span> <span class="nf">import_policies</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">import_policy_file</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_policy_import_field</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">import_policy_file</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">click_on_upload</span><span class="p">()</span></div></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">CloudForms Management Engine Page Objects library 0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Brad Crochet.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>

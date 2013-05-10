@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>taskbar Package &mdash; CloudForms Test Automation - cfme_pages beta documentation</title>
+    <title>taskbar Package &mdash; CloudForms Management Engine Page Objects library 0.1 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     'beta',
+        URL_ROOT:    './',
+        VERSION:     '0.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,8 +23,9 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="CloudForms Test Automation - cfme_pages beta documentation" href="index.html" />
+    <link rel="top" title="CloudForms Management Engine Page Objects library 0.1 documentation" href="index.html" />
     <link rel="up" title="regions Package" href="pages.regions.html" />
+    <link rel="next" title="tests Package" href="tests.html" />
     <link rel="prev" title="regions Package" href="pages.regions.html" /> 
   </head>
   <body>
@@ -37,9 +36,15 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="tests.html" title="tests Package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
           <a href="pages.regions.html" title="regions Package"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">CloudForms Test Automation - cfme_pages beta documentation</a> &raquo;</li>
+        <li><a href="index.html">CloudForms Management Engine Page Objects library 0.1 documentation</a> &raquo;</li>
           <li><a href="pages.html" >pages Package</a> &raquo;</li>
           <li><a href="pages.regions.html" accesskey="U">regions Package</a> &raquo;</li> 
       </ul>
@@ -52,32 +57,284 @@
             
   <div class="section" id="taskbar-package">
 <h1>taskbar Package<a class="headerlink" href="#taskbar-package" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="button-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">button</span></tt> Module<a class="headerlink" href="#button-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.regions.taskbar.button">
+<span id="button-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">button</span></tt> Module<a class="headerlink" href="#module-pages.regions.taskbar.button" title="Permalink to this headline">¶</a></h2>
+<p>Created on Feb 28, 2013</p>
+<p>&#64;author: bcrochet</p>
+<dl class="class">
+<dt id="pages.regions.taskbar.button.Button">
+<em class="property">class </em><tt class="descclassname">pages.regions.taskbar.button.</tt><tt class="descname">Button</tt><big>(</big><em>setup</em>, <em>*element</em><big>)</big><a class="reference internal" href="_modules/pages/regions/taskbar/button.html#Button"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.button.Button" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pages.html#pages.page.Page" title="pages.page.Page"><tt class="xref py py-class docutils literal"><span class="pre">pages.page.Page</span></tt></a></p>
+<dl class="attribute">
+<dt id="pages.regions.taskbar.button.Button.exists">
+<tt class="descname">exists</tt><a class="reference internal" href="_modules/pages/regions/taskbar/button.html#Button.exists"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.button.Button.exists" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="center-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">center</span></tt> Module<a class="headerlink" href="#center-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.regions.taskbar.center">
+<span id="center-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">center</span></tt> Module<a class="headerlink" href="#module-pages.regions.taskbar.center" title="Permalink to this headline">¶</a></h2>
+<p>Created on Feb 28, 2013</p>
+<p>&#64;author: bcrochet</p>
+<dl class="class">
+<dt id="pages.regions.taskbar.center.CenterButtons">
+<em class="property">class </em><tt class="descclassname">pages.regions.taskbar.center.</tt><tt class="descname">CenterButtons</tt><big>(</big><em>setup</em><big>)</big><a class="reference internal" href="_modules/pages/regions/taskbar/center.html#CenterButtons"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.center.CenterButtons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.regions.taskbar.button.Button" title="pages.regions.taskbar.button.Button"><tt class="xref py py-class docutils literal"><span class="pre">pages.regions.taskbar.button.Button</span></tt></a></p>
+<p>classdocs</p>
+<dl class="attribute">
+<dt id="pages.regions.taskbar.center.CenterButtons.configuration_button">
+<tt class="descname">configuration_button</tt><a class="reference internal" href="_modules/pages/regions/taskbar/center.html#CenterButtons.configuration_button"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.center.CenterButtons.configuration_button" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="custom-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">custom</span></tt> Module<a class="headerlink" href="#custom-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.regions.taskbar.custom">
+<span id="custom-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">custom</span></tt> Module<a class="headerlink" href="#module-pages.regions.taskbar.custom" title="Permalink to this headline">¶</a></h2>
+<p>Created on Feb 28, 2013</p>
+<p>&#64;author: bcrochet</p>
+<dl class="class">
+<dt id="pages.regions.taskbar.custom.CustomButtons">
+<em class="property">class </em><tt class="descclassname">pages.regions.taskbar.custom.</tt><tt class="descname">CustomButtons</tt><big>(</big><em>setup</em><big>)</big><a class="reference internal" href="_modules/pages/regions/taskbar/custom.html#CustomButtons"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.custom.CustomButtons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.regions.taskbar.button.Button" title="pages.regions.taskbar.button.Button"><tt class="xref py py-class docutils literal"><span class="pre">pages.regions.taskbar.button.Button</span></tt></a></p>
+<p>classdocs</p>
+</dd></dl>
+
 </div>
-<div class="section" id="history-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">history</span></tt> Module<a class="headerlink" href="#history-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.regions.taskbar.history">
+<span id="history-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">history</span></tt> Module<a class="headerlink" href="#module-pages.regions.taskbar.history" title="Permalink to this headline">¶</a></h2>
+<p>Created on Feb 28, 2013</p>
+<p>&#64;author: bcrochet</p>
+<dl class="class">
+<dt id="pages.regions.taskbar.history.HistoryButtons">
+<em class="property">class </em><tt class="descclassname">pages.regions.taskbar.history.</tt><tt class="descname">HistoryButtons</tt><big>(</big><em>setup</em><big>)</big><a class="reference internal" href="_modules/pages/regions/taskbar/history.html#HistoryButtons"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.history.HistoryButtons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.regions.taskbar.button.Button" title="pages.regions.taskbar.button.Button"><tt class="xref py py-class docutils literal"><span class="pre">pages.regions.taskbar.button.Button</span></tt></a></p>
+<dl class="attribute">
+<dt id="pages.regions.taskbar.history.HistoryButtons.history_arrow_button">
+<tt class="descname">history_arrow_button</tt><a class="reference internal" href="_modules/pages/regions/taskbar/history.html#HistoryButtons.history_arrow_button"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.history.HistoryButtons.history_arrow_button" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.taskbar.history.HistoryButtons.history_button">
+<tt class="descname">history_button</tt><a class="reference internal" href="_modules/pages/regions/taskbar/history.html#HistoryButtons.history_button"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.history.HistoryButtons.history_button" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.taskbar.history.HistoryButtons.refresh_button">
+<tt class="descname">refresh_button</tt><a class="reference internal" href="_modules/pages/regions/taskbar/history.html#HistoryButtons.refresh_button"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.history.HistoryButtons.refresh_button" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="power-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">power</span></tt> Module<a class="headerlink" href="#power-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.regions.taskbar.power">
+<span id="power-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">power</span></tt> Module<a class="headerlink" href="#module-pages.regions.taskbar.power" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pages.regions.taskbar.power.PowerButton">
+<em class="property">class </em><tt class="descclassname">pages.regions.taskbar.power.</tt><tt class="descname">PowerButton</tt><big>(</big><em>setup</em><big>)</big><a class="reference internal" href="_modules/pages/regions/taskbar/power.html#PowerButton"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.power.PowerButton" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.regions.taskbar.button.Button" title="pages.regions.taskbar.button.Button"><tt class="xref py py-class docutils literal"><span class="pre">pages.regions.taskbar.button.Button</span></tt></a></p>
+<dl class="method">
+<dt id="pages.regions.taskbar.power.PowerButton.power_off">
+<tt class="descname">power_off</tt><big>(</big><em>cancel</em><big>)</big><a class="reference internal" href="_modules/pages/regions/taskbar/power.html#PowerButton.power_off"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.power.PowerButton.power_off" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.taskbar.power.PowerButton.power_on">
+<tt class="descname">power_on</tt><big>(</big><em>cancel</em><big>)</big><a class="reference internal" href="_modules/pages/regions/taskbar/power.html#PowerButton.power_on"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.power.PowerButton.power_on" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.taskbar.power.PowerButton.reset">
+<tt class="descname">reset</tt><big>(</big><em>cancel</em><big>)</big><a class="reference internal" href="_modules/pages/regions/taskbar/power.html#PowerButton.reset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.power.PowerButton.reset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.taskbar.power.PowerButton.restart">
+<tt class="descname">restart</tt><big>(</big><em>cancel</em><big>)</big><a class="reference internal" href="_modules/pages/regions/taskbar/power.html#PowerButton.restart"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.power.PowerButton.restart" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.taskbar.power.PowerButton.shutdown">
+<tt class="descname">shutdown</tt><big>(</big><em>cancel</em><big>)</big><a class="reference internal" href="_modules/pages/regions/taskbar/power.html#PowerButton.shutdown"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.power.PowerButton.shutdown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.taskbar.power.PowerButton.suspend">
+<tt class="descname">suspend</tt><big>(</big><em>cancel</em><big>)</big><a class="reference internal" href="_modules/pages/regions/taskbar/power.html#PowerButton.suspend"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.power.PowerButton.suspend" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="report-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">report</span></tt> Module<a class="headerlink" href="#report-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.regions.taskbar.report">
+<span id="report-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">report</span></tt> Module<a class="headerlink" href="#module-pages.regions.taskbar.report" title="Permalink to this headline">¶</a></h2>
+<p>Created on Mar 5, 2013</p>
+<p>&#64;author: bcrochet</p>
+<dl class="class">
+<dt id="pages.regions.taskbar.report.ReportButtons">
+<em class="property">class </em><tt class="descclassname">pages.regions.taskbar.report.</tt><tt class="descname">ReportButtons</tt><big>(</big><em>setup</em><big>)</big><a class="reference internal" href="_modules/pages/regions/taskbar/report.html#ReportButtons"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.report.ReportButtons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.regions.taskbar.button.Button" title="pages.regions.taskbar.button.Button"><tt class="xref py py-class docutils literal"><span class="pre">pages.regions.taskbar.button.Button</span></tt></a></p>
+<p>classdocs</p>
+<dl class="method">
+<dt id="pages.regions.taskbar.report.ReportButtons.delete">
+<tt class="descname">delete</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/regions/taskbar/report.html#ReportButtons.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.report.ReportButtons.delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.taskbar.report.ReportButtons.delete_button">
+<tt class="descname">delete_button</tt><a class="reference internal" href="_modules/pages/regions/taskbar/report.html#ReportButtons.delete_button"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.report.ReportButtons.delete_button" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.taskbar.report.ReportButtons.refresh">
+<tt class="descname">refresh</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/regions/taskbar/report.html#ReportButtons.refresh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.report.ReportButtons.refresh" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.taskbar.report.ReportButtons.refresh_button">
+<tt class="descname">refresh_button</tt><a class="reference internal" href="_modules/pages/regions/taskbar/report.html#ReportButtons.refresh_button"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.report.ReportButtons.refresh_button" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="taskbar-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">taskbar</span></tt> Module<a class="headerlink" href="#taskbar-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.regions.taskbar.taskbar">
+<span id="taskbar-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">taskbar</span></tt> Module<a class="headerlink" href="#module-pages.regions.taskbar.taskbar" title="Permalink to this headline">¶</a></h2>
+<p>Created on Feb 26, 2013</p>
+<p>&#64;author: bcrochet</p>
+<dl class="class">
+<dt id="pages.regions.taskbar.taskbar.Taskbar">
+<em class="property">class </em><tt class="descclassname">pages.regions.taskbar.taskbar.</tt><tt class="descname">Taskbar</tt><big>(</big><em>setup</em><big>)</big><a class="reference internal" href="_modules/pages/regions/taskbar/taskbar.html#Taskbar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.taskbar.Taskbar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pages.html#pages.page.Page" title="pages.page.Page"><tt class="xref py py-class docutils literal"><span class="pre">pages.page.Page</span></tt></a></p>
+<p>Taskbar</p>
+<dl class="attribute">
+<dt id="pages.regions.taskbar.taskbar.Taskbar.center_buttons">
+<tt class="descname">center_buttons</tt><a class="reference internal" href="_modules/pages/regions/taskbar/taskbar.html#Taskbar.center_buttons"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.taskbar.Taskbar.center_buttons" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.taskbar.taskbar.Taskbar.history_buttons">
+<tt class="descname">history_buttons</tt><a class="reference internal" href="_modules/pages/regions/taskbar/taskbar.html#Taskbar.history_buttons"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.taskbar.Taskbar.history_buttons" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.taskbar.taskbar.Taskbar.view_buttons">
+<tt class="descname">view_buttons</tt><a class="reference internal" href="_modules/pages/regions/taskbar/taskbar.html#Taskbar.view_buttons"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.taskbar.Taskbar.view_buttons" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="view-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">view</span></tt> Module<a class="headerlink" href="#view-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.regions.taskbar.view">
+<span id="view-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">view</span></tt> Module<a class="headerlink" href="#module-pages.regions.taskbar.view" title="Permalink to this headline">¶</a></h2>
+<p>Created on Feb 28, 2013</p>
+<p>&#64;author: bcrochet</p>
+<dl class="class">
+<dt id="pages.regions.taskbar.view.ViewButtons">
+<em class="property">class </em><tt class="descclassname">pages.regions.taskbar.view.</tt><tt class="descname">ViewButtons</tt><big>(</big><em>setup</em><big>)</big><a class="reference internal" href="_modules/pages/regions/taskbar/view.html#ViewButtons"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.view.ViewButtons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.regions.taskbar.button.Button" title="pages.regions.taskbar.button.Button"><tt class="xref py py-class docutils literal"><span class="pre">pages.regions.taskbar.button.Button</span></tt></a></p>
+<dl class="method">
+<dt id="pages.regions.taskbar.view.ViewButtons.change_to_grid_view">
+<tt class="descname">change_to_grid_view</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/regions/taskbar/view.html#ViewButtons.change_to_grid_view"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.view.ViewButtons.change_to_grid_view" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.taskbar.view.ViewButtons.change_to_list_view">
+<tt class="descname">change_to_list_view</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/regions/taskbar/view.html#ViewButtons.change_to_list_view"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.view.ViewButtons.change_to_list_view" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.taskbar.view.ViewButtons.change_to_tile_view">
+<tt class="descname">change_to_tile_view</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/regions/taskbar/view.html#ViewButtons.change_to_tile_view"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.view.ViewButtons.change_to_tile_view" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.taskbar.view.ViewButtons.download_button">
+<tt class="descname">download_button</tt><a class="reference internal" href="_modules/pages/regions/taskbar/view.html#ViewButtons.download_button"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.view.ViewButtons.download_button" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.taskbar.view.ViewButtons.grid_view_button">
+<tt class="descname">grid_view_button</tt><a class="reference internal" href="_modules/pages/regions/taskbar/view.html#ViewButtons.grid_view_button"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.view.ViewButtons.grid_view_button" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.taskbar.view.ViewButtons.is_grid_view">
+<tt class="descname">is_grid_view</tt><a class="reference internal" href="_modules/pages/regions/taskbar/view.html#ViewButtons.is_grid_view"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.view.ViewButtons.is_grid_view" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.taskbar.view.ViewButtons.is_list_view">
+<tt class="descname">is_list_view</tt><a class="reference internal" href="_modules/pages/regions/taskbar/view.html#ViewButtons.is_list_view"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.view.ViewButtons.is_list_view" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.taskbar.view.ViewButtons.is_tile_view">
+<tt class="descname">is_tile_view</tt><a class="reference internal" href="_modules/pages/regions/taskbar/view.html#ViewButtons.is_tile_view"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.view.ViewButtons.is_tile_view" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.taskbar.view.ViewButtons.list_view_button">
+<tt class="descname">list_view_button</tt><a class="reference internal" href="_modules/pages/regions/taskbar/view.html#ViewButtons.list_view_button"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.view.ViewButtons.list_view_button" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.regions.taskbar.view.ViewButtons.tile_view_button">
+<tt class="descname">tile_view_button</tt><a class="reference internal" href="_modules/pages/regions/taskbar/view.html#ViewButtons.tile_view_button"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.view.ViewButtons.tile_view_button" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="vm-configuration-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">vm_configuration</span></tt> Module<a class="headerlink" href="#vm-configuration-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.regions.taskbar.vm_configuration">
+<span id="vm-configuration-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">vm_configuration</span></tt> Module<a class="headerlink" href="#module-pages.regions.taskbar.vm_configuration" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pages.regions.taskbar.vm_configuration.ConfigButton">
+<em class="property">class </em><tt class="descclassname">pages.regions.taskbar.vm_configuration.</tt><tt class="descname">ConfigButton</tt><big>(</big><em>setup</em><big>)</big><a class="reference internal" href="_modules/pages/regions/taskbar/vm_configuration.html#ConfigButton"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.vm_configuration.ConfigButton" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pages.regions.taskbar.button.Button" title="pages.regions.taskbar.button.Button"><tt class="xref py py-class docutils literal"><span class="pre">pages.regions.taskbar.button.Button</span></tt></a></p>
+<dl class="method">
+<dt id="pages.regions.taskbar.vm_configuration.ConfigButton.extract_running_processes">
+<tt class="descname">extract_running_processes</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/regions/taskbar/vm_configuration.html#ConfigButton.extract_running_processes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.vm_configuration.ConfigButton.extract_running_processes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.taskbar.vm_configuration.ConfigButton.extract_running_processes_and_cancel">
+<tt class="descname">extract_running_processes_and_cancel</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/regions/taskbar/vm_configuration.html#ConfigButton.extract_running_processes_and_cancel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.vm_configuration.ConfigButton.extract_running_processes_and_cancel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.taskbar.vm_configuration.ConfigButton.perform_smart_state_analysis">
+<tt class="descname">perform_smart_state_analysis</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/regions/taskbar/vm_configuration.html#ConfigButton.perform_smart_state_analysis"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.vm_configuration.ConfigButton.perform_smart_state_analysis" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.taskbar.vm_configuration.ConfigButton.perform_smart_state_analysis_and_cancel">
+<tt class="descname">perform_smart_state_analysis_and_cancel</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/regions/taskbar/vm_configuration.html#ConfigButton.perform_smart_state_analysis_and_cancel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.vm_configuration.ConfigButton.perform_smart_state_analysis_and_cancel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.taskbar.vm_configuration.ConfigButton.refresh_relationships">
+<tt class="descname">refresh_relationships</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/regions/taskbar/vm_configuration.html#ConfigButton.refresh_relationships"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.vm_configuration.ConfigButton.refresh_relationships" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.taskbar.vm_configuration.ConfigButton.refresh_relationships_and_cancel">
+<tt class="descname">refresh_relationships_and_cancel</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/regions/taskbar/vm_configuration.html#ConfigButton.refresh_relationships_and_cancel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.vm_configuration.ConfigButton.refresh_relationships_and_cancel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.taskbar.vm_configuration.ConfigButton.remove_from_vmdb">
+<tt class="descname">remove_from_vmdb</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/regions/taskbar/vm_configuration.html#ConfigButton.remove_from_vmdb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.vm_configuration.ConfigButton.remove_from_vmdb" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.regions.taskbar.vm_configuration.ConfigButton.remove_from_vmdb_and_cancel">
+<tt class="descname">remove_from_vmdb_and_cancel</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/regions/taskbar/vm_configuration.html#ConfigButton.remove_from_vmdb_and_cancel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.regions.taskbar.vm_configuration.ConfigButton.remove_from_vmdb_and_cancel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 </div>
 
@@ -90,15 +347,15 @@
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">taskbar Package</a><ul>
-<li><a class="reference internal" href="#button-module"><tt class="docutils literal"><span class="pre">button</span></tt> Module</a></li>
-<li><a class="reference internal" href="#center-module"><tt class="docutils literal"><span class="pre">center</span></tt> Module</a></li>
-<li><a class="reference internal" href="#custom-module"><tt class="docutils literal"><span class="pre">custom</span></tt> Module</a></li>
-<li><a class="reference internal" href="#history-module"><tt class="docutils literal"><span class="pre">history</span></tt> Module</a></li>
-<li><a class="reference internal" href="#power-module"><tt class="docutils literal"><span class="pre">power</span></tt> Module</a></li>
-<li><a class="reference internal" href="#report-module"><tt class="docutils literal"><span class="pre">report</span></tt> Module</a></li>
-<li><a class="reference internal" href="#taskbar-module"><tt class="docutils literal"><span class="pre">taskbar</span></tt> Module</a></li>
-<li><a class="reference internal" href="#view-module"><tt class="docutils literal"><span class="pre">view</span></tt> Module</a></li>
-<li><a class="reference internal" href="#vm-configuration-module"><tt class="docutils literal"><span class="pre">vm_configuration</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.regions.taskbar.button"><tt class="docutils literal"><span class="pre">button</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.regions.taskbar.center"><tt class="docutils literal"><span class="pre">center</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.regions.taskbar.custom"><tt class="docutils literal"><span class="pre">custom</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.regions.taskbar.history"><tt class="docutils literal"><span class="pre">history</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.regions.taskbar.power"><tt class="docutils literal"><span class="pre">power</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.regions.taskbar.report"><tt class="docutils literal"><span class="pre">report</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.regions.taskbar.taskbar"><tt class="docutils literal"><span class="pre">taskbar</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.regions.taskbar.view"><tt class="docutils literal"><span class="pre">view</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.regions.taskbar.vm_configuration"><tt class="docutils literal"><span class="pre">vm_configuration</span></tt> Module</a></li>
 </ul>
 </li>
 </ul>
@@ -106,6 +363,9 @@
   <h4>Previous topic</h4>
   <p class="topless"><a href="pages.regions.html"
                         title="previous chapter">regions Package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="tests.html"
+                        title="next chapter">tests Package</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/pages.regions.taskbar.txt"
@@ -135,16 +395,22 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="tests.html" title="tests Package"
+             >next</a> |</li>
+        <li class="right" >
           <a href="pages.regions.html" title="regions Package"
              >previous</a> |</li>
-        <li><a href="index.html">CloudForms Test Automation - cfme_pages beta documentation</a> &raquo;</li>
+        <li><a href="index.html">CloudForms Management Engine Page Objects library 0.1 documentation</a> &raquo;</li>
           <li><a href="pages.html" >pages Package</a> &raquo;</li>
           <li><a href="pages.regions.html" >regions Package</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2013, Brad Crochet.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
     </div>
   </body>
 </html>

@@ -1,0 +1,227 @@
+tests Package
+=============
+
+:mod:`conftest` Module
+----------------------
+
+.. automodule:: tests.conftest
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_about` Module
+------------------------
+
+.. automodule:: tests.test_about
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_accordion` Module
+----------------------------
+
+.. automodule:: tests.test_accordion
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_actions` Module
+--------------------------
+
+.. automodule:: tests.test_actions
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_checkboxtree` Module
+-------------------------------
+
+.. automodule:: tests.test_checkboxtree
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_configuration` Module
+--------------------------------
+
+.. automodule:: tests.test_configuration
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_configuration_access_control` Module
+-----------------------------------------------
+
+.. automodule:: tests.test_configuration_access_control
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_configuration_settings_database` Module
+--------------------------------------------------
+
+.. automodule:: tests.test_configuration_settings_database
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_configuration_settings_server` Module
+------------------------------------------------
+
+.. automodule:: tests.test_configuration_settings_server
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_configuration_settings_zones` Module
+-----------------------------------------------
+
+.. automodule:: tests.test_configuration_settings_zones
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_events` Module
+-------------------------
+
+.. automodule:: tests.test_events
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_infra_management_systems` Module
+-------------------------------------------
+
+.. automodule:: tests.test_infra_management_systems
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_infra_pxe_server` Module
+-----------------------------------
+
+.. automodule:: tests.test_infra_pxe_server
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_infra_refresh_pxe_server` Module
+-------------------------------------------
+
+.. automodule:: tests.test_infra_refresh_pxe_server
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_infra_template` Module
+---------------------------------
+
+.. automodule:: tests.test_infra_template
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_infrastructure_hosts` Module
+---------------------------------------
+
+.. automodule:: tests.test_infrastructure_hosts
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_logout` Module
+-------------------------
+
+.. automodule:: tests.test_logout
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_mysettings` Module
+-----------------------------
+
+.. automodule:: tests.test_mysettings
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_navigation` Module
+-----------------------------
+
+.. automodule:: tests.test_navigation
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_paginator` Module
+----------------------------
+
+.. automodule:: tests.test_paginator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_power_button` Module
+-------------------------------
+
+.. automodule:: tests.test_power_button
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_reports` Module
+--------------------------
+
+.. automodule:: tests.test_reports
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_search` Module
+-------------------------
+
+.. automodule:: tests.test_search
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_services` Module
+---------------------------
+
+.. automodule:: tests.test_services
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_smartproxies` Module
+-------------------------------
+
+.. automodule:: tests.test_smartproxies
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_taskbar` Module
+--------------------------
+
+.. automodule:: tests.test_taskbar
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_tasks` Module
+------------------------
+
+.. automodule:: tests.test_tasks
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+:mod:`test_tree` Module
+-----------------------
+
+.. automodule:: tests.test_tree
+    :members:
+    :undoc-members:
+    :show-inheritance:
+

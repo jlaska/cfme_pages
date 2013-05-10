@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>server_settings_subpages Package &mdash; CloudForms Test Automation - cfme_pages beta documentation</title>
+    <title>server_settings_subpages Package &mdash; CloudForms Management Engine Page Objects library 0.1 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     'beta',
+        URL_ROOT:    './',
+        VERSION:     '0.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="CloudForms Test Automation - cfme_pages beta documentation" href="index.html" />
+    <link rel="top" title="CloudForms Management Engine Page Objects library 0.1 documentation" href="index.html" />
     <link rel="up" title="settings_subpages Package" href="pages.configuration_subpages.settings_subpages.html" />
     <link rel="next" title="regions Package" href="pages.regions.html" />
     <link rel="prev" title="settings_subpages Package" href="pages.configuration_subpages.settings_subpages.html" /> 
@@ -38,12 +36,15 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="pages.regions.html" title="regions Package"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="pages.configuration_subpages.settings_subpages.html" title="settings_subpages Package"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">CloudForms Test Automation - cfme_pages beta documentation</a> &raquo;</li>
+        <li><a href="index.html">CloudForms Management Engine Page Objects library 0.1 documentation</a> &raquo;</li>
           <li><a href="pages.html" >pages Package</a> &raquo;</li>
           <li><a href="pages.configuration_subpages.html" >configuration_subpages Package</a> &raquo;</li>
           <li><a href="pages.configuration_subpages.settings_subpages.html" accesskey="U">settings_subpages Package</a> &raquo;</li> 
@@ -57,11 +58,108 @@
             
   <div class="section" id="server-settings-subpages-package">
 <h1>server_settings_subpages Package<a class="headerlink" href="#server-settings-subpages-package" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="database-settings-tab-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">database_settings_tab</span></tt> Module<a class="headerlink" href="#database-settings-tab-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.configuration_subpages.settings_subpages.server_settings_subpages.database_settings_tab">
+<span id="database-settings-tab-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">database_settings_tab</span></tt> Module<a class="headerlink" href="#module-pages.configuration_subpages.settings_subpages.server_settings_subpages.database_settings_tab" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pages.configuration_subpages.settings_subpages.server_settings_subpages.database_settings_tab.DatabaseSettingsTab">
+<em class="property">class </em><tt class="descclassname">pages.configuration_subpages.settings_subpages.server_settings_subpages.database_settings_tab.</tt><tt class="descname">DatabaseSettingsTab</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/settings_subpages/server_settings_subpages/database_settings_tab.html#DatabaseSettingsTab"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.settings_subpages.server_settings_subpages.database_settings_tab.DatabaseSettingsTab" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pages.html#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+<dl class="attribute">
+<dt id="pages.configuration_subpages.settings_subpages.server_settings_subpages.database_settings_tab.DatabaseSettingsTab.dbtype">
+<tt class="descname">dbtype</tt><a class="reference internal" href="_modules/pages/configuration_subpages/settings_subpages/server_settings_subpages/database_settings_tab.html#DatabaseSettingsTab.dbtype"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.settings_subpages.server_settings_subpages.database_settings_tab.DatabaseSettingsTab.dbtype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.configuration_subpages.settings_subpages.server_settings_subpages.database_settings_tab.DatabaseSettingsTab.save">
+<tt class="descname">save</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/settings_subpages/server_settings_subpages/database_settings_tab.html#DatabaseSettingsTab.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.settings_subpages.server_settings_subpages.database_settings_tab.DatabaseSettingsTab.save" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.configuration_subpages.settings_subpages.server_settings_subpages.database_settings_tab.DatabaseSettingsTab.set_external_evm_db">
+<tt class="descname">set_external_evm_db</tt><big>(</big><em>hostname</em><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/settings_subpages/server_settings_subpages/database_settings_tab.html#DatabaseSettingsTab.set_external_evm_db"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.settings_subpages.server_settings_subpages.database_settings_tab.DatabaseSettingsTab.set_external_evm_db" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.configuration_subpages.settings_subpages.server_settings_subpages.database_settings_tab.DatabaseSettingsTab.set_external_postgres_db">
+<tt class="descname">set_external_postgres_db</tt><big>(</big><em>hostname</em>, <em>dbname</em>, <em>username</em>, <em>password</em><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/settings_subpages/server_settings_subpages/database_settings_tab.html#DatabaseSettingsTab.set_external_postgres_db"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.settings_subpages.server_settings_subpages.database_settings_tab.DatabaseSettingsTab.set_external_postgres_db" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.configuration_subpages.settings_subpages.server_settings_subpages.database_settings_tab.DatabaseSettingsTab.set_internal_evm_db">
+<tt class="descname">set_internal_evm_db</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/settings_subpages/server_settings_subpages/database_settings_tab.html#DatabaseSettingsTab.set_internal_evm_db"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.settings_subpages.server_settings_subpages.database_settings_tab.DatabaseSettingsTab.set_internal_evm_db" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.configuration_subpages.settings_subpages.server_settings_subpages.database_settings_tab.DatabaseSettingsTab.validate">
+<tt class="descname">validate</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/settings_subpages/server_settings_subpages/database_settings_tab.html#DatabaseSettingsTab.validate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.settings_subpages.server_settings_subpages.database_settings_tab.DatabaseSettingsTab.validate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
-<div class="section" id="server-settings-tab-module">
-<h2><tt class="xref py py-mod docutils literal"><span class="pre">server_settings_tab</span></tt> Module<a class="headerlink" href="#server-settings-tab-module" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-pages.configuration_subpages.settings_subpages.server_settings_subpages.server_settings_tab">
+<span id="server-settings-tab-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">server_settings_tab</span></tt> Module<a class="headerlink" href="#module-pages.configuration_subpages.settings_subpages.server_settings_subpages.server_settings_tab" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pages.configuration_subpages.settings_subpages.server_settings_subpages.server_settings_tab.ServerSettingsTab">
+<em class="property">class </em><tt class="descclassname">pages.configuration_subpages.settings_subpages.server_settings_subpages.server_settings_tab.</tt><tt class="descname">ServerSettingsTab</tt><big>(</big><em>testsetup</em><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/settings_subpages/server_settings_subpages/server_settings_tab.html#ServerSettingsTab"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.settings_subpages.server_settings_subpages.server_settings_tab.ServerSettingsTab" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pages.html#pages.base.Base" title="pages.base.Base"><tt class="xref py py-class docutils literal"><span class="pre">pages.base.Base</span></tt></a></p>
+<dl class="class">
+<dt id="pages.configuration_subpages.settings_subpages.server_settings_subpages.server_settings_tab.ServerSettingsTab.ServerRole">
+<em class="property">class </em><tt class="descname">ServerRole</tt><big>(</big><em>element</em><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/settings_subpages/server_settings_subpages/server_settings_tab.html#ServerSettingsTab.ServerRole"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.settings_subpages.server_settings_subpages.server_settings_tab.ServerSettingsTab.ServerRole" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="pages.configuration_subpages.settings_subpages.server_settings_subpages.server_settings_tab.ServerSettingsTab.ServerRole.is_selected">
+<tt class="descname">is_selected</tt><a class="reference internal" href="_modules/pages/configuration_subpages/settings_subpages/server_settings_subpages/server_settings_tab.html#ServerSettingsTab.ServerRole.is_selected"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.settings_subpages.server_settings_subpages.server_settings_tab.ServerSettingsTab.ServerRole.is_selected" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.configuration_subpages.settings_subpages.server_settings_subpages.server_settings_tab.ServerSettingsTab.ServerRole.name">
+<tt class="descname">name</tt><a class="reference internal" href="_modules/pages/configuration_subpages/settings_subpages/server_settings_subpages/server_settings_tab.html#ServerSettingsTab.ServerRole.name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.settings_subpages.server_settings_subpages.server_settings_tab.ServerSettingsTab.ServerRole.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.configuration_subpages.settings_subpages.server_settings_subpages.server_settings_tab.ServerSettingsTab.ServerRole.select">
+<tt class="descname">select</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/settings_subpages/server_settings_subpages/server_settings_tab.html#ServerSettingsTab.ServerRole.select"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.settings_subpages.server_settings_subpages.server_settings_tab.ServerSettingsTab.ServerRole.select" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.configuration_subpages.settings_subpages.server_settings_subpages.server_settings_tab.ServerSettingsTab.ServerRole.unselect">
+<tt class="descname">unselect</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/settings_subpages/server_settings_subpages/server_settings_tab.html#ServerSettingsTab.ServerRole.unselect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.settings_subpages.server_settings_subpages.server_settings_tab.ServerSettingsTab.ServerRole.unselect" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt id="pages.configuration_subpages.settings_subpages.server_settings_subpages.server_settings_tab.ServerSettingsTab.save">
+<tt class="descclassname">ServerSettingsTab.</tt><tt class="descname">save</tt><big>(</big><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/settings_subpages/server_settings_subpages/server_settings_tab.html#ServerSettingsTab.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.settings_subpages.server_settings_subpages.server_settings_tab.ServerSettingsTab.save" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.configuration_subpages.settings_subpages.server_settings_subpages.server_settings_tab.ServerSettingsTab.select_server_role">
+<tt class="descclassname">ServerSettingsTab.</tt><tt class="descname">select_server_role</tt><big>(</big><em>role_name</em><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/settings_subpages/server_settings_subpages/server_settings_tab.html#ServerSettingsTab.select_server_role"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.settings_subpages.server_settings_subpages.server_settings_tab.ServerSettingsTab.select_server_role" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pages.configuration_subpages.settings_subpages.server_settings_subpages.server_settings_tab.ServerSettingsTab.server_roles">
+<tt class="descclassname">ServerSettingsTab.</tt><tt class="descname">server_roles</tt><a class="reference internal" href="_modules/pages/configuration_subpages/settings_subpages/server_settings_subpages/server_settings_tab.html#ServerSettingsTab.server_roles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.settings_subpages.server_settings_subpages.server_settings_tab.ServerSettingsTab.server_roles" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.configuration_subpages.settings_subpages.server_settings_subpages.server_settings_tab.ServerSettingsTab.set_server_roles">
+<tt class="descclassname">ServerSettingsTab.</tt><tt class="descname">set_server_roles</tt><big>(</big><em>roles</em><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/settings_subpages/server_settings_subpages/server_settings_tab.html#ServerSettingsTab.set_server_roles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.settings_subpages.server_settings_subpages.server_settings_tab.ServerSettingsTab.set_server_roles" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.configuration_subpages.settings_subpages.server_settings_subpages.server_settings_tab.ServerSettingsTab.set_zone">
+<tt class="descclassname">ServerSettingsTab.</tt><tt class="descname">set_zone</tt><big>(</big><em>zone</em><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/settings_subpages/server_settings_subpages/server_settings_tab.html#ServerSettingsTab.set_zone"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.settings_subpages.server_settings_subpages.server_settings_tab.ServerSettingsTab.set_zone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pages.configuration_subpages.settings_subpages.server_settings_subpages.server_settings_tab.ServerSettingsTab.unselect_server_role">
+<tt class="descclassname">ServerSettingsTab.</tt><tt class="descname">unselect_server_role</tt><big>(</big><em>role_name</em><big>)</big><a class="reference internal" href="_modules/pages/configuration_subpages/settings_subpages/server_settings_subpages/server_settings_tab.html#ServerSettingsTab.unselect_server_role"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pages.configuration_subpages.settings_subpages.server_settings_subpages.server_settings_tab.ServerSettingsTab.unselect_server_role" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </div>
 </div>
 
@@ -74,8 +172,8 @@
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">server_settings_subpages Package</a><ul>
-<li><a class="reference internal" href="#database-settings-tab-module"><tt class="docutils literal"><span class="pre">database_settings_tab</span></tt> Module</a></li>
-<li><a class="reference internal" href="#server-settings-tab-module"><tt class="docutils literal"><span class="pre">server_settings_tab</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.configuration_subpages.settings_subpages.server_settings_subpages.database_settings_tab"><tt class="docutils literal"><span class="pre">database_settings_tab</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-pages.configuration_subpages.settings_subpages.server_settings_subpages.server_settings_tab"><tt class="docutils literal"><span class="pre">server_settings_tab</span></tt> Module</a></li>
 </ul>
 </li>
 </ul>
@@ -115,12 +213,15 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="pages.regions.html" title="regions Package"
              >next</a> |</li>
         <li class="right" >
           <a href="pages.configuration_subpages.settings_subpages.html" title="settings_subpages Package"
              >previous</a> |</li>
-        <li><a href="index.html">CloudForms Test Automation - cfme_pages beta documentation</a> &raquo;</li>
+        <li><a href="index.html">CloudForms Management Engine Page Objects library 0.1 documentation</a> &raquo;</li>
           <li><a href="pages.html" >pages Package</a> &raquo;</li>
           <li><a href="pages.configuration_subpages.html" >configuration_subpages Package</a> &raquo;</li>
           <li><a href="pages.configuration_subpages.settings_subpages.html" >settings_subpages Package</a> &raquo;</li> 
@@ -128,7 +229,7 @@
     </div>
     <div class="footer">
         &copy; Copyright 2013, Brad Crochet.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
     </div>
   </body>
 </html>

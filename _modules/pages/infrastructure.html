@@ -1,0 +1,597 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pages.infrastructure &mdash; CloudForms Management Engine Page Objects library 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="CloudForms Management Engine Page Objects library 0.1 documentation" href="../../index.html" />
+    <link rel="up" title="Module code" href="../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">CloudForms Management Engine Page Objects library 0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for pages.infrastructure</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">from</span> <span class="nn">pages.base</span> <span class="kn">import</span> <span class="n">Base</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
+<span class="kn">from</span> <span class="nn">pages.regions.paginator</span> <span class="kn">import</span> <span class="n">PaginatorMixin</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.action_chains</span> <span class="kn">import</span> <span class="n">ActionChains</span>
+<span class="kn">from</span> <span class="nn">pages.regions.quadicons</span> <span class="kn">import</span> <span class="n">Quadicons</span>
+<span class="kn">from</span> <span class="nn">pages.regions.quadiconitem</span> <span class="kn">import</span> <span class="n">QuadiconItem</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<div class="viewcode-block" id="Infrastructure"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure">[docs]</a><span class="k">class</span> <span class="nc">Infrastructure</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.submenus"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.submenus">[docs]</a>    <span class="k">def</span> <span class="nf">submenus</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s">&quot;management_system&quot;</span> <span class="p">:</span> <span class="n">Infrastructure</span><span class="o">.</span><span class="n">ManagementSystems</span><span class="p">,</span>
+                <span class="s">&quot;host&quot;</span>              <span class="p">:</span> <span class="n">Infrastructure</span><span class="o">.</span><span class="n">Hosts</span><span class="p">,</span>
+                <span class="s">&quot;pxe&quot;</span>               <span class="p">:</span> <span class="n">Infrastructure</span><span class="o">.</span><span class="n">PXE</span>
+                <span class="p">}</span>
+        </div>
+<div class="viewcode-block" id="Infrastructure.ManagementSystems"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystems">[docs]</a>    <span class="k">class</span> <span class="nc">ManagementSystems</span><span class="p">(</span><span class="n">Base</span><span class="p">,</span> <span class="n">PaginatorMixin</span><span class="p">):</span>
+        <span class="n">_page_title</span> <span class="o">=</span> <span class="s">&#39;CloudForms Management Engine: Management Systems&#39;</span>
+        <span class="n">_configuration_button_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;div.dhx_toolbar_btn[title=&#39;Configuration&#39;]&quot;</span><span class="p">)</span>
+        <span class="n">_discover_management_systems_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;table.buttons_cont tr[title=&#39;Discover Management Systems&#39;]&quot;</span><span class="p">)</span>
+        <span class="n">_edit_management_systems_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;table.buttons_cont tr[title=&#39;Select a single Management System to edit&#39;]&quot;</span><span class="p">)</span>
+        <span class="n">_remove_management_systems_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;table.buttons_cont tr[title=&#39;Remove selected Management Systems from the VMDB&#39;]&quot;</span><span class="p">)</span>
+        <span class="n">_add_new_management_system_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;table.buttons_cont tr[title=&#39;Add a New Management System&#39;]&quot;</span><span class="p">)</span>
+
+
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.ManagementSystems.quadicon_region"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystems.quadicon_region">[docs]</a>        <span class="k">def</span> <span class="nf">quadicon_region</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">Quadicons</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">,</span><span class="n">Infrastructure</span><span class="o">.</span><span class="n">ManagementSystems</span><span class="o">.</span><span class="n">ManagementSystemsQuadIconItem</span><span class="p">)</span>
+        </div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.ManagementSystems.taskbar"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystems.taskbar">[docs]</a>        <span class="k">def</span> <span class="nf">taskbar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="kn">from</span> <span class="nn">pages.regions.taskbar.taskbar</span> <span class="kn">import</span> <span class="n">Taskbar</span>
+            <span class="k">return</span> <span class="n">Taskbar</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.ManagementSystems.center_buttons"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystems.center_buttons">[docs]</a>        <span class="k">def</span> <span class="nf">center_buttons</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="kn">from</span> <span class="nn">pages.regions.taskbar.center</span> <span class="kn">import</span> <span class="n">CenterButtons</span>
+            <span class="k">return</span> <span class="n">CenterButtons</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+        </div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.ManagementSystems.configuration_button"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystems.configuration_button">[docs]</a>        <span class="k">def</span> <span class="nf">configuration_button</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_configuration_button_locator</span><span class="p">)</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.ManagementSystems.discover_button"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystems.discover_button">[docs]</a>        <span class="k">def</span> <span class="nf">discover_button</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_discover_management_systems_locator</span><span class="p">)</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.ManagementSystems.edit_button"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystems.edit_button">[docs]</a>        <span class="k">def</span> <span class="nf">edit_button</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_edit_management_systems_locator</span><span class="p">)</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.ManagementSystems.remove_button"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystems.remove_button">[docs]</a>        <span class="k">def</span> <span class="nf">remove_button</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_remove_management_systems_locator</span><span class="p">)</span>
+        </div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.ManagementSystems.add_button"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystems.add_button">[docs]</a>        <span class="k">def</span> <span class="nf">add_button</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_add_new_management_system_locator</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Infrastructure.ManagementSystems.select_management_system"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystems.select_management_system">[docs]</a>        <span class="k">def</span> <span class="nf">select_management_system</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">management_system_name</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">quadicon_region</span><span class="o">.</span><span class="n">get_quadicon_by_title</span><span class="p">(</span><span class="n">management_system_name</span><span class="p">)</span><span class="o">.</span><span class="n">mark_checkbox</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="Infrastructure.ManagementSystems.click_on_discover_management_systems"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystems.click_on_discover_management_systems">[docs]</a>        <span class="k">def</span> <span class="nf">click_on_discover_management_systems</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="n">ActionChains</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">configuration_button</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">discover_button</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">Infrastructure</span><span class="o">.</span><span class="n">ManagementSystemsDiscovery</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Infrastructure.ManagementSystems.click_on_edit_management_systems"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystems.click_on_edit_management_systems">[docs]</a>        <span class="k">def</span> <span class="nf">click_on_edit_management_systems</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="n">ActionChains</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">configuration_button</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">edit_button</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">Infrastructure</span><span class="o">.</span><span class="n">ManagementSystemsEdit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Infrastructure.ManagementSystems.click_on_remove_management_system"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystems.click_on_remove_management_system">[docs]</a>        <span class="k">def</span> <span class="nf">click_on_remove_management_system</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="n">ActionChains</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">configuration_button</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">remove_button</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">handle_popup</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">Infrastructure</span><span class="o">.</span><span class="n">ManagementSystems</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Infrastructure.ManagementSystems.click_on_remove_management_system_and_cancel"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystems.click_on_remove_management_system_and_cancel">[docs]</a>        <span class="k">def</span> <span class="nf">click_on_remove_management_system_and_cancel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="n">ActionChains</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">configuration_button</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">remove_button</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">handle_popup</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">Infrastructure</span><span class="o">.</span><span class="n">ManagementSystems</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Infrastructure.ManagementSystems.click_on_add_new_management_system"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystems.click_on_add_new_management_system">[docs]</a>        <span class="k">def</span> <span class="nf">click_on_add_new_management_system</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="n">ActionChains</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">configuration_button</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">add_button</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">Infrastructure</span><span class="o">.</span><span class="n">ManagementSystemsAdd</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Infrastructure.ManagementSystems.ManagementSystemsQuadIconItem"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystems.ManagementSystemsQuadIconItem">[docs]</a>        <span class="k">class</span> <span class="nc">ManagementSystemsQuadIconItem</span><span class="p">(</span><span class="n">QuadiconItem</span><span class="p">):</span>
+            <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.ManagementSystems.ManagementSystemsQuadIconItem.hypervisor_count"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystems.ManagementSystemsQuadIconItem.hypervisor_count">[docs]</a>            <span class="k">def</span> <span class="nf">hypervisor_count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_root_element</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_quad_tl_locator</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+
+            <span class="c">#@property</span>
+            <span class="c">#def current_state(self):</span>
+            <span class="c">#    image_src = self._root_element.find_element(*self._quad_tr_locator).find_element_by_tag_name(&quot;img&quot;).get_attribute(&quot;src&quot;)</span>
+            <span class="c">#    return re.search(&#39;.+/currentstate-(.+)\.png&#39;,image_src).group(1)</span>
+</div>
+            <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.ManagementSystems.ManagementSystemsQuadIconItem.vendor"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystems.ManagementSystemsQuadIconItem.vendor">[docs]</a>            <span class="k">def</span> <span class="nf">vendor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="n">image_src</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_root_element</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_quad_bl_locator</span><span class="p">)</span><span class="o">.</span><span class="n">find_element_by_tag_name</span><span class="p">(</span><span class="s">&quot;img&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get_attribute</span><span class="p">(</span><span class="s">&quot;src&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s">&#39;.+/vendor-(.+)\.png&#39;</span><span class="p">,</span> <span class="n">image_src</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</div>
+            <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.ManagementSystems.ManagementSystemsQuadIconItem.valid_credentials"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystems.ManagementSystemsQuadIconItem.valid_credentials">[docs]</a>            <span class="k">def</span> <span class="nf">valid_credentials</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="n">image_src</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_root_element</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_quad_br_locator</span><span class="p">)</span><span class="o">.</span><span class="n">find_element_by_tag_name</span><span class="p">(</span><span class="s">&quot;img&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get_attribute</span><span class="p">(</span><span class="s">&quot;src&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="s">&#39;checkmark&#39;</span> <span class="ow">in</span> <span class="n">image_src</span>
+</div>
+<div class="viewcode-block" id="Infrastructure.ManagementSystems.ManagementSystemsQuadIconItem.click"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystems.ManagementSystemsQuadIconItem.click">[docs]</a>            <span class="k">def</span> <span class="nf">click</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_root_element</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_results_refresh</span><span class="p">()</span>
+                <span class="k">return</span> <span class="n">Infrastructure</span><span class="o">.</span><span class="n">ManagementSystemsDetail</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+
+
+</div></div></div>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsDiscovery"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsDiscovery">[docs]</a>    <span class="k">class</span> <span class="nc">ManagementSystemsDiscovery</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+        <span class="n">_page_title</span> <span class="o">=</span> <span class="s">&#39;CloudForms Management Engine: Management Systems&#39;</span>
+        <span class="n">_start_button_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;input[name=&#39;start&#39;]&quot;</span><span class="p">)</span>
+        <span class="n">_cancel_button_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;input[name=&#39;cancel&#39;]&quot;</span><span class="p">)</span>
+        <span class="n">_management_system_type_locator</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s">&quot;virtualcenter&quot;</span> <span class="p">:</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;input[name=&#39;discover_type_virtualcenter&#39;]&quot;</span><span class="p">),</span>
+            <span class="s">&quot;rhevm&quot;</span>         <span class="p">:</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;input[name=&#39;discover_type_rhevm&#39;]&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="n">_from_first_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;input[name=&#39;from_first&#39;]&quot;</span><span class="p">)</span>
+        <span class="n">_from_second_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;input[name=&#39;from_second&#39;]&quot;</span><span class="p">)</span>
+        <span class="n">_from_third_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;input[name=&#39;from_third&#39;]&quot;</span><span class="p">)</span>
+        <span class="n">_from_fourth_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;input[name=&#39;from_fourth&#39;]&quot;</span><span class="p">)</span>
+        
+        <span class="n">_to_fourth_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;input[name=&#39;to_fourth&#39;]&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsDiscovery.is_selected"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsDiscovery.is_selected">[docs]</a>        <span class="k">def</span> <span class="nf">is_selected</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">checkbox_locator</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="n">checkbox_locator</span><span class="p">)</span><span class="o">.</span><span class="n">is_selected</span><span class="p">()</span>
+        </div>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsDiscovery.toggle_checkbox"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsDiscovery.toggle_checkbox">[docs]</a>        <span class="k">def</span> <span class="nf">toggle_checkbox</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">checkbox_locator</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="n">checkbox_locator</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+        </div>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsDiscovery.mark_checkbox"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsDiscovery.mark_checkbox">[docs]</a>        <span class="k">def</span> <span class="nf">mark_checkbox</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">checkbox_locator</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_selected</span><span class="p">(</span><span class="n">checkbox_locator</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">toggle_checkbox</span><span class="p">(</span><span class="n">checkbox_locator</span><span class="p">)</span>
+        </div>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsDiscovery.unmark_checkbox"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsDiscovery.unmark_checkbox">[docs]</a>        <span class="k">def</span> <span class="nf">unmark_checkbox</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">checkbox_locator</span><span class="p">):</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_selected</span><span class="p">(</span><span class="n">checkbox_locator</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">toggle_checkbox</span><span class="p">(</span><span class="n">checkbox_locator</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsDiscovery.click_on_start"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsDiscovery.click_on_start">[docs]</a>        <span class="k">def</span> <span class="nf">click_on_start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_start_button_locator</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">Infrastructure</span><span class="o">.</span><span class="n">ManagementSystems</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+        </div>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsDiscovery.click_on_cancel"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsDiscovery.click_on_cancel">[docs]</a>        <span class="k">def</span> <span class="nf">click_on_cancel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_cancel_button_locator</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">Infrastructure</span><span class="o">.</span><span class="n">ManagementSystems</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+        </div>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsDiscovery.discover_systems"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsDiscovery.discover_systems">[docs]</a>        <span class="k">def</span> <span class="nf">discover_systems</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">management_system_type</span><span class="p">,</span> <span class="n">from_address</span><span class="p">,</span> <span class="n">to_address</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">mark_checkbox</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_management_system_type_locator</span><span class="p">[</span><span class="n">management_system_type</span><span class="p">])</span>
+            <span class="n">from_ip</span> <span class="o">=</span> <span class="n">from_address</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;.&#39;</span><span class="p">)</span>
+            <span class="n">to_ip</span> <span class="o">=</span> <span class="n">to_address</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;.&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_from_first_locator</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">from_ip</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_from_second_locator</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">from_ip</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_from_third_locator</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">from_ip</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_from_fourth_locator</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">from_ip</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_to_fourth_locator</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">to_ip</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">click_on_start</span><span class="p">()</span>
+</div></div>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsEdit"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsEdit">[docs]</a>    <span class="k">class</span> <span class="nc">ManagementSystemsEdit</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+        <span class="n">_page_title</span> <span class="o">=</span> <span class="s">&#39;CloudForms Management Engine: Management Systems&#39;</span>
+        <span class="n">_save_button_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;ul#form_buttons &gt; li &gt; img[title=&#39;Save Changes&#39;]&quot;</span><span class="p">)</span>
+        <span class="n">_cancel_button_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;ul#form_buttons &gt; li &gt; img[title=&#39;Cancel&#39;]&quot;</span><span class="p">)</span>
+        <span class="n">_name_edit_field_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">)</span>
+        <span class="n">_hostname_edit_field_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s">&quot;hostname&quot;</span><span class="p">)</span>
+        <span class="n">_ipaddress_edit_field_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s">&quot;ipaddress&quot;</span><span class="p">)</span>
+        <span class="n">_server_zone_edit_field_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s">&quot;server_zone&quot;</span><span class="p">)</span>
+        <span class="n">_host_default_vnc_port_start_edit_field_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s">&quot;host_default_vnc_port_start&quot;</span><span class="p">)</span>
+        <span class="n">_host_default_vnc_port_end_edit_field_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s">&quot;host_default_vnc_port_end&quot;</span><span class="p">)</span>
+        <span class="n">_default_userid_edit_field_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s">&quot;default_userid&quot;</span><span class="p">)</span>
+        <span class="n">_default_password_edit_field_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s">&quot;default_password&quot;</span><span class="p">)</span>
+        <span class="n">_default_verify_edit_field_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s">&quot;default_verify&quot;</span><span class="p">)</span>
+
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsEdit.name"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsEdit.name">[docs]</a>        <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_name_edit_field_locator</span><span class="p">)</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsEdit.hostname"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsEdit.hostname">[docs]</a>        <span class="k">def</span> <span class="nf">hostname</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_hostname_edit_field_locator</span><span class="p">)</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsEdit.ipaddress"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsEdit.ipaddress">[docs]</a>        <span class="k">def</span> <span class="nf">ipaddress</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_ipaddress_edit_field_locator</span><span class="p">)</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsEdit.server_zone"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsEdit.server_zone">[docs]</a>        <span class="k">def</span> <span class="nf">server_zone</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_server_zone_edit_field_locator</span><span class="p">)</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsEdit.host_default_vnc_port_start"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsEdit.host_default_vnc_port_start">[docs]</a>        <span class="k">def</span> <span class="nf">host_default_vnc_port_start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_host_default_vnc_port_start_edit_field_locator</span><span class="p">)</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsEdit.host_default_vnc_port_end"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsEdit.host_default_vnc_port_end">[docs]</a>        <span class="k">def</span> <span class="nf">host_default_vnc_port_end</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_host_default_vnc_port_end_edit_field_locator</span><span class="p">)</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsEdit.default_userid"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsEdit.default_userid">[docs]</a>        <span class="k">def</span> <span class="nf">default_userid</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_default_userid_edit_field_locator</span><span class="p">)</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsEdit.default_password"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsEdit.default_password">[docs]</a>        <span class="k">def</span> <span class="nf">default_password</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_default_password_edit_field_locator</span><span class="p">)</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsEdit.default_verify"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsEdit.default_verify">[docs]</a>        <span class="k">def</span> <span class="nf">default_verify</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_default_verify_edit_field_locator</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsEdit.edit_management_system"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsEdit.edit_management_system">[docs]</a>        <span class="k">def</span> <span class="nf">edit_management_system</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">management_system</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">key</span><span class="p">,</span><span class="n">value</span> <span class="ow">in</span> <span class="n">management_system</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+                <span class="c"># Special cases</span>
+                <span class="k">if</span> <span class="s">&quot;host_vnc_port&quot;</span> <span class="ow">in</span> <span class="n">key</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">host_default_vnc_port_start</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">host_default_vnc_port_start</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="s">&quot;start&quot;</span><span class="p">])</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">host_default_vnc_port_end</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">host_default_vnc_port_end</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="s">&quot;end&quot;</span><span class="p">])</span>
+                <span class="k">elif</span> <span class="s">&quot;server_zone&quot;</span> <span class="ow">in</span> <span class="n">key</span><span class="p">:</span>
+                    <span class="kn">from</span> <span class="nn">selenium.webdriver.support.select</span> <span class="kn">import</span> <span class="n">Select</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">server_zone</span><span class="o">.</span><span class="n">tag_name</span> <span class="o">==</span> <span class="s">&quot;select&quot;</span><span class="p">:</span>
+                        <span class="n">select</span> <span class="o">=</span> <span class="n">Select</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">server_zone</span><span class="p">)</span>
+                        <span class="n">select</span><span class="o">.</span><span class="n">select_by_visible_text</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="s">&quot;credentials&quot;</span> <span class="ow">in</span> <span class="n">key</span><span class="p">:</span>
+                    <span class="c"># use credentials</span>
+                    <span class="n">credentials</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="o">.</span><span class="n">credentials</span><span class="p">[</span><span class="n">value</span><span class="p">]</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">default_userid</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">default_userid</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">credentials</span><span class="p">[</span><span class="s">&#39;username&#39;</span><span class="p">])</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">default_password</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">default_password</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">credentials</span><span class="p">[</span><span class="s">&#39;password&#39;</span><span class="p">])</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">default_verify</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">default_verify</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">credentials</span><span class="p">[</span><span class="s">&#39;password&#39;</span><span class="p">])</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c"># Only try to send keys if there is actually a property</span>
+                    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+                        <span class="n">attr</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+                        <span class="n">attr</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+                        <span class="n">attr</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">click_on_save</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsEdit.click_on_save"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsEdit.click_on_save">[docs]</a>        <span class="k">def</span> <span class="nf">click_on_save</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_save_button_locator</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_results_refresh</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">Infrastructure</span><span class="o">.</span><span class="n">ManagementSystemsDetail</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsEdit.click_on_cancel"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsEdit.click_on_cancel">[docs]</a>        <span class="k">def</span> <span class="nf">click_on_cancel</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_cancel_button_locator</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_results_refresh</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">Infrastructure</span><span class="o">.</span><span class="n">ManagementSystems</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+</div></div>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsDetail"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsDetail">[docs]</a>    <span class="k">class</span> <span class="nc">ManagementSystemsDetail</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+        <span class="n">_page_title</span> <span class="o">=</span> <span class="s">&#39;CloudForms Management Engine: Management Systems&#39;</span>
+        <span class="n">_management_system_detail_name_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="s">&#39;//*[@id=&quot;accordion&quot;]/div[1]/div[1]/a&#39;</span><span class="p">)</span>
+        <span class="n">_details_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;div#textual_div&quot;</span><span class="p">)</span>
+
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsDetail.details"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsDetail.details">[docs]</a>        <span class="k">def</span> <span class="nf">details</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="kn">from</span> <span class="nn">pages.regions.details</span> <span class="kn">import</span> <span class="n">Details</span>
+            <span class="n">root_element</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_details_locator</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">Details</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">,</span> <span class="n">root_element</span><span class="p">)</span>
+            </div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsDetail.name"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsDetail.name">[docs]</a>        <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_management_system_detail_name_locator</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsDetail.hostname"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsDetail.hostname">[docs]</a>        <span class="k">def</span> <span class="nf">hostname</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">details</span><span class="o">.</span><span class="n">get_section</span><span class="p">(</span><span class="s">&quot;Properties&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get_item</span><span class="p">(</span><span class="s">&quot;Hostname&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsDetail.zone"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsDetail.zone">[docs]</a>        <span class="k">def</span> <span class="nf">zone</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">details</span><span class="o">.</span><span class="n">get_section</span><span class="p">(</span><span class="s">&quot;Smart Management&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get_item</span><span class="p">(</span><span class="s">&quot;Managed by Zone&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsDetail.credentials_validity"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsDetail.credentials_validity">[docs]</a>        <span class="k">def</span> <span class="nf">credentials_validity</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">details</span><span class="o">.</span><span class="n">get_section</span><span class="p">(</span><span class="s">&quot;Authentication Status&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get_item</span><span class="p">(</span><span class="s">&quot;Default Credentials&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsDetail.vnc_port_range"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsDetail.vnc_port_range">[docs]</a>        <span class="k">def</span> <span class="nf">vnc_port_range</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="n">element_text</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">details</span><span class="o">.</span><span class="n">get_section</span><span class="p">(</span><span class="s">&quot;Properties&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get_item</span><span class="p">(</span><span class="s">&quot;Host Default VNC Port Range&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+            <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="n">element_text</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;-&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="p">{</span> <span class="s">&quot;start&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">start</span><span class="p">),</span> <span class="s">&quot;end&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">end</span><span class="p">)</span> <span class="p">}</span>
+</div></div>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsAdd"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsAdd">[docs]</a>    <span class="k">class</span> <span class="nc">ManagementSystemsAdd</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+        <span class="n">_page_title</span> <span class="o">=</span> <span class="s">&#39;CloudForms Management Engine: Management Systems&#39;</span>
+
+        <span class="n">_management_system_add_button_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;img[title=&#39;Add this Add this Management System&#39;]&quot;</span><span class="p">)</span>
+        <span class="n">_management_system_credentials_verify_button_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;img[&#39;Host IP, UID and matching password fields are needed to perform verification of credentials&#39;]&quot;</span><span class="p">)</span>
+        <span class="n">_management_system_name_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;input#name&quot;</span><span class="p">)</span>
+        <span class="n">_management_system_hostname_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;input#hostname&quot;</span><span class="p">)</span>
+        <span class="n">_management_system_ipaddress_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;input#ipaddress&quot;</span><span class="p">)</span>
+        <span class="n">_management_system_type_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;select#server_emstype&quot;</span><span class="p">)</span>
+        <span class="n">_management_system_userid_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;input#default_userid&quot;</span><span class="p">)</span>
+        <span class="n">_management_system_password_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;input#default_password&quot;</span><span class="p">)</span>
+        <span class="n">_management_system_verify_password_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;input#default_verify&quot;</span><span class="p">)</span>
+
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsAdd.add_button"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsAdd.add_button">[docs]</a>        <span class="k">def</span> <span class="nf">add_button</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_management_system_add_button_locator</span><span class="p">)</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsAdd.verify_button"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsAdd.verify_button">[docs]</a>        <span class="k">def</span> <span class="nf">verify_button</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_management_system_credentials_verify_button_locator</span><span class="p">)</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsAdd.name_input"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsAdd.name_input">[docs]</a>        <span class="k">def</span> <span class="nf">name_input</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_management_system_name_locator</span><span class="p">)</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsAdd.hostname_input"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsAdd.hostname_input">[docs]</a>        <span class="k">def</span> <span class="nf">hostname_input</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_management_system_hostname_locator</span><span class="p">)</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsAdd.ipaddress_input"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsAdd.ipaddress_input">[docs]</a>        <span class="k">def</span> <span class="nf">ipaddress_input</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_management_system_ipaddress_locator</span><span class="p">)</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsAdd.userid_input"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsAdd.userid_input">[docs]</a>        <span class="k">def</span> <span class="nf">userid_input</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_management_system_userid_locator</span><span class="p">)</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsAdd.password_input"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsAdd.password_input">[docs]</a>        <span class="k">def</span> <span class="nf">password_input</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_management_system_password_locator</span><span class="p">)</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsAdd.password_verify_input"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsAdd.password_verify_input">[docs]</a>        <span class="k">def</span> <span class="nf">password_verify_input</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_management_system_verify_password_locator</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsAdd.new_management_system_fill_data"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsAdd.new_management_system_fill_data">[docs]</a>        <span class="k">def</span> <span class="nf">new_management_system_fill_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;test_name&quot;</span><span class="p">,</span> <span class="n">hostname</span><span class="o">=</span><span class="s">&quot;test_hostname&quot;</span><span class="p">,</span> <span class="n">ip_address</span><span class="o">=</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="s">&quot;test_user&quot;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s">&quot;test_password&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">name_input</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">hostname_input</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">hostname</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ipaddress_input</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">ip_address</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">userid_input</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">password_input</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">password_verify_input</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsAdd.select_management_system_type"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsAdd.select_management_system_type">[docs]</a>        <span class="k">def</span> <span class="nf">select_management_system_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">management_system_type</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">select_dropdown</span><span class="p">(</span><span class="n">management_system_type</span><span class="p">,</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_management_system_type_locator</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_results_refresh</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">Infrastructure</span><span class="o">.</span><span class="n">ManagementSystemsAdd</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsAdd.click_on_add"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsAdd.click_on_add">[docs]</a>        <span class="k">def</span> <span class="nf">click_on_add</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_button</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">Infrastructure</span><span class="o">.</span><span class="n">ManagementSystems</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+        </div>
+<div class="viewcode-block" id="Infrastructure.ManagementSystemsAdd.click_on_credentials_verify"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.ManagementSystemsAdd.click_on_credentials_verify">[docs]</a>        <span class="k">def</span> <span class="nf">click_on_credentials_verify</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">verify_button</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">Infrastructure</span><span class="o">.</span><span class="n">ManagementSystemsAdd</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+
+</div></div>
+<div class="viewcode-block" id="Infrastructure.Hosts"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.Hosts">[docs]</a>    <span class="k">class</span> <span class="nc">Hosts</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+        <span class="n">_page_title</span> <span class="o">=</span> <span class="s">&#39;CloudForms Management Engine: Hosts&#39;</span>
+
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.Hosts.quadicon_region"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.Hosts.quadicon_region">[docs]</a>        <span class="k">def</span> <span class="nf">quadicon_region</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">Quadicons</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">,</span><span class="n">Infrastructure</span><span class="o">.</span><span class="n">Hosts</span><span class="o">.</span><span class="n">HostQuadIconItem</span><span class="p">)</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.Hosts.accordion_region"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.Hosts.accordion_region">[docs]</a>        <span class="k">def</span> <span class="nf">accordion_region</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="kn">from</span> <span class="nn">pages.regions.accordion</span> <span class="kn">import</span> <span class="n">Accordion</span>
+            <span class="kn">from</span> <span class="nn">pages.regions.treeaccordionitem</span> <span class="kn">import</span> <span class="n">TreeAccordionItem</span>
+            <span class="k">return</span> <span class="n">Accordion</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">,</span> <span class="n">TreeAccordionItem</span><span class="p">)</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.Hosts.taskbar"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.Hosts.taskbar">[docs]</a>        <span class="k">def</span> <span class="nf">taskbar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="kn">from</span> <span class="nn">pages.regions.taskbar.taskbar</span> <span class="kn">import</span> <span class="n">Taskbar</span>
+            <span class="k">return</span> <span class="n">Taskbar</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Infrastructure.Hosts.HostQuadIconItem"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.Hosts.HostQuadIconItem">[docs]</a>        <span class="k">class</span> <span class="nc">HostQuadIconItem</span><span class="p">(</span><span class="n">QuadiconItem</span><span class="p">):</span>
+            <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.Hosts.HostQuadIconItem.vm_count"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.Hosts.HostQuadIconItem.vm_count">[docs]</a>            <span class="k">def</span> <span class="nf">vm_count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_root_element</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_quad_tl_locator</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+</div>
+            <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.Hosts.HostQuadIconItem.current_state"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.Hosts.HostQuadIconItem.current_state">[docs]</a>            <span class="k">def</span> <span class="nf">current_state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="n">image_src</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_root_element</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_quad_tr_locator</span><span class="p">)</span><span class="o">.</span><span class="n">find_element_by_tag_name</span><span class="p">(</span><span class="s">&quot;img&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get_attribute</span><span class="p">(</span><span class="s">&quot;src&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s">&#39;.+/currentstate-(.+)\.png&#39;</span><span class="p">,</span><span class="n">image_src</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</div>
+            <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.Hosts.HostQuadIconItem.vendor"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.Hosts.HostQuadIconItem.vendor">[docs]</a>            <span class="k">def</span> <span class="nf">vendor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="n">image_src</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_root_element</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_quad_bl_locator</span><span class="p">)</span><span class="o">.</span><span class="n">find_element_by_tag_name</span><span class="p">(</span><span class="s">&quot;img&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get_attribute</span><span class="p">(</span><span class="s">&quot;src&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s">&#39;.+/vendor-(.+)\.png&#39;</span><span class="p">,</span> <span class="n">image_src</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</div>
+            <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.Hosts.HostQuadIconItem.valid_credentials"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.Hosts.HostQuadIconItem.valid_credentials">[docs]</a>            <span class="k">def</span> <span class="nf">valid_credentials</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="n">image_src</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_root_element</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_quad_br_locator</span><span class="p">)</span><span class="o">.</span><span class="n">find_element_by_tag_name</span><span class="p">(</span><span class="s">&quot;img&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get_attribute</span><span class="p">(</span><span class="s">&quot;src&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="s">&#39;checkmark&#39;</span> <span class="ow">in</span> <span class="n">image_src</span>
+
+            <span class="c">#def click(self):</span>
+            <span class="c">#    self._root_element.click()</span>
+            <span class="c">#    self._wait_for_results_refresh()</span>
+            <span class="c">#    return Infrastructure.HostsDetail(self.testsetup)</span>
+
+</div></div></div>
+<div class="viewcode-block" id="Infrastructure.PXE"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.PXE">[docs]</a>    <span class="k">class</span> <span class="nc">PXE</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+        <span class="n">_page_title</span> <span class="o">=</span> <span class="s">&#39;CloudForms Management Engine: PXE&#39;</span>
+
+        <span class="n">_copy_template_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;tr.tr_btn[title=&#39;Copy this Customization Template&#39;]&quot;</span><span class="p">)</span>
+        <span class="n">_template_name_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;input#name&quot;</span><span class="p">)</span>
+        <span class="n">_image_type_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;select#img_typ&quot;</span><span class="p">)</span>
+        <span class="n">_add_button_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;div#buttons_on &gt; ul &gt; li &gt; img[title=&#39;Add&#39;]&quot;</span><span class="p">)</span>
+        <span class="n">_refresh_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;tr.tr_btn[title=&#39;Refresh this PXE Server&#39;]&quot;</span><span class="p">)</span>
+        <span class="n">_pxe_image_names_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;div#pxe_info_div &gt; fieldset &gt; table[class=&#39;style3&#39;] &gt; tbody&quot;</span><span class="p">)</span>
+
+        <span class="n">_add_pxe_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;tr.tr_btn[title=&#39;Add a New PXE Server&#39;]&quot;</span><span class="p">)</span>
+        <span class="c">#TODO duplicate</span>
+        <span class="n">_pxe_name_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;input#name&quot;</span><span class="p">)</span>
+        <span class="n">_pxe_uri_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;input#uri&quot;</span><span class="p">)</span>
+        <span class="n">_pxe_depot_type_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;select#log_protocol&quot;</span><span class="p">)</span>
+        <span class="n">_pxe_access_url_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;input#access_url&quot;</span><span class="p">)</span>
+        <span class="n">_pxe_directory_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;input#pxe_directory&quot;</span><span class="p">)</span>
+        <span class="n">_pxe_windows_images_directory_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;input#windows_images_directory&quot;</span><span class="p">)</span>
+        <span class="n">_pxe_customization_directory_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;input#customization_directory&quot;</span><span class="p">)</span>
+        <span class="n">_pxe_image_menus_filename_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s">&quot;input#pxemenu_0&quot;</span><span class="p">)</span>
+
+
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.PXE.accordion_region"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.PXE.accordion_region">[docs]</a>        <span class="k">def</span> <span class="nf">accordion_region</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="kn">from</span> <span class="nn">pages.regions.accordion</span> <span class="kn">import</span> <span class="n">Accordion</span>
+            <span class="kn">from</span> <span class="nn">pages.regions.treeaccordionitem</span> <span class="kn">import</span> <span class="n">TreeAccordionItem</span>
+            <span class="k">return</span> <span class="n">Accordion</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">,</span> <span class="n">TreeAccordionItem</span><span class="p">)</span>
+</div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.PXE.center_buttons"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.PXE.center_buttons">[docs]</a>        <span class="k">def</span> <span class="nf">center_buttons</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="kn">from</span> <span class="nn">pages.regions.taskbar.center</span> <span class="kn">import</span> <span class="n">CenterButtons</span>
+            <span class="k">return</span> <span class="n">CenterButtons</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+
+        <span class="c">#TODO: unused in test</span></div>
+        <span class="nd">@property</span>
+<div class="viewcode-block" id="Infrastructure.PXE.history_buttons"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.PXE.history_buttons">[docs]</a>        <span class="k">def</span> <span class="nf">history_buttons</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="kn">from</span> <span class="nn">pages.regions.taskbar.history</span> <span class="kn">import</span> <span class="n">HistoryButtons</span>
+            <span class="k">return</span> <span class="n">HistoryButtons</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+
+        <span class="c">#TODO these clicks can be merged</span></div>
+<div class="viewcode-block" id="Infrastructure.PXE.click_on_copy_template"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.PXE.click_on_copy_template">[docs]</a>        <span class="k">def</span> <span class="nf">click_on_copy_template</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_copy_template_locator</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_results_refresh</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">Infrastructure</span><span class="o">.</span><span class="n">PXE</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+
+        <span class="c">#TODO these clicks can be merged</span></div>
+<div class="viewcode-block" id="Infrastructure.PXE.click_on_add_pxe_server"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.PXE.click_on_add_pxe_server">[docs]</a>        <span class="k">def</span> <span class="nf">click_on_add_pxe_server</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_add_pxe_locator</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_results_refresh</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">Infrastructure</span><span class="o">.</span><span class="n">PXE</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+
+        <span class="c">#TODO these clicks can be merged</span></div>
+<div class="viewcode-block" id="Infrastructure.PXE.click_on_refresh"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.PXE.click_on_refresh">[docs]</a>        <span class="k">def</span> <span class="nf">click_on_refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_refresh_locator</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">Infrastructure</span><span class="o">.</span><span class="n">PXE</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Infrastructure.PXE.rename_template"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.PXE.rename_template">[docs]</a>        <span class="k">def</span> <span class="nf">rename_template</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+            <span class="n">template_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_template_name_locator</span><span class="p">)</span>
+            <span class="n">template_name</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+            <span class="n">template_name</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Infrastructure.PXE.select_image_type"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.PXE.select_image_type">[docs]</a>        <span class="k">def</span> <span class="nf">select_image_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image_type</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">select_dropdown</span><span class="p">(</span><span class="n">image_type</span><span class="p">,</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_image_type_locator</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_results_refresh</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="Infrastructure.PXE.click_on_add"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.PXE.click_on_add">[docs]</a>        <span class="k">def</span> <span class="nf">click_on_add</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_add_button_locator</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_results_refresh</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">Infrastructure</span><span class="o">.</span><span class="n">PXE</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Infrastructure.PXE.select_depot_type"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.PXE.select_depot_type">[docs]</a>        <span class="k">def</span> <span class="nf">select_depot_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">depot_type</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">select_dropdown</span><span class="p">(</span><span class="n">depot_type</span><span class="p">,</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_pxe_depot_type_locator</span><span class="p">)</span>
+            <span class="c"># Wait for the form to refresh (show URI element) before continuing</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_wait_for_visible_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_pxe_uri_locator</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">Infrastructure</span><span class="o">.</span><span class="n">PXE</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">testsetup</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Infrastructure.PXE.new_pxe_server_fill_data"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.PXE.new_pxe_server_fill_data">[docs]</a>        <span class="k">def</span> <span class="nf">new_pxe_server_fill_data</span><span class="p">(</span>
+                                     <span class="bp">self</span><span class="p">,</span>
+                                     <span class="n">name</span><span class="o">=</span><span class="s">&quot;pxe_server&quot;</span><span class="p">,</span>
+                                     <span class="n">uri</span><span class="o">=</span><span class="s">&quot;127.0.0.1/var/www/html/pub/miq/ipxe/&quot;</span><span class="p">,</span>
+                                     <span class="n">access_url</span><span class="o">=</span><span class="s">&quot;http://127.0.0.1/ipxe&quot;</span><span class="p">,</span>
+                                     <span class="n">pxe_dir</span><span class="o">=</span><span class="s">&quot;pxe&quot;</span><span class="p">,</span>
+                                     <span class="n">windows_img_dir</span><span class="o">=</span><span class="s">&quot;sources/microsoft&quot;</span><span class="p">,</span>
+                                     <span class="n">customization_dir</span><span class="o">=</span><span class="s">&quot;customization&quot;</span><span class="p">,</span>
+                                     <span class="n">pxe_img_menus_filename</span><span class="o">=</span><span class="s">&quot;menu.php&quot;</span>
+                                     <span class="p">):</span>
+            <span class="c">#name</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_pxe_name_locator</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="c">#uri</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_pxe_uri_locator</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">uri</span><span class="p">)</span>
+            <span class="c">#access url</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_pxe_access_url_locator</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">access_url</span><span class="p">)</span>
+            <span class="c">#pxe directory</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_pxe_directory_locator</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">pxe_dir</span><span class="p">)</span>
+            <span class="c">#windows images directory</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_pxe_windows_images_directory_locator</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">windows_img_dir</span><span class="p">)</span>
+            <span class="c">#customization directory</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_pxe_customization_directory_locator</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">customization_dir</span><span class="p">)</span>
+            <span class="c">#pxe image menus filename</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_pxe_image_menus_filename_locator</span><span class="p">)</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="n">pxe_img_menus_filename</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Infrastructure.PXE.pxe_image_names"><a class="viewcode-back" href="../../pages.html#pages.infrastructure.Infrastructure.PXE.pxe_image_names">[docs]</a>        <span class="k">def</span> <span class="nf">pxe_image_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="n">element_text</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_pxe_image_names_locator</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+            <span class="n">lines</span> <span class="o">=</span> <span class="n">element_text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+            <span class="n">names</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+                <span class="n">name</span><span class="p">,</span> <span class="n">space</span><span class="p">,</span> <span class="n">test</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">)</span>
+                <span class="n">names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">names</span>
+</pre></div></div></div></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">CloudForms Management Engine Page Objects library 0.1 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Brad Crochet.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+    </div>
+  </body>
+</html>
